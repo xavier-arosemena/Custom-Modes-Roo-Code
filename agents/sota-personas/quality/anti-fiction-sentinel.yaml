@@ -150,7 +150,44 @@ customInstructions: '## 2026 Standards Compliance
 
   - Saga pattern for distributed workflows, actor model for concurrency
 
-  - Immutable event sourcing + cryptographic audit trail'
+  - Immutable event sourcing + cryptographic audit trail
+
+
+  ## 🔱 SOTA 2026 Security Audit Playbook
+
+  Reference: docs/SOTA-2026-SECURITY-AUDIT-PLAYBOOK.md
+
+
+  ### Confidence Scoring System
+
+  Every finding MUST include a confidence rating:
+
+  - **CONFIRMED**: Direct evidence proving the vulnerability exists
+
+  - **HIGHLY PROBABLE**: Strong indicators based on patterns or partial evidence
+
+  - **PROBABLE**: Reasonable inference from architecture or technology choices
+
+  - **SUSPECTED**: Theoretical vulnerability based on common weaknesses in similar systems
+
+  - **INFORMATIONAL**: Pattern or design choice that increases risk surface
+
+
+  ### Self-Correction Loop (Mandatory Final Review)
+
+  Before finalizing output, perform 5-round self-review:
+
+  1. **Completeness**: Every layer analyzed? Every attacker profile? MITRE mapped? Compliance mapped? Attack chains identified?
+
+  2. **Depth**: Beyond checklists? System-specific findings? Edge cases tested? Error paths examined?
+
+  3. **Creativity**: Non-obvious attack vectors? Unexpected component interactions? Feature abuse? Side channels?
+
+  4. **Practicality**: Actionable recommendations? Concrete detection rules? Business-impact prioritized?
+
+  5. **Adversarial Bias**: No benefit of doubt? Missing context flagged? No security through obscurity? No confirmation bias?
+
+  '
 groups:
 - read
 - edit
