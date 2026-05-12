@@ -1,5 +1,3 @@
-![Banner](banner.png)
-
 <div align="center">
 
 ![Custom Modes for Roo Code Banner](./assets/banner.png)
@@ -11,18 +9,18 @@
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/Version-2025.1-blue)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
-[![Agents](https://img.shields.io/badge/Agents-171-green)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
+[![Version](https://img.shields.io/badge/Version-2026.1-blue)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
+[![Agents](https://img.shields.io/badge/Agents-243-green)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
 [![Maintained](https://img.shields.io/badge/Maintained-Yes-brightgreen)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
-[![Security](https://img.shields.io/badge/Security-2025%20Standards-red)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
+[![Security](https://img.shields.io/badge/Security-2026%20Standards-red)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
 
 ### ⭐ **[Star this repo](https://github.com/jtgsystems/Custom-Modes-Roo-Code/stargazers)** if you find it useful! ⭐
 
 </div>
 
-> **Professional AI Agent Configuration Library for Roo Code - 2025 Edition**
+> **Professional AI Agent Configuration Library for Roo Code — 2026 Edition**
 >
-> A comprehensive collection of 171 specialized AI agents designed for modern software development, following 2025 security-first principles and best practices.
+> A comprehensive collection of 243 specialized AI agents designed for modern software development, following 2026 security-first principles and best practices. Includes 11 SOTA reasoning personas for advanced cognitive workflows.
 
 ## 🚀 Quick Start
 
@@ -33,14 +31,16 @@ git clone https://github.com/jtgsystems/Custom-Modes-Roo-Code.git
 # Navigate to agent categories
 cd Custom-Modes-Roo-Code/agents
 
-# Select your agent configuration
-cp core-development/general/python-developer.yaml ~/.roo-code/agents/
+# Convert YAML agents to VS Code format
+cd vs-code/
+python3 convert_modes.py
 ```
 
 ## 📚 Table of Contents
 
 - [Overview](#overview)
 - [Agent Categories](#agent-categories)
+- [SOTA 2026 Personas](#sota-2026-personas)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Agent Structure](#agent-structure)
@@ -50,7 +50,7 @@ cp core-development/general/python-developer.yaml ~/.roo-code/agents/
 
 ## 🎯 Overview
 
-This repository contains a meticulously curated collection of AI agent configurations for Roo Code, designed to accelerate development workflows across multiple domains. Each agent is optimized for 2025 development standards with emphasis on:
+This repository contains a meticulously curated collection of AI agent configurations for Roo Code, designed to accelerate development workflows across multiple domains. Each agent is optimized for 2026 development standards with emphasis on:
 
 - **Security-First Architecture** 🔒
 - **Performance Optimization** ⚡
@@ -60,16 +60,34 @@ This repository contains a meticulously curated collection of AI agent configura
 
 ### Key Features
 
-- ✅ **171 Specialized Agents** across 9 categories
+- ✅ **243 Specialized Agents** across 10 categories
+- ✅ **11 SOTA 2026 Reasoning Personas** for advanced cognitive workflows
 - ✅ **YAML-based Configuration** for easy customization
-- ✅ **2025 Security Standards** compliance
+- ✅ **2026 Security Standards** compliance (OWASP, Zero-Trust)
 - ✅ **Production-Ready Templates**
 - ✅ **Cross-Platform Compatibility**
 - ✅ **Modular Architecture**
 
+### 2026 Technology Stack
+
+All agents are updated to reference the latest 2026 technology stack:
+
+| Technology | Version |
+|---|---|
+| React | 19+ |
+| Node.js | 22+ |
+| Python | 3.13+ |
+| TypeScript | 5.7+ |
+| Go | 1.24+ |
+| Java | 24 |
+| Next.js | 16 |
+| .NET | 9 |
+| Kubernetes | 1.32 |
+| Terraform | 1.11 |
+
 ## 🗂️ Agent Categories
 
-### 🧠 AI & Machine Learning (11 agents)
+### 🧠 AI & Machine Learning (14 agents)
 **Specialized AI/ML development and deployment**
 - Machine Learning Engineers
 - AI System Architects
@@ -78,16 +96,18 @@ This repository contains a meticulously curated collection of AI agent configura
 - Computer Vision Experts
 - NLP Specialists
 - LLM Integration Specialists
+- RAG Evaluators
 
-### 💼 Business & Product (15 agents)
+### 💼 Business & Product (18 agents)
 **Business strategy and product development**
 - Product Managers
 - Business Analysts
 - Marketing Specialists
 - Sales Engineers
 - Content Strategists
+- Customer Success Managers
 
-### 💻 Core Development (36 agents)
+### 💻 Core Development (58 agents)
 **Foundation development roles and architectures**
 - Full-Stack Developers
 - Backend Specialists
@@ -95,14 +115,18 @@ This repository contains a meticulously curated collection of AI agent configura
 - System Architects
 - API Designers
 - Integration Specialists
+- Electron Desktop Experts
+- Deep Research Protocol
 
-### 🏗️ Infrastructure & DevOps (14 agents)
+### 🏗️ Infrastructure & DevOps (25 agents)
 **Modern infrastructure and deployment**
 - Cloud Engineers (AWS, Azure, GCP)
 - Kubernetes Specialists
 - Docker Experts
 - Monitoring & Observability
 - Network Engineers
+- SRE Engineers
+- Platform Engineers
 
 ### 💬 Language Specialists (23 agents)
 **Programming language experts**
@@ -111,47 +135,98 @@ This repository contains a meticulously curated collection of AI agent configura
 - **Rust** - Systems programming, WebAssembly
 - **Go** - Microservices, concurrent systems
 - **Java** - Spring Boot, enterprise systems
-- **C#** - .NET, Azure integration
+- **C#** - .NET 9, Azure integration
+- **Kotlin** - Coroutines, multiplatform
+- **Swift** - SwiftUI, protocol-oriented
+- **Angular** - Angular 15+ enterprise patterns
+- **Vue.js** - Vue 3 Composition API
 
-### ⚖️ Legal & Compliance (14 agents)
+### ⚖️ Legal & Compliance (16 agents)
 **Regulatory and legal expertise**
 - GDPR Compliance
 - Security Auditing
-- Legal Documentation
+- Legal Documentation (Canada & USA)
 - Regulatory Analysis
+- Corporate Law
+- Employment Law
+- Criminal Law
+- Intellectual Property
 
-### 🎛️ Meta-Orchestration (28 agents)
+### 🎛️ Meta-Orchestration (37 agents)
 **System coordination and workflow management**
 - Workflow Orchestrators
 - Project Coordinators
 - System Monitors
 - Process Optimizers
 - Integration Managers
+- Data Engineers & Analysts
+- Search Specialists
 
-### 🔐 Security & Quality (13 agents)
+### 🔐 Security & Quality (25 agents)
 **Security-first development and quality assurance**
 - Cybersecurity Experts
 - Penetration Testers
 - Security Auditors
 - Accessibility Specialists
 - Compliance Officers
+- Debug Specialists
+- Test Automators
 
-### 🎯 Specialized Domains (17 agents)
+### 🎯 Specialized Domains (16 agents)
 **Industry-specific expertise**
 - **Fintech** - Financial systems, compliance
 - **Gaming** - Game development, engines
 - **Blockchain** - Smart contracts, DeFi
 - **IoT** - Edge computing, sensors
 - **SEO** - Search optimization, analytics
+- **Payment** - Gateway integration, PCI
+
+### 🧠 SOTA 2026 Personas (11 agents)
+**State-of-the-art reasoning and cognitive personas**
+
+See [SOTA 2026 Personas](#sota-2026-personas) section below for details.
+
+## 🧠 SOTA 2026 Personas
+
+Advanced cognitive personas implementing cutting-edge reasoning patterns from the Agent Personas SOTA 2026 specification.
+
+### Tier 1: Foundational Reasoning
+| Persona | Level | Description |
+|---|---|---|
+| 🏛️ Core Reasoning Architect | L1 Root | Immutable reasoning foundation, RSC guard |
+| 🔮 Formula Cascade Oracle | L2 | Fractal formula notation master |
+| 🔬 Fractal Elaborator | L3-L6 | Infinite zoom specialist |
+
+### Tier 2: Engineering Excellence
+| Persona | Level | Description |
+|---|---|---|
+| ⚡ High-Performance Engineer | L2-L3 | Gallie-optimized hardware sympathizer |
+| 🚀 SOTA Stack Master | L2 | Next-Gen Web & Language Virtuoso |
+| 🎨 UI/UX Vibe Master | L2 | Aesthetic Intelligence + Layout Enforcer |
+
+### Tier 3: Quality, Integrity & Operations
+| Persona | Level | Description |
+|---|---|---|
+| 🛡️ Anti-Fiction Sentinel | L1 | Truth Enforcer & Neuro-Symbolic Verifier |
+| 📡 DevOps Observability Sentinel | L3 | Production Guardian & Incident Commander |
+
+### Tier 4: Problem-Solving & Cognitive
+| Persona | Level | Description |
+|---|---|---|
+| 🧩 Problem Solving Maestro | L2-L3 | Master of All Heuristics |
+| 🧠 Cognitive Multi-Thinker | L2 | Parallel Thought Stream + Six Hats |
+| 🕸️ Agentic Swarm Conductor | L2-L3 | Hive-Mind Orchestrator |
+
+See [`agents/sota-personas/README.md`](agents/sota-personas/README.md) for the inter-persona handoff matrix and swarm usage guide.
 
 ## 📦 Installation
 
 ### Prerequisites
 
-- **Roo Code** CLI tool installed
+- **Roo Code** extension for VS Code / Antigravity IDE
 - **Git** for repository management
-- **Node.js 18+** (recommended)
-- **Python 3.9+** (for AI/ML agents)
+- **Node.js 22+** (recommended)
+- **Python 3.13+** (for AI/ML agents and conversion scripts)
 
 ### Method 1: Full Installation
 
@@ -160,137 +235,148 @@ This repository contains a meticulously curated collection of AI agent configura
 git clone https://github.com/jtgsystems/Custom-Modes-Roo-Code.git
 cd Custom-Modes-Roo-Code
 
-# Install to Roo Code directory
-cp -r agents ~/.roo-code/custom-modes/
+# Convert YAML agents to VS Code format
+cd vs-code/
+python3 convert_modes.py
+
+# Copy converted modes to Roo Code settings
+cp -r converted_modes/.roo/ ~/.config/Antigravity/User/globalStorage/rooveterinaryinc.roo-cline/settings/.roo/
 ```
 
 ### Method 2: Selective Installation
 
 ```bash
 # Install specific category
-cp -r agents/core-development ~/.roo-code/agents/
+cp agents/core-development ~/.roo-code/agents/ -r
 
-# Install specific agent
-cp agents/language-specialists/python/python-developer.yaml ~/.roo-code/agents/
+# Install SOTA personas only
+cp agents/sota-personas ~/.roo-code/agents/ -r
 ```
 
-### Method 3: Direct Configuration
+### Method 3: Direct YAML Usage
 
-```bash
-# Use curl for individual agents
-curl -O https://raw.githubusercontent.com/jtgsystems/Custom-Modes-Roo-Code/main/agents/core-development/general/python-developer.yaml
-```
-
-## 🛠️ Usage
-
-### Basic Usage
-
-1. **Select an Agent**
-   ```bash
-   ls agents/core-development/general/
-   ```
-
-2. **Configure Roo Code**
-   ```bash
-   roo-code config set agent-path agents/python-developer.yaml
-   ```
-
-3. **Activate Agent**
-   ```bash
-   roo-code activate python-developer
-   ```
-
-### Advanced Configuration
+Each agent YAML file can be used directly with Roo Code's custom mode system:
 
 ```yaml
-# Example customization in your project
-agent_config:
-  base: "python-developer"
-  customizations:
-    frameworks: ["FastAPI", "Pydantic", "SQLAlchemy"]
-    deployment: "docker"
-    testing: "pytest"
-    ci_cd: "github-actions"
+# Example: Loading an agent
+slug: python-developer
+name: 🐍 Python Developer
+roleDefinition: ...
+customInstructions: ...
+groups: [read, edit, browser, command, mcp]
 ```
 
-### Integration Examples
+## 🔧 Agent Structure
 
-#### Python Development
-```bash
-# Set up Python FastAPI project
-roo-code new-project --agent python-developer --template fastapi
-```
-
-#### React Development
-```bash
-# Set up React TypeScript project
-roo-code new-project --agent typescript-developer --template react-ts
-```
-
-#### Full-Stack Project
-```bash
-# Combine multiple agents
-roo-code orchestrate --agents "python-developer,typescript-developer,postgres-pro"
-```
-
-## 📋 Agent Structure
-
-Each agent follows a standardized YAML structure:
+### YAML Configuration Format
 
 ```yaml
-name: "Agent Name"
-version: "2025.1"
-category: "core-development"
-description: "Agent description"
-role: |
-  Detailed role and capabilities description
-capabilities:
-  - capability1
-  - capability2
-frameworks:
-  - framework1
-  - framework2
-security_features:
-  - security_feature1
-  - security_feature2
-best_practices:
-  - practice1
-  - practice2
+slug: agent-name                    # Unique identifier (kebab-case)
+name: 🏷️ Agent Display Name         # Display name with emoji
+category: category-name             # Primary category
+subcategory: subcategory-name       # Subcategory
+roleDefinition: >-                  # Agent's role description
+  You are a specialist in...
+customInstructions: >-              # Detailed instructions
+  ## 2026 Standards Compliance
+  ...
+groups:                             # Permission groups
+  - read
+  - edit
+  - browser
+  - command
+  - mcp
+version: '2026.1'                  # Schema version
+lastUpdated: '2026-05-12'          # Last update date
 ```
 
-### Agent Metadata
+### Directory Organization
 
-- **Name**: Human-readable agent identifier
-- **Version**: 2025.1 standard compliance
-- **Category**: Primary domain classification
-- **Role**: Detailed capability description
-- **Frameworks**: Supported technologies
-- **Security**: 2025 security standards
+```
+agents/
+├── ai-ml/                    # AI & Machine Learning
+│   ├── computer-vision/
+│   ├── data-science/
+│   ├── general/
+│   ├── llm/
+│   ├── mlops/
+│   └── nlp/
+├── business-product/         # Business & Product
+│   ├── business-analysis/
+│   ├── marketing/
+│   ├── product-analytics/
+│   ├── product-management/
+│   ├── sales/
+│   └── general/
+├── core-development/         # Core Development
+│   ├── architecture/
+│   ├── backend/
+│   ├── frontend/
+│   ├── fullstack/
+│   └── general/
+├── infrastructure-devops/    # Infrastructure & DevOps
+│   ├── cloud/
+│   ├── general/
+│   ├── kubernetes/
+│   └── networking/
+├── language-specialists/     # Language Specialists
+│   ├── csharp/
+│   ├── golang/
+│   ├── java/
+│   ├── javascript/
+│   ├── python/
+│   ├── rust/
+│   └── general/
+├── legal-compliance/         # Legal & Compliance
+│   ├── compliance/
+│   ├── corporate/
+│   ├── criminal/
+│   ├── employment/
+│   ├── ip/
+│   └── litigation/
+├── meta-orchestration/       # Meta-Orchestration
+│   └── general/
+├── security-quality/         # Security & Quality
+│   ├── general/
+│   ├── security-audit/
+│   └── testing/
+├── sota-personas/            # SOTA 2026 Personas
+│   ├── cognitive/
+│   ├── engineering/
+│   ├── quality/
+│   ├── reasoning/
+│   └── README.md
+└── specialized-domains/      # Specialized Domains
+    ├── blockchain/
+    ├── fintech/
+    ├── gaming/
+    ├── iot/
+    ├── seo/
+    └── general/
+```
+
+## 🛠️ Scripts
+
+| Script | Purpose |
+|---|---|
+| `scripts/update_to_2026.py` | Bulk update agent YAML files to 2026 standards |
+| `scripts/validate_custom_modes.py` | Validate YAML files against schema |
+| `vs-code/convert_modes.py` | Convert YAML agents to VS Code/Roo Code format |
 
 ## 🔐 Security
 
 ### Security Standards Compliance
 
-All agents adhere to **2025 Security Standards**:
+All agents adhere to **2026 Security Standards**:
 
 - ✅ **Zero-Trust Architecture**
 - ✅ **Secure by Default Configuration**
-- ✅ **OWASP Top 10 Compliance**
+- ✅ **OWASP Top 10 Compliance** (including LLM Top 10)
 - ✅ **Supply Chain Security**
 - ✅ **Container Security**
 - ✅ **API Security Best Practices**
-
-### Security Features
-
-```yaml
-security_features:
-  - input_validation
-  - output_sanitization
-  - secure_coding_practices
-  - vulnerability_scanning
-  - dependency_checking
-  - secrets_management
-```
+- ✅ **Sub-100ms Performance Targets**
+- ✅ **>95% Test Coverage Standards**
 
 ### Reporting Security Issues
 
@@ -298,67 +384,37 @@ Please report security vulnerabilities to: **security@jtgsystems.com**
 
 ## 🤝 Contributing
 
-### Development Workflow
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
-1. **Fork the Repository**
-   ```bash
-   git fork https://github.com/jtgsystems/Custom-Modes-Roo-Code.git
-   ```
+### Quick Contribution Workflow
 
-2. **Create Feature Branch**
-   ```bash
-   git checkout -b feature/new-agent
-   ```
-
-3. **Add Your Agent**
-   ```bash
-   # Follow the template structure
-   cp template.yaml agents/category/subcategory/your-agent.yaml
-   ```
-
-4. **Test Configuration**
-   ```bash
-   roo-code validate agents/category/subcategory/your-agent.yaml
-   ```
-
-5. **Submit Pull Request**
-
-### Agent Submission Guidelines
-
-- Follow YAML structure standards
-- Include comprehensive role description
-- Specify security features
-- Add relevant frameworks and capabilities
-- Test with Roo Code CLI
-
-### Quality Standards
-
-- **Security First**: All agents must pass security validation
-- **Performance**: Optimized for fast initialization
-- **Documentation**: Clear, comprehensive descriptions
-- **Testing**: Validated with real-world scenarios
+1. Fork → Branch → Add Agent → Test → PR
+2. Follow YAML structure standards (see schema in `schemas/custom_modes.schema.json`)
+3. Include comprehensive role description and 2026 security features
+4. Validate with `python3 scripts/validate_custom_modes.py`
 
 ## 📊 Statistics
 
 | Category | Agents | Primary Use Case |
 |----------|--------|------------------|
-| 🧠 AI & ML | 11 | Machine learning and AI development |
-| 💼 Business & Product | 15 | Product strategy and business analysis |
-| 💻 Core Development | 36 | Application development and architecture |
-| 🏗️ Infrastructure & DevOps | 14 | Cloud infrastructure and deployment |
+| 🧠 AI & ML | 14 | Machine learning and AI development |
+| 💼 Business & Product | 18 | Product strategy and business analysis |
+| 💻 Core Development | 58 | Application development and architecture |
+| 🏗️ Infrastructure & DevOps | 25 | Cloud infrastructure and deployment |
 | 💬 Language Specialists | 23 | Programming language expertise |
-| ⚖️ Legal & Compliance | 14 | Regulatory and legal compliance |
-| 🎛️ Meta-Orchestration | 28 | Workflow and system coordination |
-| 🔐 Security & Quality | 13 | Security and quality assurance |
-| 🎯 Specialized Domains | 17 | Industry-specific applications |
+| ⚖️ Legal & Compliance | 16 | Regulatory and legal compliance |
+| 🎛️ Meta-Orchestration | 37 | Workflow and system coordination |
+| 🔐 Security & Quality | 25 | Security and quality assurance |
+| 🎯 Specialized Domains | 16 | Industry-specific applications |
+| 🧠 SOTA Personas | 11 | Advanced reasoning and cognitive workflows |
 
-**Total: 171 Specialized Agents**
+**Total: 243 Specialized Agents**
 
 ## 🔗 Related Resources
 
-- **Roo Cline Extension** - [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=RooCline.roo-cline) - AI coding assistant
+- **Roo Code Extension** - [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=RooCline.roo-cline) - AI coding assistant
+- **Antigravity IDE** - Enhanced VS Code distribution with Roo Code integration
 - **GitHub Repository** - [This Project](https://github.com/jtgsystems/Custom-Modes-Roo-Code) - Agent configurations
-- **VS Code** - [Official Site](https://code.visualstudio.com/) - Development environment
 
 ## 📞 Support
 
@@ -374,7 +430,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ```
 MIT License
 
-Copyright (c) 2025 JTG Systems
+Copyright (c) 2025-2026 JTG Systems
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -400,13 +456,9 @@ copies or substantial portions of the Software.
 
 **Built with ❤️ by [JTG Systems](https://github.com/jtgsystems)**
 
-**Following 2025 Security-First Development Standards**
+**Following 2026 Security-First Development Standards**
 
 [![GitHub](https://img.shields.io/badge/GitHub-jtgsystems-black?logo=github)](https://github.com/jtgsystems)
 [![Website](https://img.shields.io/badge/Website-jtgsystems.com-blue)](https://jtgsystems.com)
 
 </div>
-
-### SEO Keyword Cloud
-
-`openai` `codex` `claude` `roo` `code` `ai` `agent` `configurations` `yaml` `security` `devops` `automation` `workflow` `orchestration` `mlops` `machine` `learning` `fintech` `gaming` `compliance` `developer` `productivity` `vscode` `extension` `templates` `toolkit` `multiagent` `architecture` `integration` `pipelines` `testing` `monitoring` `observability` `cloud` `kubernetes` `docker` `python` `javascript` `typescript` `rust` `golang` `java` `csharp` `gdpr` `governance` `practices` `ultrathink` `optimization` `roadmap` `supporters`
