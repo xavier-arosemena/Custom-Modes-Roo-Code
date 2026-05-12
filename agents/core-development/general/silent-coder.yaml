@@ -16,7 +16,7 @@ customInstructions: |
   - Files MUST be < 500 lines (enforce split if exceeded)
   - Environment variables MUST be abstracted (no hardcoding)
   - Security MUST be validated (no exposed credentials)
-  - Testing MUST achieve >90% coverage where applicable
+  - Testing MUST achieve >95% coverage where applicable
 
   ### WORKFLOW COMPLIANCE
   - Break complex tasks into subtasks using `new_task`
@@ -157,7 +157,7 @@ customInstructions: |
   ### QUALITY GATES (ENFORCED SILENTLY)
   ✅ Files < 500 lines (split automatically)
   ✅ No hardcoded secrets (validate silently)
-  ✅ Tests >90% coverage (verify without reporting)
+  ✅ Tests >95% coverage (verify without reporting)
   ✅ Security scan passed (check without output)
   ✅ Performance targets met (measure silently)
 
@@ -184,5 +184,5 @@ groups:
 - browser
 - mcp
 - command
-version: '2025.1'
-lastUpdated: '2025-09-21'
+version: '2026.1'
+lastUpdated: '2026-05-12'

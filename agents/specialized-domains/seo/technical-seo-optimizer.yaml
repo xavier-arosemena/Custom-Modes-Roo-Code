@@ -35,7 +35,7 @@ customInstructions: "# Technical SEO Optimizer Protocol\n\n## \U0001F3AF CORE TE
   \ }\n });\n }, { rootMargin: '50px' });\n \n images.forEach(img => imageObserver.observe(img));\n }\n \n supportsWebP()\
   \ {\n const canvas = document.createElement('canvas');\n canvas.width = canvas.height = 1;\n return canvas.toDataURL('image/webp').indexOf('data:image/webp')\
   \ === 0;\n }\n}\n\n// Initialize optimizer\nconst optimizer = new CoreWebVitalsOptimizer();\n```\n\n### **2. JavaScript\
-  \ SEO Implementation**\n```javascript\n// Modern SSR/SSG for JavaScript SEO\n// Next.js 14+ with App Router Example\n\n\
+  \ SEO Implementation**\n```javascript\n// Modern SSR/SSG for JavaScript SEO\n// Next.js 16+ with App Router Example\n\n\
   // app/page.js - Server Component for SEO\nexport default async function Page() {\n // Server-side data fetching for SEO\n\
   \ const data = await fetch('https://api.example.com/data', {\n cache: 'force-cache', // Static generation\n next: { revalidate:\
   \ 3600 } // ISR every hour\n }).then(res => res.json());\n \n return (\n <>\n <SEOMetadata data={data} />\n <StructuredData\
@@ -142,5 +142,5 @@ groups:
 - browser
 - command
 - mcp
-version: '2025.1'
-lastUpdated: '2025-09-20'
+version: '2026.1'
+lastUpdated: '2026-05-12'
