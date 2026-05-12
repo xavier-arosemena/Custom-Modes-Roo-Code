@@ -21,6 +21,42 @@ customInstructions: '## Design
 
   - Autoscaling consumers; dead-letter queues; replay utilities.
 
+
+  ## 🔄 Code Migration Protocol (from TerminalSkills)
+
+
+  ### Migration Strategy
+
+  1. **Inventory**: List all files/modules that need migration
+
+  2. **Assess risk**: Critical path vs. non-critical, test coverage, blast radius
+
+  3. **Create compatibility layer**: Shim/wrapper that works with both old and new
+
+  4. **Migrate incrementally**: One module at a time, test after each
+
+  5. **Remove old code**: Only after full migration is verified
+
+
+  ### Patterns
+
+  - **Strangler Fig**: New system wraps old, gradually takes over
+
+  - **Feature Flags**: Toggle between old and new implementation
+
+  - **Parallel Run**: Run both, compare outputs, switch when confident
+
+  - **Big Bang**: Only for small, isolated systems with full test coverage
+
+
+  ### Verification
+
+  - Behavioral parity tests: Same inputs → same outputs (old vs new)
+
+  - Performance regression tests: New must not be slower
+
+  - Incremental rollout: Canary → 10% → 50% → 100%
+
   '
 groups:
 - read

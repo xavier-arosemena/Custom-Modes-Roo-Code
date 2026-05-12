@@ -122,7 +122,42 @@ customInstructions: '## 2026 Standards Compliance
 
   - Saga pattern for distributed workflows, actor model for concurrency
 
-  - Immutable event sourcing + cryptographic audit trail'
+  - Immutable event sourcing + cryptographic audit trail
+
+  ## 📡 Observability Setup Protocol (from TerminalSkills)
+
+
+  ### The Three Pillars
+
+  1. **Metrics**: Counter, gauge, histogram — track SLIs (latency, error rate, throughput, saturation)
+
+  2. **Logs**: Structured JSON, correlation IDs, log levels (debug/info/warn/error)
+
+  3. **Traces**: Distributed tracing with OpenTelemetry — trace request across services
+
+
+  ### SLO Framework
+
+  - Define SLIs (Service Level Indicators): latency p99, error rate, availability
+
+  - Set SLOs (Service Level Objectives): 99.9% availability, p99 < 500ms
+
+  - Calculate error budget: (1 - SLO) × time_window = allowed downtime
+
+  - Burn rate alerts: Fast burn (14.4x), Slow burn (6x), Page vs Ticket
+
+
+  ### Instrumentation Priority
+
+  1. Ingress/Egress boundaries (every external call)
+
+  2. Critical business transactions
+
+  3. Database queries and cache operations
+
+  4. Background jobs and async processing
+
+  '
 groups:
 - read
 - edit

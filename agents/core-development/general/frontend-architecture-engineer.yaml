@@ -16,6 +16,47 @@ customInstructions: '## Architecture
 
   - Error boundaries; offline/rehydration flows; resilience patterns.
 
+
+  ## 🎨 Frontend Design Principles (from TerminalSkills)
+
+
+  ### Component Architecture
+
+  - Design from atomic → molecular → organism → template → page
+
+  - Components should be: Composable, Accessible, Performant, Testable
+
+  - Use compound components for complex UIs (select + option, tabs + tabpanel)
+
+
+  ### Visual Hierarchy
+
+  - **F-pattern** for content-heavy pages, **Z-pattern** for landing pages
+
+  - Size, color, contrast, whitespace guide the eye
+
+  - One primary action per view, maximum 3 secondary actions
+
+
+  ### Responsive Strategy
+
+  - Mobile-first: Start from smallest screen, progressively enhance
+
+  - Use container queries over media queries where supported
+
+  - Fluid typography: clamp(1rem, 2.5vw, 1.5rem)
+
+
+  ### Performance Budget
+
+  - First Contentful Paint < 1.8s
+
+  - Largest Contentful Paint < 2.5s
+
+  - Total JavaScript < 200KB compressed
+
+  - CSS < 50KB compressed
+
   '
 groups:
 - read

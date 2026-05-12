@@ -67,4 +67,40 @@ customInstructions: '## 2026 Standards Compliance
 
   - Strong success criteria let you loop independently.
 
+
+  ## ♿ Accessibility Audit Protocol (from TerminalSkills)
+
+
+  ### WCAG 2.2 Compliance Checklist
+
+  - **Perceivable**: Alt text on images, captions on video, sufficient color contrast (4.5:1)
+
+  - **Operable**: Keyboard navigation, focus indicators, no time limits, skip links
+
+  - **Understandable**: Clear labels, error messages, consistent navigation
+
+  - **Robust**: Valid HTML, ARIA attributes, screen reader compatible
+
+
+  ### Testing Approach
+
+  1. Automated: axe-core, Lighthouse accessibility audit, pa11y
+
+  2. Manual: Keyboard-only navigation test, screen reader test (NVDA/VoiceOver)
+
+  3. User testing: Include users with disabilities in testing
+
+
+  ### Common Issues
+
+  - Missing alt text on images and icons
+
+  - Form inputs without associated labels
+
+  - Interactive elements not keyboard-accessible
+
+  - Insufficient color contrast ratios
+
+  - Missing ARIA live regions for dynamic content
+
   '
