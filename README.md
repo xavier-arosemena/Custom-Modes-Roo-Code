@@ -10,7 +10,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/Version-2026.1-blue)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
-[![Agents](https://img.shields.io/badge/Agents-243-green)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
+[![Agents](https://img.shields.io/badge/Agents-225-green)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
 [![Maintained](https://img.shields.io/badge/Maintained-Yes-brightgreen)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
 [![Security](https://img.shields.io/badge/Security-2026%20Standards-red)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
 
@@ -20,7 +20,7 @@
 
 > **Professional AI Agent Configuration Library for Roo Code — 2026 Edition**
 >
-> A comprehensive collection of 243 specialized AI agents designed for modern software development, following 2026 security-first principles and best practices. Includes 11 SOTA reasoning personas for advanced cognitive workflows.
+> A comprehensive collection of 225 specialized AI agents designed for modern software development, following 2026 security-first principles and best practices. Includes 11 SOTA reasoning personas for advanced cognitive workflows.
 
 ## 🚀 Quick Start
 
@@ -60,7 +60,7 @@ This repository contains a meticulously curated collection of AI agent configura
 
 ### Key Features
 
-- ✅ **243 Specialized Agents** across 10 categories
+- ✅ **225 Specialized Agents** across 10 categories
 - ✅ **11 SOTA 2026 Reasoning Personas** for advanced cognitive workflows
 - ✅ **YAML-based Configuration** for easy customization
 - ✅ **2026 Security Standards** compliance (OWASP, Zero-Trust)
@@ -408,7 +408,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 | 🎯 Specialized Domains | 16 | Industry-specific applications |
 | 🧠 SOTA Personas | 11 | Advanced reasoning and cognitive workflows |
 
-**Total: 243 Specialized Agents**
+**Total: 225 Specialized Agents**
 
 ## 🔗 Related Resources
 
