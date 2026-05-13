@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
-"""
-Auto-fix common quality issues in custom_modes.d/ mode files.
+"""Auto-fix common quality issues in custom_modes.d/ mode files.
 
 Issues fixed:
 - Identical description and roleDefinition → split into concise desc + detailed role
 - Short roleDefinition (< 150 chars) → expand with domain-specific expertise
 - Placeholder whenToUse → replace with meaningful guidance
 """
+from __future__ import annotations
+
+import argparse
 import re
 import sys
 from pathlib import Path
+from typing import Any, Sequence
 
 try:
     import yaml
@@ -17,8 +20,21 @@ except ImportError:
     print("ERROR: PyYAML required. Install with: pip install pyyaml")
     sys.exit(1)
 
+from validate_custom_modes import ValidationError, validate_document
+
 REPO_ROOT = Path(__file__).parent.parent
 MIN_ROLE_LENGTH = 150
+DEFAULT_MODES_DIR = REPO_ROOT / "custom_modes.d"
+
+
+def yaml_dump(data: dict[str, Any]) -> str:
+    return yaml.dump(
+        data,
+        default_flow_style=False,
+        sort_keys=False,
+        allow_unicode=True,
+        width=10000,
+    )
 
 
 def get_first_sentence(text: str) -> str:
@@ -177,7 +193,7 @@ def expand_role(name: str, slug: str, base_text: str) -> str:
     return "\n".join(lines)
 
 
-def fix_mode(mode: dict) -> dict:
+def fix_mode(mode: dict[str, Any]) -> tuple[dict[str, Any], bool]:
     """Fix a single mode dict. Returns (fixed_mode, was_changed)."""
     changed = False
     slug = mode.get("slug", "UNKNOWN")
@@ -205,13 +221,23 @@ def fix_mode(mode: dict) -> dict:
     return mode, changed
 
 
-def process_file(path: Path) -> bool:
-    """Process a single YAML file. Returns True if changed."""
-    with open(path) as f:
+def load_modes_file(path: Path) -> dict[str, Any]:
+    with path.open(encoding="utf-8") as f:
         data = yaml.safe_load(f)
 
     if not isinstance(data, dict) or "customModes" not in data:
-        return False
+        raise ValueError("missing top-level customModes mapping")
+
+    modes = data.get("customModes")
+    if not isinstance(modes, Sequence) or isinstance(modes, (str, bytes)):
+        raise ValueError("customModes must be a list")
+
+    return data
+
+
+def process_file(path: Path, *, dry_run: bool = False) -> bool:
+    """Process a single YAML file. Returns True if changed."""
+    data = load_modes_file(path)
 
     changed = False
     new_modes = []
@@ -223,34 +249,91 @@ def process_file(path: Path) -> bool:
 
     if changed:
         data["customModes"] = new_modes
-        with open(path, "w") as f:
-            yaml.dump(data, f, default_flow_style=False, sort_keys=False, allow_unicode=True, width=10000)
+        validate_document(data)
+        if not dry_run:
+            path.write_text(yaml_dump(data), encoding="utf-8")
 
     return changed
 
 
-def main():
-    d = REPO_ROOT / "custom_modes.d"
-    files = sorted(d.rglob("*.yaml"))
+def collect_files(target: Path) -> list[Path]:
+    if target.is_file():
+        return [target]
+    if target.is_dir():
+        return sorted(target.rglob("*.yaml"))
+    raise FileNotFoundError(f"{target} does not exist")
+
+
+def display_path(path: Path) -> Path:
+    try:
+        return path.relative_to(REPO_ROOT)
+    except ValueError:
+        return path
+
+
+def main(argv: Sequence[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Auto-fix common Roo Code custom mode quality issues."
+    )
+    parser.add_argument(
+        "path",
+        nargs="?",
+        type=Path,
+        default=DEFAULT_MODES_DIR,
+        help="YAML file or directory to process; defaults to custom_modes.d/",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Report files that would change without writing anything.",
+    )
+    parser.add_argument(
+        "--quiet",
+        action="store_true",
+        help="Suppress per-file output.",
+    )
+    args = parser.parse_args(argv)
+
+    target = args.path if args.path.is_absolute() else REPO_ROOT / args.path
+    try:
+        files = collect_files(target)
+    except FileNotFoundError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 2
+
     changed_count = 0
     processed_count = 0
+    error_count = 0
 
-    print(f"Scanning {len(files)} files in custom_modes.d/...")
+    action = "Checking" if args.dry_run else "Scanning"
+    print(f"{action} {len(files)} file(s) under {display_path(target)}...")
 
     for f in files:
         try:
-            if process_file(f):
-                rel = f.relative_to(REPO_ROOT)
-                print(f"  Fixed: {rel}")
+            if process_file(f, dry_run=args.dry_run):
+                if not args.quiet:
+                    label = "Would fix" if args.dry_run else "Fixed"
+                    print(f"  {label}: {display_path(f)}")
                 changed_count += 1
             processed_count += 1
-        except Exception as e:
-            print(f"  ERROR processing {f}: {e}")
+        except (OSError, ValueError, yaml.YAMLError, ValidationError) as e:
+            error_count += 1
+            print(f"  ERROR processing {f}: {e}", file=sys.stderr)
 
     print(f"\nProcessed: {processed_count} files")
-    print(f"Fixed: {changed_count} files")
-    print(f"\nRun `python3 scripts/compile_modes.py` to regenerate .roomodes")
+    print(f"{'Would fix' if args.dry_run else 'Fixed'}: {changed_count} files")
+    print(f"Errors: {error_count} files")
+
+    if error_count:
+        return 1
+
+    if changed_count and not args.dry_run:
+        print(f"\nRun `python3 scripts/compile_modes.py` to regenerate .roomodes")
+    elif args.dry_run:
+        print("\nDry run only; no files were changed.")
+
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
