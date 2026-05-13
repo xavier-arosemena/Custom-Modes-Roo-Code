@@ -22,7 +22,13 @@ from typing import Any, Dict, List, Optional, Set
 import yaml
 
 # Constants
-VSCODE_SETTINGS_SUBPATH = "data/User/globalStorage/rooveterinaryinc.roo-cline/settings"
+# Common Roo Code extension IDs (old and new)
+ROO_CODE_EXTENSION_IDS = [
+    "rooveterinaryinc.roo-cline",  # Legacy
+    "roovetgit.roo-cline",         # Alternative legacy
+    "roocode.roo-code",            # Possible community fork
+]
+DEFAULT_EXTENSION_ID = ROO_CODE_EXTENSION_IDS[0]
 DEFAULT_SOURCE = "../custom_modes.yaml"
 DEFAULT_OUTPUT = "converted_modes"
 MAX_FILENAME_LENGTH = 50
@@ -254,6 +260,21 @@ def search_modes(source_file: Path, patterns: List[str]) -> None:
     print(f"{'=' * SEPARATOR_WIDTH}\n")
 
 
+def find_extension_storage(home: Path, base_dir: Path) -> Path | None:
+    """Find the actual Roo Code extension storage directory."""
+    global_storage = base_dir / "User" / "globalStorage"
+    if not global_storage.exists():
+        return None
+    
+    for ext_id in ROO_CODE_EXTENSION_IDS:
+        candidate = global_storage / ext_id / "settings"
+        if candidate.exists():
+            return candidate
+    
+    # Fall back to default if nothing found
+    return global_storage / DEFAULT_EXTENSION_ID / "settings"
+
+
 def get_vscode_settings_path(environment: str) -> Path:
     """
     Get the VS Code settings directory path based on environment.
@@ -267,17 +288,36 @@ def get_vscode_settings_path(environment: str) -> Path:
     home = Path.home()
     
     if environment == 'remote':
-        return home / ".vscode-server" / VSCODE_SETTINGS_SUBPATH
+        base = home / ".vscode-server" / "data"
+        found = find_extension_storage(home, base)
+        if found:
+            return found
+        return base / "User" / "globalStorage" / DEFAULT_EXTENSION_ID / "settings"
     
     # Local environment
     system = platform.system()
     if system == "Windows":
         appdata = os.environ.get('APPDATA', str(home / 'AppData' / 'Roaming'))
-        return Path(appdata) / "Code" / "User" / "globalStorage" / "rooveterinaryinc.roo-cline" / "settings"
+        base = Path(appdata) / "Code"
     elif system == "Darwin":
-        return home / "Library" / "Application Support" / "Code" / "User" / "globalStorage" / "rooveterinaryinc.roo-cline" / "settings"
+        base = home / "Library" / "Application Support" / "Code"
     else:
-        return home / ".config" / "Code" / "User" / "globalStorage" / "rooveterinaryinc.roo-cline" / "settings"
+        # Try common locations
+        for candidate in [
+            home / ".config" / "Code",
+            home / ".config" / "VSCodium",
+            home / ".config" / "Antigravity",
+        ]:
+            if candidate.exists():
+                base = candidate
+                break
+        else:
+            base = home / ".config" / "Code"
+    
+    found = find_extension_storage(home, base)
+    if found:
+        return found
+    return base / "User" / "globalStorage" / DEFAULT_EXTENSION_ID / "settings"
 
 
 def purge_converted_modes(output_base_dir: Path) -> None:
@@ -300,13 +340,14 @@ def purge_converted_modes(output_base_dir: Path) -> None:
         logger.info(f"✓ Created directory: {output_base_dir}")
 
 
-def copy_to_vscode(source_dir: Path, environment: str) -> None:
+def copy_to_vscode(source_dir: Path, environment: str, extension_id: Optional[str] = None) -> None:
     """
     Copy converted modes to VS Code settings directory.
     
     Args:
         source_dir: Source directory containing converted modes
         environment: Either 'remote' or 'local'
+        extension_id: Optional override for the Roo Code extension ID
     """
     if not environment:
         logger.error("Error: Please specify the destination environment (remote or local)")
@@ -318,7 +359,21 @@ def copy_to_vscode(source_dir: Path, environment: str) -> None:
         logger.error(f"Error: Invalid environment '{environment}'. Must be 'remote' or 'local'")
         sys.exit(1)
     
-    vscode_dir = get_vscode_settings_path(environment)
+    if extension_id:
+        home = Path.home()
+        if environment == 'remote':
+            vscode_dir = home / ".vscode-server" / "data" / "User" / "globalStorage" / extension_id / "settings"
+        else:
+            system = platform.system()
+            if system == "Windows":
+                appdata = os.environ.get('APPDATA', str(home / 'AppData' / 'Roaming'))
+                vscode_dir = Path(appdata) / "Code" / "User" / "globalStorage" / extension_id / "settings"
+            elif system == "Darwin":
+                vscode_dir = home / "Library" / "Application Support" / "Code" / "User" / "globalStorage" / extension_id / "settings"
+            else:
+                vscode_dir = home / ".config" / "Code" / "User" / "globalStorage" / extension_id / "settings"
+    else:
+        vscode_dir = get_vscode_settings_path(environment)
     
     if not vscode_dir.exists():
         logger.info(f"Creating VS Code settings directory: {vscode_dir}")
@@ -569,6 +624,12 @@ Examples:
     )
     
     parser.add_argument(
+        '--extension-id',
+        default=None,
+        help='Override the Roo Code extension ID (default: auto-detect)'
+    )
+    
+    parser.add_argument(
         '--output',
         default=DEFAULT_OUTPUT,
         help=f'Output directory for converted modes (default: {DEFAULT_OUTPUT})'
@@ -606,7 +667,7 @@ Examples:
         if destination not in ['remote', 'local']:
             logger.error(f"Error: Invalid destination '{destination}'. Must be 'remote' or 'local'")
             sys.exit(1)
-        copy_to_vscode(output_path, destination)
+        copy_to_vscode(output_path, destination, args.extension_id)
         return
     
     # Handle convert command
