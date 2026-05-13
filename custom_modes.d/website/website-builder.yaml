@@ -738,6 +738,503 @@ customModes:
 
     - All interactive elements must be keyboard accessible
 
+
+    ## LANDING PAGE COMPONENTS CHECKLIST (33 Domains)
+
+
+    A comprehensive component reference organized by implementation domain. Use this as a build-order checklist when constructing landing pages.
+
+
+    ### §1. Hero Section Components
+
+    - **Hero Banner with Strong Value Proposition**: Fullwidth responsive hero image with overlay gradient, compelling headline communicating unique value, 1-2 sentence subheading, primary CTA button with contrasting color, secondary "Learn More" link
+
+    - **Minimalist Hero with 3D Elements**: Subtle 3D illustration/animation on right side, clean sans-serif typography with varying weights, floating elements with shadow effects, asymmetrical layout with strong visual hierarchy
+
+    - **Animated Wave Background**: SVG wave animation for dynamic background, subtle movement that doesn''t distract, gradient colors aligned with brand palette, performance-optimized for mobile
+
+    - **Floating Card Layout**: Floating card design with subtle shadows, staggered animation on page load, micro-interactions on hover, proper spacing between elements
+
+    - **Split-Screen Hero**: Two-column layout (content + image/video), clear visual hierarchy (heading, subheading, CTA), responsive adaptation for mobile, subtle parallax effect for depth
+
+    - **Video Background Hero**: Autoplay muted video background with overlay, mobile fallback with static image, high-contrast text for readability, play/pause controls for accessibility
+
+    - **Gamification Elements**: Interactive quiz or mini-game tied to product, subtle reward animations (progress bars, badges), playful feedback visuals matching brand personality
+
+
+    ### §2. Navigation & Header Elements
+
+    - **Sticky Navigation Bar**: Remains visible on scroll, hamburger menu for mobile, logo linking to homepage, key navigation links, prominent CTA button in header
+
+    - **Smart Header Features**: Notification bar for offers/announcements, language/region selector, login/sign-up links, search functionality with icon expansion
+
+    - **Transparent to Solid Navigation**: Transparent header becoming solid on scroll, smooth transition animation, subtle drop shadow when solid, logo working on both backgrounds
+
+    - **Mega Menu Dropdown**: Expansive dropdown with multiple columns, featured items/promotions, smooth animation for appearance, mobile-friendly collapse version
+
+    - **Side Navigation with Animation**: Animated side nav sliding from edge, custom hamburger-to-close icon animation, hierarchical nested items, backdrop overlay
+
+    - **Split Header with Image**: Split layout (nav + image), responsive adjustment, subtle parallax for depth, transitions maintaining context
+
+    - **Floating Navigation Elements**: Detached floating nav components, hover effects that elevate items, subtle active state animations, clear visual hierarchy
+
+    - **Security & Privacy Indicators**: Privacy policy link or trust signal in header, GDPR-compliant cookie consent banner, non-intrusive data protection notifications
+
+
+    ### §3. Feature Showcase
+
+    - **Feature Highlights**: 3-4 feature blocks with icons and descriptions, animated demonstrations, "How It Works" section with step illustrations, product screenshots
+
+    - **3D Feature Cards**: Isometric 3D illustrations for key features, tilt effect on hover via CSS transforms, consistent iconography style, complementary background patterns
+
+    - **Step-by-Step Process Flow**: Numbered step indicators with connecting lines, custom icons per step, responsive layout, micro-animations highlighting current step on scroll
+
+    - **Feature Comparison Grid**: Responsive grid layout, toggle filters for categories, custom checkmark indicators, tooltip explanations for complex features
+
+    - **Expandable Feature Cards**: Cards expanding on click for more details, smooth transition animation, consistent collapsed/expanded layout, visual indicators showing expandability
+
+    - **Tabbed Feature Interface**: Tab navigation for feature categories, smooth content transitions, clear active states, responsive adaptation (dropdown/accordion)
+
+    - **Interactive Feature Demo**: Interactive product demonstration with user controls, guided tooltips for discovery, animations highlighting functionality, mobile-friendly interaction patterns
+
+    - **Interactive Product Tours**: Clickable product tour within feature blocks, guided tooltips explaining functionalities, sandbox-style preview for limited interaction
+
+
+    ### §4. Social Proof & Trust Elements
+
+    - **Testimonials Section**: Carousel of customer testimonials with photos, notable client logos, star ratings and review counters, detailed case study previews
+
+    - **Trust Indicators**: Security badges and certifications, "As Seen In" media mentions, partnership logos, awards and recognition badges
+
+    - **Avatar Testimonial Grid**: Grid layout with circular customer avatars, hover to reveal full testimonial, company position and name, mobile-friendly vertical scroll
+
+    - **Animated Star Ratings**: Star rating with fill animation, micro-interaction on viewport entry, numerical rating alongside stars, varying sizes for different contexts
+
+    - **Logo Carousel**: Responsive auto-scroll logo carousel, hover pause, grayscale-to-color on hover, proper spacing for all logo types
+
+    - **Customer Success Metrics**: Animated counters for key metrics (users, downloads), custom icons per metric, gradual count-up on scroll, brief explanation text
+
+    - **Video Testimonials**: Video player with custom controls, video thumbnail with play button overlay, transcript/key quote below, modal expansion for fullscreen
+
+    - **Trust Badge Collection**: Organized security/trust badge display, tooltip explanations per certification, responsive layout, subtle hover animation
+
+    - **Real-Time Social Stats**: Live user activity (signups, downloads), subtle count-up animations on scroll, stats aligned with testimonial styling
+
+
+    ### §5. Call-to-Action Sections
+
+    - **Primary CTA Area**: High-contrast CTA button with action-oriented text, email signup/lead generation form, countdown timer for limited offers, sticky mobile CTA
+
+    - **Secondary CTAs**: Mid-page CTA with different messaging, floating CTA for long-scroll pages, exit-intent popup, in-content CTA buttons
+
+    - **Gradient CTA Buttons**: Subtle gradient backgrounds, hover animation with shadow expansion, pulsing animation for primary buttons, proper contrast ratios
+
+    - **Full-width CTA Banner**: Full-width section with background image/pattern, overlapping elements breaking container, parallax scrolling for background, responsive layout
+
+    - **Two-Column CTA with Image**: Split layout (image + CTA), custom illustration/product mockup, minimal required form fields, social proof below form
+
+    - **Animated CTA Elements**: Subtle animation drawing attention to CTA, directional cues pointing to action button, micro-interactions for form focus, animated success state
+
+    - **Floating Action Button**: Persistent floating button following scroll, expanding on hover/click, smooth entrance/exit animations, mobile-optimized position/size
+
+    - **Multistep Conversion Process**: Progress indicator for multi-step forms, smooth transitions between steps, form validation with friendly errors, "save progress" functionality
+
+    - **Virtual Event Integration**: "Join Webinar" or "Schedule Demo" CTA, countdown timer for events, calendar integration for scheduling
+
+
+    ### §6. Pricing & Plans
+
+    - **Pricing Tables**: Comparison table of tiers, monthly/annual billing toggle, highlighted "recommended" plan, feature comparison checkmarks
+
+    - **Modern Pricing Cards**: Elevated card design with subtle shadows, visual distinction for featured plan, hover effects raising card, animated checkmarks
+
+    - **Horizontal Pricing Slider**: Horizontal slider for pricing options, smooth transitions between plans, visual indicator for selection, mobile-friendly vertical alternative
+
+    - **Feature Comparison Tooltips**: Information tooltips for complex features, custom tooltip design, accessible keyboard-navigable tooltips, subtle animation
+
+    - **Pricing Toggle with Savings**: Animated monthly/annual toggle, prominent savings display for annual, smooth price update animation, visual indicator for best value
+
+    - **Tiered Pricing Visualization**: Visual comparison with height/size differences, color coding for plan levels, interactive hover effects, responsive adaptation
+
+    - **Custom Plan Builder**: Interactive slider/checkbox interface, real-time price calculation, animated transitions for adding/removing features, clear selected options summary
+
+    - **Dynamic Pricing Personalization**: Dynamic plan displays based on user behavior, real-time content updates, smooth transitions for personalized elements
+
+
+    ### §7. Footer Elements
+
+    - **Comprehensive Footer**: Multi-column footer with site navigation, newsletter signup, social media icons, contact info, privacy/terms links, copyright
+
+    - **Two-Tone Footer Design**: Two-section footer with contrasting backgrounds, curved divider, animated social icons with hover effects, responsive visual hierarchy
+
+    - **Newsletter Signup with Animation**: Animated submission confirmation, form validation with friendly errors, subtle background pattern, accessible form inputs
+
+    - **Footer with Brand Elements**: Branded visual elements, custom icon set for section headers, subtle parallax for background, consistent spacing/alignment
+
+    - **Sitemap Grid Layout**: Organized grid of links by section, collapsible categories for mobile, visual icons for main categories, hover states for all links
+
+    - **Footer with Call-to-Action**: Prominent CTA section within footer, contrasting design, supporting social proof, animation highlighting CTA
+
+    - **Storytelling Recap**: Brief narrative snippet (mission statement), supporting icons/visuals, layout tying into brand story
+
+
+    ### §8. Mobile Optimization Elements
+
+    - **Mobile-Specific Features**: Touch-friendly buttons (min 44x44px), collapsible sections, mobile-specific CTAs, optimized images, "back to top" button
+
+    - **Bottom Navigation Bar**: Fixed bottom navigation for mobile, subtle active state indicators, micro-interactions for touch feedback, simplified key actions only
+
+    - **Mobile Card Swiping**: Touch-friendly card swiping, visual indicators for swipe actions, smooth card transitions, fallback for non-touch devices
+
+    - **Responsive Image Layouts**: Art-directed responsive images, proper srcset and sizes, lazy loading, containers maintaining aspect ratio
+
+
+    ### §9. Visual Design Elements
+
+    - **Color Schemes**: Consistent color palette, gradients for backgrounds, accent colors for important elements, dark/light mode toggle
+
+    - **Typography System**: Hierarchy with varied font weights/sizes, max 2-3 font families, consistent heading styles, responsive typography scaling
+
+    - **Glassmorphism Effects**: Frosted glass cards with backdrop-filter, subtle border highlights with rgba, proper layering for depth, fallback styles
+
+    - **Geometric Background Patterns**: SVG geometric patterns, subtle animations/parallax, brand colors with varying opacity, no interference with text readability
+
+    - **Neumorphic UI Elements**: Soft UI style with subtle shadows/highlights, consistent lighting direction, custom form elements, subtle hover states
+
+    - **Micro-Interaction System**: Consistent animation library, feedback animations for user actions, hover state animations, transition effects between states
+
+    - **Dark Mode Implementation**: Complete dark mode palette, toggle with smooth transition, appropriate contrast for all text, system preference detection
+
+    - **Gradient Mesh Backgrounds**: Colorful gradient mesh for sections, subtle animation/movement, parallax scrolling for depth, controlled contrast for readability
+
+    - **Brutalist Design Elements**: High-contrast color combinations, bold unconventional asymmetric layouts, raw unrefined elements, distinctive custom typography
+
+
+    ### §10. Performance Optimizations
+
+    - **Page Speed**: Lazy loading for images, web-optimized images (compress, proper format), minified CSS/JS, critical CSS loading, proper caching headers
+
+    - **Next-Gen Image Formats**: AVIF with WebP fallback, responsive sizing with srcset, blur-up loading placeholders, proper preloading for critical images
+
+    - **Animation Performance**: CSS transforms and opacity for smooth animations, requestAnimationFrame for JS animations, will-change for frequently animating elements, reduced motion alternatives
+
+    - **Core Web Vitals**: Optimize LCP elements, minimize layout shifts (CLS), reduce JS execution time (FID), proper resource hints (preconnect, prefetch, preload)
+
+    - **Font & Resource Optimization**: WOFF2 formats, limited font variations, deferred non-critical CSS/JS, minimized Cumulative Layout Shift
+
+
+    ### §11. Additional Creative Elements
+
+    - **Interactive 3D Elements**: Lightweight 3D objects with Three.js, mouse-follow interaction, subtle 3D animation, WebGL fallback
+
+    - **Cursor Effects**: Custom cursor design following pointer, hover state changes for interactive elements, subtle particle effects around cursor, cursor trails
+
+    - **Scroll-Triggered Animations**: Reveal animations by scroll position, parallax scrolling for depth, progress indicators tied to scroll, scroll-based narrative elements
+
+    - **Particle Effects**: Particle system for backgrounds, interactive particles reacting to mouse, subtle color shifts, mobile performance optimizations
+
+    - **Text Animation Effects**: Text reveal animations for headings, typewriter effect for key phrases, hover animations for text, animated text transitions
+
+    - **Immersive Scroll Experiences**: Horizontal scroll sections for features, snap-scroll for section transitions, scroll-linked narrative animations, scroll progress indicator
+
+    - **Interactive Data Visualizations**: Animated charts and graphs, interactive filtering/exploration, tooltips with detailed hover info, responsive adaptations
+
+    - **Animated Mascot/Character**: Brand character/mascot illustration, animations for states/interactions, personality through micro-movements, mascot across sections
+
+
+    ### §12. Development Approach
+
+    - Component library with Storybook for documentation
+
+    - CSS organization with BEM or utility-first approach
+
+    - Modern build tools (Vite/Webpack) for optimization
+
+    - Responsive breakpoints with mobile-first approach
+
+    - Automated accessibility testing
+
+    - Comprehensive animation system with consistent timing functions
+
+
+    ### §13. Advanced Interaction Patterns
+
+    - **Onboarding Experience**: Guided tour for first-time visitors, step-by-step feature introduction, progress indicator, skip option for returning users
+
+    - **Interactive Product Demo**: Hands-on product demonstration, guided tutorials with progress tracking, feature-explaining tooltips, sandbox for risk-free exploration
+
+    - **AI-Powered Chatbot**: Chat interface with typing indicators, natural conversation flows with quick replies, escalation to human support, brand-matching chat UI
+
+    - **Customizable Dashboard Preview**: Interactive dashboard preview, drag-and-drop widget arrangement, theme customization, responsive multi-device preview
+
+    - **Community Showcase Section**: User-generated content gallery, filtering and sorting, user contribution submission, consistent card layout
+
+    - **Interactive Timeline**: Horizontal scrollable timeline, animations for progression, detailed info cards per point, responsive mobile adaptation
+
+    - **Interactive Calculator**: Utility calculator for product/service, real-time calculation with visual feedback, tooltip explanations, shareable results with CTA
+
+    - **Interactive FAQ Accordion**: Expandable FAQ with smooth animations, search functionality, related question suggestions, clear expanded/collapsed indicators
+
+    - **Voice Search Integration**: Voice command support for navigation/FAQs, natural language responses, accessible toggle for voice features
+
+
+    ### §14. Content Presentation Elements
+
+    - **Dynamic Content Carousel**: Responsive carousel with multiple content types, smooth transitions, gesture support for mobile swiping, customizable navigation
+
+    - **Content Tabs with Animations**: Tab system with smooth transitions, animated active tab indicator, responsive mobile adaptation, consistent tab styling
+
+    - **Interactive Comparison Slider**: Before/after image comparison with draggable divider, smooth slider movement, labels for each side, mobile-friendly touch
+
+    - **Expandable Card Grid**: Cards expanding with additional details, smooth transition animations, filtering by category, responsive layout
+
+    - **Content Masonry Layout**: Pinterest-style masonry grid, lazy loading for images, filtering and sorting, infinite scroll or pagination
+
+    - **Scrollable Story Cards**: Horizontal scrollable storytelling cards, progress indicator for scroll position, snap points for key beats, responsive mobile adaptation
+
+    - **Animated Statistics Display**: Animated counters for key metrics, circular/linear progress bars, tooltip explanations, cohesive visual system
+
+
+    ### §15. Advanced UI Components
+
+    - **Custom Form Elements**: Custom styled checkboxes/radios/selects, animated form field focus states, inline validation with helpful errors, accessible alternatives
+
+    - **Animated Icon System**: Cohesive icon set with consistent styling, subtle animations per icon, state changes on interaction, size variations for contexts
+
+    - **Progress Trackers**: Linear/circular progress indicators, animated progression for multi-step, milestone markers with completion states, tooltip explanations
+
+    - **Hover Card Previews**: Preview cards on hover, smooth entrance/exit animations, rich content preview, positioning avoiding viewport edges
+
+    - **Sliding Content Panels**: Panels sliding from screen edges, smooth transitions, close/minimize functionality, responsive behavior
+
+    - **Interactive Maps**: Custom styled maps with brand colors, custom markers with popup info, filtering for location types, responsive map controls
+
+
+    ### §16. Accessibility & Inclusivity Features
+
+    - **High Contrast Mode**: High contrast color scheme alternative, toggle for switching, proper focus indicators, text alternatives for visual elements
+
+    - **Screen Reader Optimizations**: Proper ARIA labels, semantic HTML structure, skip navigation links, proper heading hierarchy
+
+    - **Reduced Motion Options**: Alternative animations for motion sensitivity, respecting prefers-reduced-motion, toggle for animation preferences, static alternatives
+
+    - **Keyboard Navigation**: Visible focus indicators, logical tab order, keyboard shortcuts, tooltip hints for keyboard navigation
+
+    - **Inclusive Design**: Keyboard navigation for all interactive elements, resizable text and flexible layouts, clear focus indicators
+
+
+    ### §17. Technical Implementation Components
+
+    - **Responsive Image System**: Responsive loading with srcset/sizes, lazy loading for below-fold, blur-up loading technique, art-directed images per viewport
+
+    - **Animation Framework**: Consistent timing functions, reusable animation components, scroll-triggered animation system, performance monitoring
+
+    - **Theme System**: CSS variable system for theming, light/dark toggle with system preference detection, theme customization options, smooth theme transitions
+
+    - **Component Documentation**: Component library documentation, style guide with usage examples, interactive component playground, version tracking
+
+
+    ### §18. Additional UI/UX Elements
+
+    - **Loading States & Transitions**: Skeleton loading states, animated transitions between page states, progress indicators, engaging loading animations
+
+    - **Error & Success States**: Visually distinct error/success notifications, animated entrance/exit, helpful error recovery suggestions, accessible color schemes
+
+    - **Empty States**: Engaging empty state illustrations, helpful guidance for first-time users, clear CTA to fill sections, consistent styling
+
+    - **Confirmation Modals**: Modal dialogs with clear actions, animated entrance/exit, keyboard navigation (Escape to close), focus trapping for accessibility
+
+
+    ### §19. Final Review & Optimization
+
+    - **Cross-Browser Compatibility**: Test Chrome/Firefox/Safari/Edge, consistent rendering, fallbacks for unsupported features, graceful degradation
+
+    - **Responsive Design Verification**: Test multiple device sizes, consistent breakpoints, touch interaction validation, large display considerations
+
+    - **Performance Auditing**: Lighthouse audits, Core Web Vitals, caching strategies, optimized asset loading
+
+    - **SEO Optimization**: Semantic HTML with proper headings, schema.org markup, meta descriptions, canonical URLs
+
+    - **Analytics Implementation**: Conversion tracking for all CTAs, event tracking for interactions, heatmap/session recording, A/B testing framework
+
+    - **Advanced SEO**: Structured data for reviews/events/products, voice search optimization, internal linking strategy
+
+
+    ### §20. Specialized UI Components
+
+    - **Product Configurator**: Interactive product customization, real-time visual updates, dynamic pricing calculations, mobile-friendly simplified controls
+
+    - **Testimonial Video Wall**: Grid of video testimonial thumbnails, modal video player, autoplay playlist, brand-matching video controls
+
+    - **Interactive Comparison Table**: Expandable feature comparison, plan difference highlighting, sticky headers for scrollable tables, responsive mobile adaptation
+
+    - **Content Personalization System**: Dynamic content based on behavior, geo-location personalization, preference storage with consent, seamless variations
+
+    - **Developer Documentation Elements**: Code blocks with syntax highlighting, copyable snippets, interactive code examples, consistent documentation typography
+
+
+    ### §21. Advanced Animation Techniques
+
+    - **Subtle Background Animations**: Flowing background animations, performance-optimized canvas/SVG, pause on reduced motion, enhancing without distracting
+
+    - **Scroll-Linked Animations**: Elements animating with scroll position, parallax for depth, scroll-triggered entrances, natural timing with scroll speed
+
+    - **Micro-Interactions**: Subtle UI state change animations, feedback for user actions, hover/focus animations, consistent timing and easing
+
+    - **Page Transitions**: Smooth page transitions, animated initial load, loading states maintaining context, transitions preserving mental model
+
+    - **Animated Illustrations**: SVG illustrations with animated elements, interactions bringing illustrations to life, user-triggered animation sequences, benefit-communicating illustrations
+
+
+    ### §22. Conversion Optimization Elements
+
+    - **Smart CTA Placement**: Strategic CTA placement throughout page, different messaging per context, A/B testing framework, visual hierarchy guiding to conversion
+
+    - **Social Proof Near Conversion**: Testimonials near CTAs, reviews count and average rating, "recently signed up" notifications, trust reducing friction
+
+    - **Form Optimization**: Streamlined forms with minimal fields, inline validation with helpful errors, multi-step for complex sign-ups, progress indicators
+
+    - **Exit Intent Strategies**: Exit intent popups with high-value offers, non-intrusive value-adding design, personalized messaging, easy dismissal and preference saving
+
+    - **Urgency & Scarcity Elements**: Countdown timers, "limited spots remaining" indicators, dynamic pricing by availability, authentic urgency messages
+
+
+    ### §23. Mobile-Specific Enhancements
+
+    - **Touch-Optimized Controls**: Touch-friendly buttons (min 44x44px), swipe gestures for carousels, haptic feedback where supported, finger-sized tap targets
+
+    - **Mobile Navigation Patterns**: Bottom navigation bar, collapsible sections, "back to top" button, persistent primary action access
+
+    - **Orientation Optimization**: Layouts for portrait and landscape, different component arrangements, responsive typography, media working in both orientations
+
+    - **Offline Capabilities**: Offline mode with core functionality, service workers for caching, offline content availability, connectivity status indicators
+
+    - **Mobile Performance**: Mobile-specific image sizes, reduced animations for battery, touch-first patterns, simplified layouts for faster rendering
+
+
+    ### §24. Advanced Visual Effects
+
+    - **Parallax Scrolling**: Multi-layer parallax, performance-optimized CSS parallax, depth cues through differential movement, reduced motion fallbacks
+
+    - **Subtle Background Video**: Autoplay muted background videos, proper loading strategies, static image mobile fallbacks, enhancing without distracting
+
+    - **3D Transforms & Perspective**: 3D card effects with CSS, mouse-position-aware rotation, subtle 3D animation, consistent lighting
+
+    - **CSS Backdrop Effects**: Frosted glass with backdrop-filter, browser fallbacks, depth through layered effects, consistent transparency
+
+    - **Advanced Gradient Techniques**: Complex multi-stop gradients, animated gradients, duotone image effects, cohesive gradient system
+
+
+    ### §25. Content Strategy Elements
+
+    - **Storytelling Components**: Narrative flow through visual progression, sequential content reveal, story-driven illustrations, consistent storytelling elements
+
+    - **Content Hierarchy Optimization**: Clear visual hierarchy with typography, consistent heading structure (H1-H6), visual distinction between content types, scannable content
+
+    - **Persuasive Content Patterns**: Problem-solution narrative, benefit-focused blocks, social proof at decision points, emotional appeals with visuals
+
+    - **Content Personalization**: Dynamic content based on user attributes, industry-specific examples, adaptive messaging by referral source, natural-feeling personalization
+
+    - **Value Proposition Clarity**: Clear concise value proposition, supporting points beneath, visual reinforcement of benefits, pain-point-addressing proposition
+
+
+    ### §26. Interactive Learning Components
+
+    - **Guided Product Tours**: Interactive walkthrough with tooltips, step-by-step guidance, progress tracking, engaging visual cues per step
+
+    - **Interactive Demos**: Live product demo with limited functionality, guided first-time interactions, sample data demonstrating value, clear demo/full distinction
+
+    - **Educational Content Modules**: Expandable educational sections, progressive disclosure of complex concepts, visual aids and diagrams, consistent styling
+
+    - **Interactive Infographics**: Data visualizations with interactive elements, hover/click for details, animated data presentations, clear information hierarchy
+
+
+    ### §27. Brand Experience Elements
+
+    - **Brand Consistency System**: Comprehensive style guide, consistent color usage, typography reflecting personality, cohesive visual language
+
+    - **Brand Story Integration**: "Our Story"/"About Us" narrative, company milestone timeline, team member showcases, values-reinforcing visuals
+
+    - **Brand Personality Expression**: Consistent tone in microcopy, visual elements reflecting character, subtle brand motifs, interactions aligned with brand voice
+
+    - **Visual Brand Differentiation**: Distinctive unique visual elements, consistent brand patterns/motifs, branded illustrations/iconography, memorable visual moments
+
+
+    ### §28. Advanced Technical Implementations
+
+    - **WebGL Backgrounds**: Subtle WebGL background effects, performance monitoring, browser fallbacks, enhancing without overwhelming
+
+    - **CSS-Only Animations**: Complex CSS-only animations, hardware-accelerated transforms, CSS animation sequences, performance-optimized approach
+
+    - **Advanced Scroll Techniques**: Scroll-linked with Intersection Observer, scroll-based nav highlighting, horizontal scroll within vertical, smooth scroll anchors
+
+    - **Canvas-Based Graphics**: Interactive canvas elements, performance-optimized canvas animations, user-manipulable graphics, responsive canvas scaling
+
+    - **Custom Cursor Effects**: Custom cursor designs per context, cursor effects by element interaction, subtle cursor trails, accessible alternatives
+
+
+    ### §29. Modern Design Aesthetic Elements
+
+    - **Minimalist Layout Techniques**: Clean focused layouts with white space, strategic negative space, subtle richness-adding details, visual balance with minimal elements
+
+    - **Color Psychology Implementation**: Strategic color based on psychology, emotion-evoking combinations, accent colors for attention, balanced atmosphere
+
+    - **Typography as Design Element**: Display typography as visual element, varied weights/styles for interest, custom typography treatments, typographic hierarchy
+
+    - **Visual Metaphor Implementation**: Visual metaphors for complex concepts, consistent metaphor usage, supporting visual elements, audience-aligned metaphors
+
+    - **Asymmetrical Balance**: Visually balanced asymmetrical layouts, dynamic element arrangements, natural visual weight distribution, directional attention cues
+
+
+    ### §30. Social Integration Elements
+
+    - **Social Sharing Optimizations**: Optimized share cards with metadata, platform-specific share content, share buttons with counters, shareable visual components
+
+    - **User-Generated Content Display**: UGC galleries, filtering and curation controls, submission functionality, consistent varied-source styling
+
+    - **Social Proof Integration**: Social validation throughout journey, real-time social stats, recognizable-source testimonials, objection-targeting social proof
+
+    - **Community Showcase**: Community highlights and success stories, user spotlights, milestone celebrations, individual-community visual connection
+
+
+    ### §31. Industry-Specific Elements
+
+    - **SaaS Components**: Dashboard previews, feature comparison matrices, ROI calculators, integration showcase with partner logos
+
+    - **E-commerce Elements**: Product carousels, size/variation selectors, mini-cart previews, cross-selling/upselling components
+
+    - **Service Business Components**: Service process explanations, appointment/booking interfaces, credibility indicators, before/after showcases
+
+    - **B2B Elements**: Detailed case studies with metrics, ROI-focused content, enterprise security/compliance indicators, sales enablement downloads
+
+    - **Mobile App Landing Elements**: App store badges/links, animated app screenshots/videos, device mockups, feature highlight animations
+
+
+    ### §32. Advanced Pattern Implementations
+
+    - **Multi-Step User Flows**: Guided multi-step conversion, progress indicators with clear steps, save progress and return, smooth step transitions
+
+    - **Progressive Disclosure**: Interfaces revealing details progressively, expandable sections for complex info, "learn more" maintaining context, visual cues for additional content
+
+    - **Content Filtering Systems**: Intuitive filtering UI, real-time filtering without reloads, combined filters with visual feedback, mobile-friendly filter interfaces
+
+    - **Guided Tours & Onboarding**: Step-by-step product introduction, dismissible guidance, completion progress tracking, quick core-value highlighting
+
+    - **Cross-Selling & Related Items**: "You might also like" recommendations, contextual complementary offerings, bundle suggestions, visually distinct related styling
+
+
+    ### §33. Final Details & Refinements
+
+    - **Microinteraction Polish**: Subtle feedback animations for all interactive elements, consistent animation timing, audio feedback options, brand-reinforcing microinteractions
+
+    - **Content Tone Consistency**: Voice and tone guidelines, consistent messaging across sections, personality-driven microcopy, brand-value-aligned text
+
+    - **Visual Consistency Audit**: Comprehensive visual style enforcement, consistent spacing/alignment, coherent visual hierarchy, visually unified experience
+
+    - **Accessibility Final Pass**: Complete keyboard navigation, proper ARIA labels for all interactive elements, color contrast verification, focus indicators
+
+    - **Browser & Device Testing**: Test plan for all major browsers/devices, cross-browser fixes, device-specific optimizations, unsupported feature fallbacks
+
     '
   groups:
   - read
