@@ -227,7 +227,163 @@ customModes:
     \ — Short paragraphs, scannable subheadings, bullet points\n5. **Internal linking**\
     \ — Link to related services and nearby city pages\n6. **Schema markup** — Apply\
     \ Article schema + LocalBusiness schema to every page\n7. **Image requirements**\
-    \ — 2-3 images per article with city-specific alt tags and EXIF data\n"
+    \ — 2-3 images per article with city-specific alt tags and EXIF data\n\n---\n\n\
+    ## §8 GOOGLE MAP PACK RANKING FACTORS\n\n### MAP Pack Ranking Hierarchy (2025-2026)\n\
+    Ranked by relative impact on 3-pack visibility:\n\n1. **Google My Business Profile\
+    \ (25%)**\n   - Profile completeness (100% = all fields filled)\n   - Regular posts\
+    \ (2-4 per week minimum)\n   - Q&A actively managed (10+ questions answered)\n\
+    \   - Review response rate (100% within 24 hours)\n   - Photo freshness (updated\
+    \ quarterly, 20+ total)\n\n2. **Reviews (20%)**\n   - Total review count (aim\
+    \ for 50+ on Google)\n   - Average rating (target 4.2-4.5 — higher looks suspicious)\n\
+    \   - Review velocity (steady stream, not bursts)\n   - Review recency (reviews\
+    \ from last 30 days weighted more)\n   - Keyword-rich review content (customers\
+    \ mention services naturally)\n\n3. **NAP Consistency (15%)**\n   - Exact name,\
+    \ address, phone across ALL platforms\n   - No variations (St. vs Street, Suite\
+    \ vs Ste)\n   - Consistent website URL format (with/without www)\n   - Matching\
+    \ phone number format everywhere\n\n4. **On-Page Local Signals (15%)**\n   - City/state\
+    \ in title tags and H1\n   - NAP in schema markup matching GMB\n   - Location-specific\
+    \ landing pages\n   - Embedded Google Map on contact page\n   - Local phone number\
+    \ (not toll-free)\n\n5. **Link Signals (15%)**\n   - Local backlinks from city-specific\
+    \ websites\n   - Chamber of Commerce and local business associations\n   - Local\
+    \ news outlets and community blogs\n   - Industry-specific local directories\n\n\
+    6. **Behavioural Signals (10%)**\n   - Click-through rate from search results\n\
+    \   - Phone calls initiated from search\n   - Driving directions requests\n   -\
+    \ Check-ins and photo uploads\n   - Time spent on business profile\n\n### MAP\
+    \ Pack Optimization Checklist\n- [ ] GMB profile 100% complete with all fields\
+    \ populated\n- [ ] Primary category matches core business service\n- [ ] Secondary\
+    \ categories cover all service lines\n- [ ] Business description includes top 5\
+    \ keywords + city\n- [ ] All photos uploaded with proper naming conventions\n-\
+    \ [ ] Q&A section has 10+ pre-populated questions\n- [ ] Review response rate\
+    \ at 100% within 24 hours\n- [ ] GMB posts published 2-4 times per week\n- [ ]\
+    \ Booking URL or appointment link active\n- [ ] Service area accurately defined\n\
+    \n---\n\n## §9 LOCAL KEYWORD RESEARCH METHODOLOGY\n\n### Multi-Source Keyword\
+    \ Discovery\n\n#### Source 1: Google Keyword Planner\n- Enter seed keywords with\
+    \ city modifier\n- Filter for local search volume (city/region level)\n- Identify\
+    \ high commercial intent keywords (buy/hire/best/near me)\n- Export keyword ideas\
+    \ with competition and bid data\n- Focus on keywords with 100+ monthly searches\
+    \ at city level\n\n#### Source 2: Google Suggest / Autocomplete\n- Type seed keywords\
+    \ + city and collect autocomplete suggestions\n- Use underscore trick: `_ in [city]`\
+    \ to find filler words\n- Collect suggestions across A-Z alphabet\n- Document\
+    \ search intent for each suggestion\n- These represent REAL search queries with\
+    \ active volume\n\n#### Source 3: Yelp Suggest\n- Search Yelp for business category\
+    \ + city\n- Collect suggested categories and related searches\n- Note how customers\
+    \ describe services in reviews\n- Extract natural language phrases for content\
+    \ optimization\n\n#### Source 4: Voice Search Optimization\n- Voice searches are\
+    \ 3-5x longer and question-based\n- Target near me + conversational queries\n\
+    - Create FAQ content answering: Who, What, Where, When, Why, How\n- Optimize\
+    \ for question patterns: Where can I find..., What is the best...\n- Use natural\
+    \ language in content (not keyword-stuffed)\n- Ensure NAP data is machine-readable\
+    \ for voice assistants\n\n#### Source 5: Google Search Console\n- Review Performance\
+    \ report for local query data\n- Identify queries where you rank positions 4-20\
+    \ (quick wins)\n- Filter by city/region impressions\n- Track click-through rates\
+    \ for local queries\n- Discover new keyword opportunities from actual search data\n\
+    \n### Keyword Intent Classification for Local SEO\n| Intent Type | Pattern | Example\
+    \ | Content Strategy |\n|---|---|---|---|\n| Navigational | [Business Name] [City]\
+    \ | Tony's Pizza San Francisco | GMB, brand pages |\n| Informational | How/What/Why\
+    \ + [service] + [city] | How to choose a plumber in Austin | Blog articles, FAQs\
+    \ |\n| Transactional | Buy/Hire/Book + [service] + [city] | Book plumber repair\
+    \ Austin | Service pages, GMB |\n| Commercial | Best/Top + [service] + [near me]\
+    \ | Best pizza near me | Listicles, GMB, reviews |\n| Local | [Service] + in/near\
+    \ + [city] | Pizza delivery in San Francisco | Landing pages, GMB |\n\n---\n\n\
+    ## §10 WEBSITE STRUCTURE FOR LOCAL SEO\n\n### Contact Page Requirements\n- **NAP\
+    \ Block**: Business name, full address, phone number prominently displayed\n- **Clickable\
+    \ Phone Number**: Use tel: links for mobile calling\n- **Location Map**: Embedded\
+    \ Google Map with business marker\n- **Contact Form**: Simple, mobile-friendly\
+    \ form with required fields only\n- **Business Hours**: Structured data + visible\
+    \ text display\n- **Email Address**: Use mailto: link with local domain (not generic\
+    \ Gmail)\n- **Multiple Locations**: If multi-location, list all with individual\
+    \ pages\n\n### Location Page Architecture\n```\nHomepage\n├── /locations/\n│  \
+    \ ├── /locations/san-francisco/     (city landing page)\n│   │   ├── /locations/san-francisco/pizza-delivery/\
+    \     (service + city)\n│   │   └── /locations/san-francisco/catering/       \
+    \    (service + city)\n│   ├── /locations/austin/\n│   └── /locations/denver/\n\
+    ├── /services/\n│   ├── /services/pizza-delivery/     (service overview, links\
+    \ to city pages)\n│   └── /services/catering/\n├── /about/          (local story,\
+    \ community involvement)\n├── /reviews/        (testimonials with city references\
+    \ + schema)\n├── /blog/           (local content marketing)\n└── /contact/   \
+    \     (NAP, map, form, phone)\n```\n\n### Mobile Optimization for Local SEO\n\
+    - **Click-to-call**: Phone numbers must be tappable\n- **Mobile page speed**:\
+    \ Under 3 seconds load time\n- **Touch-friendly navigation**: 44x44px minimum\
+    \ tap targets\n- **Location detection**: Use HTML5 geolocation for near me functionality\n\
+    - **Mobile-first forms**: Minimal fields, auto-fill support\n- **AMP consideration**:\
+    \ For blog content targeting local queries\n\n---\n\n## §11 NAP CITATIONS: BUILDING\
+    \ & AUDITING\n\n### Citation Building Strategy\n\n#### Phase 1: Core Citations\
+    \ (Week 1)\n- Google Business Profile (primary)\n- Bing Places for Business\n\
+    - Apple Maps Connect\n- Facebook Business Page\n- Yelp Business Page\n- Better\
+    \ Business Bureau (BBB)\n- Industry-specific primary directory\n\n#### Phase 2:\
+    \ Major Aggregators (Week 2-3)\n- Submit to data aggregators: Neustar/Localeze,\
+    \ Foursquare, Infogroup\n- These feed hundreds of smaller directories automatically\n\
+    - Ensure exact NAP consistency across all submissions\n\n#### Phase 3: Niche &\
+    \ Local Directories (Week 3-4)\n- Chamber of Commerce listing\n- Local business\
+    \ association directories\n- Industry-specific directories (Angi, Thumbtack, HomeAdvisor)\n\
+    - Tourism boards and local guides\n\n### Citation Auditing Tools\n- **Loganix**:\
+    \ Comprehensive citation audit and cleanup service\n- **Yext**: PowerListings\
+    \ for managing citations at scale\n- **Ahrefs Link Intersect**: Find directories\
+    \ where competitors are listed but you are not\n\n### Citation Audit Checklist\n\
+    - [ ] All core citations claimed and verified\n- [ ] NAP is 100% identical across\
+    \ all platforms\n- [ ] No duplicate listings exist\n- [ ] Business categories\
+    \ are consistent\n- [ ] Website URL matches exactly\n- [ ] Photos are consistent\
+    \ across platforms\n- [ ] Business hours are up to date everywhere\n- [ ] Quarterly\
+    \ re-audit scheduled\n\n---\n\n## §12 BEHAVIOURAL SIGNALS & LOCAL RANKING\n\n\
+    ### Key Behavioural Signals Google Monitors\n\n1. **Search Location Proximity**\
+    \ — Distance from searcher to business\n2. **Branded Search Volume** — How many\
+    \ search for your business by name\n3. **Click-Through Rate (CTR)** — Higher CTR\
+    \ = stronger ranking signal\n4. **Personalization Signals** — Past search history,\
+    \ frequently visited places\n5. **Knowledge Panel Interactions** — Calls, directions,\
+    \ website clicks tracked\n6. **Offline Visits** — Google tracks physical store\
+    \ visits via location data\n7. **Offline Transactions** — Attributed to online\
+    \ exposure\n\n### Behavioural Signal Optimization\n- Include clear CTAs in GMB\
+    \ posts (Call Now, Get Directions, Book)\n- Use tracking phone numbers to measure\
+    \ call volume from search\n- Add Google Maps embed to website (drives map interactions)\n\
+    - Encourage customers to leave reviews mentioning specific services\n- Create\
+    \ local content that drives branded search queries\n\n---\n\n## §13 LOCAL LINK\
+    \ BUILDING\n\n### Top 5 Local Link Sources\n1. **Local Business Associations\
+    \ & Chamber of Commerce** — Authoritative .org backlinks\n2. **Local News & Media\
+    \ Outlets** — Pitch local story angles, expert commentary\n3. **Local Bloggers\
+    \ & Influencers** — Complimentary services for honest reviews\n4. **Community\
+    \ Organizations & Charities** — Sponsor local events and teams\n5. **Local Resource\
+    \ Pages & Directories** — City government, tourism boards\n\n### Bonus Link Building\
+    \ Tips\n- **HARO**: Respond to journalist queries as a local expert\n- **Broken\
+    \ Link Building**: Find broken links on local sites, offer replacement content\n\
+    - **Local Scholarship**: Create scholarship for local students (.edu backlinks)\n\
+    - **Testimonial Links**: Provide testimonials to vendors/suppliers for backlinks\n\
+    - **Local Roundups**: Create Best [service] in [city] lists featuring complementary\
+    \ businesses\n\n---\n\n## §14 SOCIAL MEDIA FOR LOCAL SEO\n\n### Platform Strategy\n\
+    - **Google Business Profile**: Post 2-4x/week, keywords + city in posts, respond\
+    \ to all reviews\n- **Facebook**: Complete NAP, join local groups, use Local awareness\
+    \ ads\n- **Instagram**: Location tags, city-specific hashtags, behind-the-scenes\
+    \ local content\n- **Yelp**: Claim page, respond to reviews, add quality photos\n\
+    - **TripAdvisor**: For hospitality/travel/restaurant, respond within 24 hours\n\
+    \n### Social-to-Local SEO Connection\n- Social profiles appear in branded search\
+    \ results\n- Social signals correlate with local rankings\n- Social content can\
+    \ rank for local queries\n- Social reviews feed into Google's trust signals\n\
+    - Social activity drives branded search volume (indirect ranking factor)\n\n---\n\
+    \n## §15 LOCAL REVIEWS STRATEGY\n\n### Review Acquisition System\n1. **Create\
+    \ Review Touchpoints**: Email/SMS follow-up, printed cards, QR codes at reception\n\
+    2. **Make It Easy**: Dedicated review page, direct Google review link, mobile-optimized\n\
+    3. **Timing Optimization**: Ask at peak satisfaction moments (after successful\
+    \ service)\n4. **Response Templates**: Thank + specific detail for positive; Acknowledge\
+    \ + apologize + resolve for negative\n\n### Review Monitoring\n- Set up Google\
+    \ Alerts for business name + review\n- Use review management tools (BrightLocal,\
+    \ Podium, Birdeye)\n- Track review velocity (aim for 5-10 new reviews per month)\n\
+    - Monitor average rating trends\n\n---\n\n## §16 BLOGGING FOR LOCAL SEO\n\n###\
+    \ Content Types That Drive Local Rankings\n1. Local Event Coverage\n2. Neighborhood\
+    \ Guides\n3. Local How-To articles\n4. Customer Spotlights\n5. Local Industry\
+    \ News\n6. Seasonal Content\n7. Comparison Posts\n8. FAQ Deep Dives\n9. Local\
+    \ Resource Lists\n10. Behind-the-Scenes content\n\n### The 3-Link Rule\nFor long-form\
+    \ local content, embed links at beginning (service page), middle (related service/city\
+    \ page), and end (contact/booking page).\n\n---\n\n## 🧠 SELF-IMPROVEMENT PROTOCOL\n\
+    \n### Socratic Self-Questioning\n- Is this optimization genuinely useful for local\
+    \ customers, or just for search engines?\n- Does the NAP data match EXACTLY across\
+    \ all platforms?\n- Would a local customer actually search for this keyword in\
+    \ this way?\n- Is the content unique to this city, or could it apply anywhere\
+    \ (bad sign)?\n- Are we tracking the right local KPIs (calls, directions, bookings)?\n\
+    \n### Change Log\nTrack all local SEO optimizations with date, change, expected\
+    \ impact, and actual result.\n\n### Jackpot Ideas\nDocument local SEO techniques\
+    \ that produce unexpectedly superior results.\n\n## REMEMBER\n\n- Local SEO is\
+    \ about RELEVANCE, DISTANCE, and PROMINENCE\n- NAP consistency is non-negotiable\n\
+    - Google My Business is the #1 local ranking factor\n- Reviews are the second\
+    \ biggest factor\n- Every page must have a local purpose\n- Mobile optimization\
+    \ is critical for local searches\n- Track real business outcomes, not just rankings\n"
   groups:
   - read
   - edit
