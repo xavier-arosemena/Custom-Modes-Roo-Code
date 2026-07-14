@@ -1,0 +1,67 @@
+{
+  "//comment": "Curation manifest for Roo+ custom modes integration",
+  "//description": "Controls which agents from the custom-modes submodule are included in .roomodes",
+
+  "includeCategories": {
+    "business-product": "all",
+    "legal-compliance": "all",
+    "sota-personas": "all",
+    "ai-ml": "all",
+    "security-quality": "all",
+    "infrastructure-devops": "all"
+  },
+
+  "includeSlugs": [
+    "fullstack-developer",
+    "backend-developer",
+    "frontend-developer",
+    "architect",
+    "architect-reviewer",
+    "api-designer",
+    "microservices-architect",
+    "graphql-architect",
+    "electron-pro",
+    "deep-research-protocol",
+    "python-developer",
+    "typescript-pro",
+    "rust-developer",
+    "golang-developer",
+    "java-developer",
+    "csharp-developer",
+    "kotlin-specialist",
+    "swift-expert",
+    "angular-architect",
+    "vue-expert",
+    "react-specialist",
+    "nextjs-developer",
+    "cpp-pro",
+    "dotnet-core-expert",
+    "flutter-expert",
+    "rails-expert",
+    "spring-boot-engineer",
+    "sql-pro",
+    "data-engineer",
+    "data-analyst",
+    "workflow-orchestrator",
+    "project-coordinator",
+    "search-specialist",
+    "integration-manager",
+    "process-optimizer",
+    "system-monitor",
+    "multi-agent-coordinator",
+    "task-distributor",
+    "fintech-engineer",
+    "blockchain-developer",
+    "game-developer",
+    "iot-engineer",
+    "seo-strategist",
+    "payment-integration",
+    "ai-art-director"
+  ],
+
+  "excludeSlugs": [
+    "legal-advisor",
+    "legal-advisor-canada",
+    "legal-advisor-usa"
+  ]
+}
