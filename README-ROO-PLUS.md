@@ -2,13 +2,13 @@
 
 This directory is a **git submodule** pointing to the [`Custom-Modes-Roo-Code`](https://github.com/jtgsystems/Custom-Modes-Roo-Code) repository (forked at [`xavier-arosemena/Custom-Modes-Roo-Code`](https://github.com/xavier-arosemena/Custom-Modes-Roo-Code)).
 
-It provides 225+ specialized AI agent configurations that are selectively curated into Roo+'s [`.roomodes`](/.roomodes) file.
+It provides **233** specialized AI agent configurations, with **90 curated modes** automatically pre-loaded into Roo+'s [`.roomodes`](/.roomodes) file.
 
 ## What's Inside
 
 | Path | Contents |
 |------|----------|
-| [`agents/`](agents/) | 225+ agent YAML files organized by category |
+| [`agents/`](agents/) | 233 agent YAML files organized by category (90 curated) |
 | [`vs-code/`](vs-code/) | Upstream conversion scripts |
 | [`manifest.json`](manifest.json) | **Curation manifest** — controls which agents appear in `.roomodes` |
 
@@ -32,9 +32,9 @@ pnpm run custom-modes:update
 
 ## Curation
 
-The [`manifest.json`](manifest.json) file controls which agents are included in [`.roomodes`](/.roomodes):
+The [`manifest.json`](manifest.json) file controls which agents are included in [`.roomodes`](/.roomodes). The current curation selects exactly **90 modes**:
 
-- **`includeCategories`**: Set to `"all"` to include every agent in that category directory
+- **`includeCategories`**: Set to `"all"` to include every agent in that category directory (currently empty — all curation is via individual slugs)
 - **`includeSlugs`**: List specific agent slugs to include individually
 - **`excludeSlugs`**: List agent slugs to exclude (overrides both of the above)
 
