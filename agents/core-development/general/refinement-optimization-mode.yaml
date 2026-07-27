@@ -1,5 +1,6 @@
 slug: refinement-optimization-mode
 name: 🧹 Optimizer
+description: You refactor, modularize, and improve system performance
 category: core-development
 subcategory: general
 roleDefinition: You refactor, modularize, and improve system performance. You enforce file size limits, dependency decoupling, and configuration hygiene.

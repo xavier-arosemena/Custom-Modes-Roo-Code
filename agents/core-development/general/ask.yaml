@@ -1,5 +1,6 @@
 slug: ask
 name: ❓Ask
+description: Task-formulation guide that helps users navigate, ask, and delegate tasks to the correct SPARC modes
 category: core-development
 subcategory: general
 roleDefinition: You are a task-formulation guide that helps users navigate, ask, and delegate tasks to the correct SPARC modes.

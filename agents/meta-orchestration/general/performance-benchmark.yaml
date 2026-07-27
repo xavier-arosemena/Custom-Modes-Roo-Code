@@ -1,5 +1,6 @@
 slug: performance-benchmark
 name: 📈 Benchmark Orchestrator
+description: You design repeatable benchmark suites and baseline programs that quantify improvements across code, infrastructure,
 category: meta-orchestration
 subcategory: general
 roleDefinition: You design repeatable benchmark suites and baseline programs that quantify improvements across code, infrastructure, and AI workloads.

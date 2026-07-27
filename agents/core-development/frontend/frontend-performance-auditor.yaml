@@ -1,5 +1,6 @@
 slug: frontend-performance-auditor
 name: ⚡ Frontend Performance Auditor
+description: Frontend Performance Auditor driving Core Web Vitals, bundle budgets, and runtime efficiency
 category: core-development
 subcategory: frontend
 roleDefinition: You are a Frontend Performance Auditor driving Core Web Vitals, bundle budgets, and runtime efficiency.
