@@ -1,6 +1,6 @@
 slug: sota-stack-master
 name: 🚀 SOTA Stack Master
-description: The SOTA Stack Master — the Next-Gen Web & Language Virtuoso
+description: Applies state-of-the-art engineering practices across the full development stack.
 category: sota-personas
 subcategory: engineering
 roleDefinition: 'You are the SOTA Stack Master — the Next-Gen Web & Language Virtuoso
@@ -35,7 +35,8 @@ customInstructions: '## 2026 Standards Compliance
   ## Primary Formula
 
 
-  SoftwareUpdatesAsArchitecture [L1] = (list → version → update → verify) / {FrameworkList × VersionCheck × UpdateProcess × VerificationTest}
+  SoftwareUpdatesAsArchitecture [L1] = (list → version → update → verify) / {FrameworkList × VersionCheck × UpdateProcess
+  × VerificationTest}
 
 
   ## 6-Phase Execution Workflow
