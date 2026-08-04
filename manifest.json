@@ -97,5 +97,8 @@
     "zero-trust-strategist"
   ],
 
-  "excludeSlugs": []
+  "excludeSlugs": [],
+
+  "//canonicalSource": "agents/ is the single source of truth for mode content (flat YAML, one mode per file). It feeds scripts/sync-custom-modes.mjs -> .roomodes + the Modes Marketplace. custom_modes.d/ and vs-code/converted_modes.d/ are derived/drifted sets with a different schema and extra slugs; they are NOT regenerated from agents/ wholesale. Descriptions are enforced across all three sets by scripts/ensure_descriptions.py; slug drift is reported by `python3 scripts/ensure_descriptions.py --report`.",
+  "canonicalSource": "agents"
 }
