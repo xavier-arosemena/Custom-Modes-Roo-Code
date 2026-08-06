@@ -10,7 +10,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/Version-2026.1-blue)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
-[![Agents](https://img.shields.io/badge/Agents-225-green)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
+[![Agents](https://img.shields.io/badge/Agents-290-green)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
 [![Maintained](https://img.shields.io/badge/Maintained-Yes-brightgreen)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
 [![Security](https://img.shields.io/badge/Security-2026%20Standards-red)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
 
@@ -20,24 +20,57 @@
 
 > **Professional AI Agent Configuration Library for Roo Code — 2026 Edition**
 >
-> A comprehensive collection of 225 specialized AI agents designed for modern software development, following 2026 security-first principles and best practices. Includes 11 SOTA reasoning personas for advanced cognitive workflows.
+> A comprehensive collection of 290 specialized AI modes designed for modern software development, following 2026 security-first principles and best practices.
+
+## 📦 Roo+ Canonical Model
+
+This submodule is consumed by **Roo+** as its single source of custom modes.
+
+**One canonical catalog:** all modes live in [`custom_modes.d/`](custom_modes.d/), organized as `<category>/<slug>.yaml` — **290 modes** total. Each file wraps a `customModes:` array.
+
+**Two user-facing lists:**
+
+| List | Artifact (parent repo) | Contents |
+|------|------------------------|----------|
+| **Preloaded** | `.roomodes` / `src/assets/marketplace/pre-installed-modes.yml` | **89 curated modes**, selected via `custom-modes/manifest.json` |
+| **Marketplace** | `src/assets/marketplace/modes.yml` | **301 items** — the full 290-mode catalog + **11 preserved originals** |
+
+**Built-in slug exclusion:** the Roo+ core modes `architect`, `code`, `ask`, `debug`, and `orchestrator` are excluded from every list — they are provided by the extension core and are never shipped from this catalog.
+
+**Legacy artifacts removed:** the old `agents/` catalog, `vs-code/` conversion tooling, the monolithic `custom_modes.yaml`, the split `.roomodes.00–10` files, and `passing_slugs.txt` have been removed. [`custom_modes.d/`](custom_modes.d/) is the single source of truth.
+
+### Adding a Mode
+
+To add or change a mode:
+
+1. Edit (or create) the mode file at `custom_modes.d/<category>/<slug>.yaml`, keeping the `customModes:` wrapper shape.
+2. From the Roo+ repo root, regenerate the user-facing artifacts:
+   ```bash
+   node scripts/sync-custom-modes.mjs    # .roomodes, pre-installed-modes.yml, modes.yml
+   node scripts/generate-catalog.mjs     # custom-modes/AGENT_CATALOG.md
+   ```
+3. To pre-load the new mode, add its `slug` to `includeSlugs` in `custom-modes/manifest.json` before running the sync.
+
+See [AGENT_CATALOG.md](AGENT_CATALOG.md) for the full per-mode listing (slug, name, category, description, pre-load status).
 
 ## 🚀 Quick Start
+
+For Roo+ consumers the modes are already wired in — see the **Roo+ Canonical Model** section above.
+
+To use this catalog directly with Roo Code:
 
 ```bash
 # Clone the repository
 git clone https://github.com/jtgsystems/Custom-Modes-Roo-Code.git
+cd Custom-Modes-Roo-Code
 
-# Navigate to agent categories
-cd Custom-Modes-Roo-Code/agents
-
-# Convert YAML agents to VS Code format
-cd vs-code/
-python3 convert_modes.py
+# Validate a mode file (optional)
+python3 scripts/validate_custom_modes.py custom_modes.d/<category>/<slug>.yaml
 ```
 
 ## 📚 Table of Contents
 
+- [Roo+ Canonical Model](#roo-canonical-model)
 - [Overview](#overview)
 - [Agent Categories](#agent-categories)
 - [SOTA 2026 Personas](#sota-2026-personas)
@@ -60,7 +93,7 @@ This repository contains a meticulously curated collection of AI agent configura
 
 ### Key Features
 
-- ✅ **225 Specialized Agents** across 10 categories
+- ✅ **290 Specialized Modes** across category directories
 - ✅ **11 SOTA 2026 Reasoning Personas** for advanced cognitive workflows
 - ✅ **YAML-based Configuration** for easy customization
 - ✅ **2026 Security Standards** compliance (OWASP, Zero-Trust)
@@ -217,7 +250,7 @@ Advanced cognitive personas implementing cutting-edge reasoning patterns from th
 | 🧠 Cognitive Multi-Thinker | L2 | Parallel Thought Stream + Six Hats |
 | 🕸️ Agentic Swarm Conductor | L2-L3 | Hive-Mind Orchestrator |
 
-See [`agents/sota-personas/README.md`](agents/sota-personas/README.md) for the inter-persona handoff matrix and swarm usage guide.
+See [AGENT_CATALOG.md](AGENT_CATALOG.md) for the full per-mode listing, including the SOTA reasoning personas.
 
 ## 📦 Installation
 
@@ -228,29 +261,24 @@ See [`agents/sota-personas/README.md`](agents/sota-personas/README.md) for the i
 - **Node.js 22+** (recommended)
 - **Python 3.13+** (for AI/ML agents and conversion scripts)
 
-### Method 1: Full Installation
+### Method 1: Full Installation (Roo+)
+
+In Roo+, modes are installed automatically: [`custom_modes.d/`](custom_modes.d/) is the canonical catalog, and the parent repo's sync regenerates `.roomodes`, `pre-installed-modes.yml`, and `modes.yml`. Run from the Roo+ repo root:
 
 ```bash
-# Clone the complete repository
-git clone https://github.com/jtgsystems/Custom-Modes-Roo-Code.git
-cd Custom-Modes-Roo-Code
-
-# Convert YAML agents to VS Code format
-cd vs-code/
-python3 convert_modes.py
-
-# Copy converted modes to Roo Code settings
-cp -r converted_modes/.roo/ ~/.config/Antigravity/User/globalStorage/rooveterinaryinc.roo-cline/settings/.roo/
+node scripts/sync-custom-modes.mjs
 ```
 
 ### Method 2: Selective Installation
 
-```bash
-# Install specific category
-cp agents/core-development ~/.roo-code/agents/ -r
+Copy a specific mode file (or a whole category directory) from the canonical catalog into your Roo Code global storage:
 
-# Install SOTA personas only
-cp agents/sota-personas ~/.roo-code/agents/ -r
+```bash
+# Install a single mode
+cp custom_modes.d/<category>/<slug>.yaml ~/.config/Antigravity/User/globalStorage/rooveterinaryinc.roo-cline/settings/.roo/
+
+# Install a whole category
+cp -r custom_modes.d/<category> ~/.config/Antigravity/User/globalStorage/rooveterinaryinc.roo-cline/settings/.roo/
 ```
 
 ### Method 3: Direct YAML Usage
@@ -293,75 +321,31 @@ lastUpdated: '2026-05-12'          # Last update date
 ### Directory Organization
 
 ```
-agents/
-├── ai-ml/                    # AI & Machine Learning
-│   ├── computer-vision/
-│   ├── data-science/
-│   ├── general/
-│   ├── llm/
-│   ├── mlops/
-│   └── nlp/
-├── business-product/         # Business & Product
-│   ├── business-analysis/
-│   ├── marketing/
-│   ├── product-analytics/
-│   ├── product-management/
-│   ├── sales/
-│   └── general/
-├── core-development/         # Core Development
-│   ├── architecture/
-│   ├── backend/
-│   ├── frontend/
-│   ├── fullstack/
-│   └── general/
-├── infrastructure-devops/    # Infrastructure & DevOps
-│   ├── cloud/
-│   ├── general/
-│   ├── kubernetes/
-│   └── networking/
-├── language-specialists/     # Language Specialists
-│   ├── csharp/
-│   ├── golang/
-│   ├── java/
-│   ├── javascript/
-│   ├── python/
-│   ├── rust/
-│   └── general/
-├── legal-compliance/         # Legal & Compliance
-│   ├── compliance/
-│   ├── corporate/
-│   ├── criminal/
-│   ├── employment/
-│   ├── ip/
-│   └── litigation/
-├── meta-orchestration/       # Meta-Orchestration
-│   └── general/
-├── security-quality/         # Security & Quality
-│   ├── general/
-│   ├── security-audit/
-│   └── testing/
-├── sota-personas/            # SOTA 2026 Personas
-│   ├── cognitive/
-│   ├── engineering/
-│   ├── quality/
-│   ├── reasoning/
-│   └── README.md
-└── specialized-domains/      # Specialized Domains
-    ├── blockchain/
-    ├── fintech/
-    ├── gaming/
-    ├── iot/
-    ├── seo/
-    └── general/
+custom_modes.d/               # Canonical catalog (290 modes)
+├── <category>/               # One directory per category
+│   ├── <slug>.yaml           # One mode per file (customModes: wrapper)
+│   └── ...                   # Multiple modes per category
+├── ai/                       # AI & Machine Learning modes
+├── backend/                  # Backend development modes
+├── docs/                     # Documentation modes
+├── frontend/                 # Frontend development modes
+├── i18n/                     # Localization modes
+├── observability/            # Observability modes
+├── react/                    # React modes
+├── research/                 # Research modes
+├── security/                 # Security modes
+├── seo/                      # SEO modes
+└── ...                       # ~238 categories total
 ```
 
 ## 🛠️ Scripts
 
 | Script | Purpose |
 |---|---|
-| `scripts/update_to_2026.py` | Bulk update agent YAML files to 2026 standards |
-| `scripts/validate_custom_modes.py` | Validate YAML files against schema |
-| `vs-code/convert_modes.py` | Convert YAML agents to VS Code/Roo Code format |
+| `scripts/validate_custom_modes.py` | Validate `custom_modes.d/` mode files against the schema |
+| `scripts/verify_modes.py` | Verify every mode in the canonical catalog |
+| `scripts/sync-custom-modes.mjs` (parent repo) | Regenerate `.roomodes`, `pre-installed-modes.yml`, `modes.yml` |
+| `scripts/generate-catalog.mjs` (parent repo) | Regenerate `AGENT_CATALOG.md` |
 
 ## 🔐 Security
 
@@ -395,20 +379,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## 📊 Statistics
 
-| Category | Agents | Primary Use Case |
-|----------|--------|------------------|
-| 🧠 AI & ML | 14 | Machine learning and AI development |
-| 💼 Business & Product | 18 | Product strategy and business analysis |
-| 💻 Core Development | 58 | Application development and architecture |
-| 🏗️ Infrastructure & DevOps | 25 | Cloud infrastructure and deployment |
-| 💬 Language Specialists | 23 | Programming language expertise |
-| ⚖️ Legal & Compliance | 16 | Regulatory and legal compliance |
-| 🎛️ Meta-Orchestration | 37 | Workflow and system coordination |
-| 🔐 Security & Quality | 25 | Security and quality assurance |
-| 🎯 Specialized Domains | 16 | Industry-specific applications |
-| 🧠 SOTA Personas | 11 | Advanced reasoning and cognitive workflows |
-
-**Total: 225 Specialized Agents**
+The catalog contains **290 modes** across **~238 category directories**. For the current per-mode breakdown (slug, name, category, description, pre-load status), see [AGENT_CATALOG.md](AGENT_CATALOG.md).
 
 ## 🔗 Related Resources
 

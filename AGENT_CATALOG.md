@@ -1,8 +1,10 @@
 # Roo+ Agent Catalog
 
-Total: **290 modes** — 89 pre-loaded in .roomodes, 201 available for import
+Total: **290 modes** — **89 pre-loaded** into [`.roomodes`](../.roomodes) and `pre-installed-modes.yml`, **201 additional modes** available for import from the Modes Marketplace.
 
-To add a mode to your pre-loaded set, see the [Adding More Agents](../README.md#adding-more-agents-the-remaining-86) section in the README.
+> **Two user-facing lists.** The **Preloaded** list (curated via `custom-modes/manifest.json`) ships in `.roomodes` and `src/assets/marketplace/pre-installed-modes.yml`. The **Marketplace** (`src/assets/marketplace/modes.yml`) contains **301 items** — the full 290-mode catalog plus 11 preserved originals. Built-in slugs (`architect`, `code`, `ask`, `debug`, `orchestrator`) are excluded from all lists.
+
+To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-mode) in the README.
 
 ## All Modes
 

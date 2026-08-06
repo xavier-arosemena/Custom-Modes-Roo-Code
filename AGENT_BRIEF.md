@@ -1,7 +1,7 @@
 # Agent Brief for gemma4:e2b — Sequential Mode Improvement
 
 ## Goal
-Improve the quality of 305 Roo Code custom modes stored in `custom_modes.d/*/`.
+Improve the quality of 290 Roo Code custom modes stored in `custom_modes.d/*/`.
 Process **one mode at a time**, sequentially. Do **not** trim or remove content.
 
 ## Why Sequential?
@@ -128,19 +128,22 @@ whenToUse: >-
 find custom_modes.d -name "*.yaml" | sort
 
 # Test one mode individually
-cp custom_modes.d/debug/debug.yaml /tmp/test-mode.yaml
+cp custom_modes.d/docs/docs-writer.yaml /tmp/test-mode.yaml
+python3 scripts/validate_custom_modes.py /tmp/test-mode.yaml
 
 # Verify all modes
 python3 scripts/verify_modes.py
 
-# Regenerate repo-root .roomodes (run from the parent repo)
+# Regenerate repo-root .roomodes and marketplace artifacts (run from the parent repo)
 node scripts/sync-custom-modes.mjs
 
-# Test a single mode in Roo Code
-python3 scripts/batch_roomodes.py --single debug
-cp .roomodes.single-debug .roomodes
-# Then reload VS Code window
+# Regenerate AGENT_CATALOG.md (run from the parent repo)
+node scripts/generate-catalog.mjs
 ```
+
+> Built-in slugs (`architect`, `code`, `ask`, `debug`, `orchestrator`) are
+> provided by the extension core and are excluded from the catalog — never
+> create or edit mode files for them here.
 
 ## Critical Rules
 1. **ONE mode at a time** — finish it completely before starting the next

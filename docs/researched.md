@@ -1,5 +1,16 @@
 # Researched Agents for Improvement
 
+> **Migration note (2026):** the paths below follow the legacy `agents/` layout from
+> the upstream `Custom-Modes-Roo-Code` repository. The canonical catalog now lives in
+> [`custom_modes.d/`](../custom_modes.d/) (one mode per file, wrapped in a `customModes:`
+> array) and contains **290 modes**. Modes that were merged or deleted during the
+> migration — for example `devops`, `ml-engineer`, `rust-engineer`, `golang-pro`,
+> `full-stack-developer`, `mobile-app-developer`, `nlp-engineer`, `error-detective`,
+> `devops-incident-responder`, `design-ux-researcher`, `local-seo-optimizer`, and the
+> built-in `code`/`architect`/`ask`/`debug` slugs — are no longer present. Treat this
+> file as historical research; see [AGENT_CATALOG.md](../AGENT_CATALOG.md) for the
+> authoritative current listing.
+
 This file tracks research and improvements for all agents in `Custom-Modes-Roo-Code/agents`. Each agent is listed with its relative path. Status:
 - [ ] Pending (not researched)
 - [-] In Progress

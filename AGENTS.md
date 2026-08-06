@@ -23,10 +23,8 @@
 ## Key Paths
 - `scripts/`
 - `assets/`
-- `agents/`
-- `custom_modes.d/`
+- `custom_modes.d/` (canonical mode catalog — single source of truth)
 - `schemas/`
-- `vs-code/`
 
 ## Directory Guidance
 - `scripts/`: keep maintenance scripts idempotent and document environment assumptions.

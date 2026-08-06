@@ -13,7 +13,7 @@
 - Profile guess: `extension`
 - Inferred stage: `productization`
 - README emphasis: <div align="center"> </div> <div align="center"> [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Version](https://img.shields.io/badge/Version-2025.1-blue)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
-- Key paths: `scripts/`, `assets/`, `agents/`, `custom_modes.d/`, `schemas/`, `vs-code/`
+- Key paths: `scripts/`, `assets/`, `custom_modes.d/`, `schemas/`
 - Workflow files present: `dependabot-automerge.yml`
 - Read-first signals: `README.md`, `CONTRIBUTING.md`, `CLAUDE.md`, `.github/workflows/`
 
