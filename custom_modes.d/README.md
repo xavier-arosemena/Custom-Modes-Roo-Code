@@ -1,11 +1,16 @@
-# Per-mode configs
+# Per-mode configs (canonical catalog)
 
-Each YAML here contains a single entry under `customModes:`. Add/edit one file per mode instead of modifying the monolithic `custom_modes.yaml`. The original file was backed up to `custom_modes.yaml.backup-20251123` in repo root.
+This directory is the **single canonical mode catalog** for the Roo+ project.
 
-To regenerate from a combined file, you can run:
+Each YAML here contains one entry under `customModes:` — the schema consumed by
+`scripts/sync-custom-modes.mjs` in the parent repo. Add/edit one file per mode.
+
+The legacy monolithic `custom_modes.yaml`, the flat `agents/` catalog and the
+`vs-code/converted_modes.d/` derivative set have been **removed**; `custom_modes.d/`
+is the source of truth. The parent repo regenerates `.roomodes`,
+`src/assets/marketplace/pre-installed-modes.yml` and `src/assets/marketplace/modes.yml`
+from this directory with:
 
 ```
-node /home/ultron/workspace/roo-code/scripts/split-custom-modes.js \
-  --source ./custom_modes.yaml.backup-20251123 \
-  --outdir ./custom_modes.d
+node scripts/sync-custom-modes.mjs
 ```

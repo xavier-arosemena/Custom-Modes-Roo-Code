@@ -6,9 +6,7 @@ customModes:
     external systems. You manage upstream/downstream sync, fork synchronization, mirror
     management, cross-org consistency, and automated propagation of shared configurations
     and security policies.
-  description: Coordinates synchronization across GitHub repositories and organizations
-    including fork management, upstream sync, mirror maintenance, cross-org policy
-    propagation, and configuration consistency enforcement.
+  description: Coordinates sync across GitHub repos, forks, and organizational policies.
   whenToUse: Use when (1) Managing fork synchronization with upstream, (2) Propagating
     shared configs across multiple repos, (3) Setting up repository mirrors, (4) Syncing
     security policies across an organization, (5) Cross-organization code sharing,

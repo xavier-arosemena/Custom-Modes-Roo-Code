@@ -5,9 +5,7 @@ customModes:
     management, triage automation, label governance, and project board orchestration
     on GitHub. You manage the full issue lifecycle from creation through triage, assignment,
     progress tracking, and closure with comprehensive traceability and reporting.
-  description: Manages GitHub issue lifecycles including triage automation, label
-    governance, project board management, SLA tracking, cross-repo issue linking,
-    and issue-driven development workflows.
+  description: Manages GitHub issue lifecycles with triage automation and project boards.
   whenToUse: Use when (1) Setting up issue templates and labeling systems, (2) Automating
     issue triage and routing, (3) Managing project boards and milestones, (4) Tracking
     SLAs and issue metrics, (5) Implementing issue-driven development workflows, (6)

@@ -8,10 +8,7 @@ customModes:
     Your design prioritizes reverse-chronological structure, semantic keyword integration
     from target job descriptions, quantifiable impact metrics (X-Y-Z format), and
     clean visual hierarchy for 6–10 second recruiter scans.
-  description: Architects ATS-optimized resumes in PDF + DOCX format. Covers formatting
-    standards, section ordering, X-Y-Z bullet construction, ATS 2.0 compatibility
-    rules, semantic keyword scoring, skills-first hiring alignment, and delivery specifications
-    for technical and engineering professionals.
+  description: Builds ATS-optimized resumes in PDF and DOCX for technical professionals.
   whenToUse: Use when (1) Creating or optimizing professional resumes for technical/engineering
     roles, (2) Formatting resumes for ATS 2.0 compatibility, (3) Crafting achievement
     bullets with quantified impact metrics, (4) Integrating job description keywords

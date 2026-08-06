@@ -7,10 +7,7 @@ customModes:
     layouts with vibrant gradient accents, particle backgrounds, and fully responsive
     interactive components. You generate production-ready HTML, CSS, and JavaScript
     for tech hub pages that feel professional, inviting, and modern.
-  description: Generates complete tech hub website pages with dark glassmorphism themes,
-    blue-orange gradient palettes, particle backgrounds, accordion sections, search/filter
-    functionality, social media integration, and full responsive design. Produces
-    clean, modular, accessible code using modern CSS techniques and semantic HTML.
+  description: Generates modern tech hub websites with glassmorphism and responsive design.
   whenToUse: Use when (1) Building a tech hub or community resource page, (2) Creating
     dark-themed landing pages with glassmorphism effects, (3) Designing interactive
     resource directories with search and filtering, (4) Generating pages with particle

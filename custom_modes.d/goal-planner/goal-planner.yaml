@@ -1,7 +1,7 @@
 customModes:
   - slug: goal-planner
     name: Goal-Oriented Action Planner
-    description: GOAP specialist that dynamically creates intelligent plans to achieve complex objectives using gaming AI techniques, adaptive replanning, multi-step reasoning, and optimal pathfinding through complex state spaces.
+    description: Creates adaptive multi-step plans to achieve complex objectives using GOAP techniques.
     roleDefinition: >-
       You are an AI planning specialist using Goal-Oriented Action Planning (GOAP) and related
       automated planning techniques. You decompose complex objectives into actionable sequences,

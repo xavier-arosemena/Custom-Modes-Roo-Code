@@ -4,10 +4,10 @@
     {
       "label": "Validate Roo Custom Modes",
       "type": "shell",
-      "command": "python3",
+      "command": "bash",
       "args": [
-        "${workspaceFolder}/scripts/validate_custom_modes.py",
-        "${workspaceFolder}/custom_modes.yaml"
+        "-c",
+        "find \"${workspaceFolder}/custom_modes.d\" -name '*.yaml' -print0 | xargs -0 -n1 python3 \"${workspaceFolder}/scripts/validate_custom_modes.py\" || exit 1"
       ],
       "options": {
         "cwd": "${workspaceFolder}"
@@ -42,7 +42,7 @@
         "reveal": "always",
         "panel": "shared"
       },
-      "detail": "Validates custom_modes.yaml with the Roo schema on demand or when the workspace opens"
+      "detail": "Validates every YAML in custom_modes.d/ with the Roo schema on demand or when the workspace opens"
     }
   ]
 }

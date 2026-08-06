@@ -17,12 +17,20 @@ This file contains project structure, configuration details, and development gui
 ### Description
 A comprehensive collection of specialized AI agent configurations for Roo Code, designed for modern software development following 2025 security-first principles and best practices. This project includes Python utilities for validation, conversion, and management of custom modes.
 
+### Canonical catalog
+
+- **Canonical source**: `custom_modes.d/` — **290 modes**, one file per mode,
+  each wrapping a `customModes:` array. The legacy `agents/` catalog,
+  `vs-code/` conversion tooling and the monolithic `custom_modes.yaml` were
+  **removed**; `custom_modes.d/` is the single source of truth and feeds the
+  parent repo's `.roomodes` and Modes Marketplace artifacts via
+  `scripts/sync-custom-modes.mjs`.
+
 ### Key Statistics
-- **Total Agents**: 171+ specialized configurations
-- **Agent Files**: 232 YAML files
-- **Python Scripts**: 2 utility scripts
+- **Total Modes**: 290 specialized configurations
+- **Mode Files**: 290 YAML files under `custom_modes.d/`
+- **Python Scripts**: validation, verification and description tooling
 - **Repository Size**: ~2.5MB
-- **Categories**: 9 major agent categories
 - **Security Standard**: 2025 Security-First Architecture
 
 ---
@@ -32,14 +40,13 @@ A comprehensive collection of specialized AI agent configurations for Roo Code, 
 ### Root Directory
 ```
 /tmp/repo-updates/Custom-Modes-Roo-Code/
-├── agents/                    # All agent configurations (232 YAML files)
+├── custom_modes.d/            # Canonical mode catalog (290 YAML files)
 ├── assets/                    # Banner images and visual assets
 ├── schemas/                   # JSON schema for validation
 ├── scripts/                   # Python validation and utility scripts
-│   └── validate_custom_modes.py    # YAML validation script (195 lines)
-├── vs-code/                   # VS Code specific tools and documentation
-│   ├── convert_modes.py            # Mode conversion utility (625 lines)
-│   └── README.md                   # VS Code integration guide
+│   ├── validate_custom_modes.py    # YAML validation script (195 lines)
+│   ├── verify_modes.py             # Mode verification script
+│   └── fix_descriptions.py         # Description enforcer (wrapper)
 ├── .vscode/                   # VS Code configuration
 ├── banner.png                 # Repository banner image
 ├── CLAUDE.md                  # Claude Code system reference (this file)
@@ -51,31 +58,15 @@ A comprehensive collection of specialized AI agent configurations for Roo Code, 
 └── researched.md              # Research documentation (18KB)
 ```
 
-### Agent Categories Structure
+### Mode Catalog Structure
 ```
-agents/
-├── ai-ml/                     # AI & Machine Learning (11 agents)
-├── business-product/          # Business & Product (15 agents)
-├── core-development/          # Core Development (36 agents)
-├── infrastructure-devops/     # Infrastructure & DevOps (14 agents)
-├── language-specialists/      # Language Specialists (23 agents)
-│   ├── python/
-│   ├── javascript/
-│   ├── typescript/
-│   ├── rust/
-│   ├── golang/
-│   ├── java/
-│   ├── csharp/
-│   └── general/
-├── legal-compliance/          # Legal & Compliance (14 agents)
-├── meta-orchestration/        # Meta-Orchestration (28 agents)
-├── security-quality/          # Security & Quality (13 agents)
-│   ├── security-audit/
-│   ├── testing/
-│   ├── compliance/
-│   └── general/
-└── specialized-domains/       # Specialized Domains (17 agents)
+custom_modes.d/
+├── <category>/                # One directory per category (~238 categories)
+│   └── <mode>.yaml            # One mode per file (customModes: wrapper)
+└── ...                        # 290 modes total
 ```
+
+See `AGENT_CATALOG.md` for the full per-mode listing with paths.
 
 ---
 
@@ -126,7 +117,7 @@ This repository includes sophisticated Python utilities for managing and convert
 
 ### 1. Validation Script: `scripts/validate_custom_modes.py`
 
-**Purpose**: Validates custom_modes.yaml against Roo Code requirements
+**Purpose**: Validates custom_modes.d/ mode files against Roo Code requirements
 **Language**: Python 3.9+
 **Lines of Code**: 195
 **Dependencies**: `pyyaml`
@@ -150,11 +141,11 @@ This repository includes sophisticated Python utilities for managing and convert
 
 **Usage**:
 ```bash
-# Validate default custom_modes.yaml
-python3 scripts/validate_custom_modes.py
+# Validate every mode file in the canonical catalog
+find custom_modes.d -name '*.yaml' -print0 | xargs -0 -n1 python3 scripts/validate_custom_modes.py
 
-# Validate specific file
-python3 scripts/validate_custom_modes.py path/to/custom_modes.yaml
+# Validate a single mode file
+python3 scripts/validate_custom_modes.py custom_modes.d/security/security-review.yaml
 ```
 
 **Implementation Highlights**:
@@ -164,109 +155,13 @@ python3 scripts/validate_custom_modes.py path/to/custom_modes.yaml
 - Returns appropriate exit codes (0=success, 1=validation error, 2=file not found)
 - Validates complex nested structures (groups tuples, rulesFiles)
 
-### 2. Conversion Tool: `vs-code/convert_modes.py`
+### 2. Conversion Tool (removed)
 
-**Purpose**: Convert Roo Code CLI custom modes to VS Code compatible format
-**Language**: Python 3.9+
-**Lines of Code**: 625
-**Dependencies**: `pyyaml`, `argparse`
-
-**Key Features**:
-- Multi-platform support (Windows, macOS, Linux)
-- Intelligent mode merging (update existing, add new)
-- XML rule file generation from customInstructions
-- Automatic description and whenToUse generation
-- Search functionality with wildcard support
-- Direct VS Code settings integration (remote/local)
-- Organized mode listing by alphabetical groups
-
-**Commands**:
-
-1. **List Modes**: Display all available modes organized alphabetically
-   ```bash
-   python3 vs-code/convert_modes.py list
-   ```
-
-2. **Search Modes**: Find modes with wildcard pattern matching
-   ```bash
-   python3 vs-code/convert_modes.py search python*
-   python3 vs-code/convert_modes.py search *architect* *security*
-   ```
-
-3. **Convert Modes**: Transform CLI modes to VS Code format
-   ```bash
-   # Convert all modes
-   python3 vs-code/convert_modes.py convert all
-
-   # Convert specific modes
-   python3 vs-code/convert_modes.py convert code-skeptic architect python-pro
-
-   # Convert to custom output directory
-   python3 vs-code/convert_modes.py convert all --output my_modes
-   ```
-
-4. **Purge Output**: Clean the converted modes directory
-   ```bash
-   python3 vs-code/convert_modes.py purge
-   ```
-
-5. **Copy to VS Code**: Install converted modes to VS Code
-   ```bash
-   # Copy to remote VS Code server
-   python3 vs-code/convert_modes.py copy remote
-
-   # Copy to local VS Code installation
-   python3 vs-code/convert_modes.py copy local
-   ```
-
-**Implementation Highlights**:
-- **Platform Detection**: Automatic VS Code settings path detection
-  - Windows: `%APPDATA%/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings`
-  - macOS: `~/Library/Application Support/Code/User/globalStorage/...`
-  - Linux: `~/.config/Code/User/globalStorage/...`
-  - Remote: `~/.vscode-server/data/User/globalStorage/...`
-
-- **Filename Sanitization**: Converts mode names to safe filenames
-  - Strips special characters
-  - Converts to lowercase
-  - Replaces spaces with underscores
-  - Limits to 50 characters
-
-- **Smart Description Generation**:
-  - Extracts first 1-2 sentences from roleDefinition
-  - Creates concise, meaningful summaries
-  - Falls back to default if roleDefinition is missing
-
-- **WhenToUse Auto-generation**:
-  - Analyzes roleDefinition patterns
-  - Converts "You are X" to "Activate when you need X"
-  - Adds grammatically correct indefinite articles (a/an)
-  - Preserves existing whenToUse if already defined
-
-- **XML Rule File Generation**:
-  - Converts customInstructions to XML format
-  - Handles newline conversion for readability
-  - Creates organized `.roo/rules-{slug}/` directories
-  - Names files as `1_instructions.xml`
-
-- **Intelligent Merging**:
-  - Preserves existing modes not being converted
-  - Updates modes that already exist in output
-  - Adds new modes without duplicates
-  - Reports update/add/keep statistics
-
-- **YAML Formatting**:
-  - Fixes PyYAML indentation issues
-  - Maintains consistent 2-space indentation
-  - Preserves mode order
-  - Unicode-aware output
-
-**Error Handling**:
-- File not found errors with helpful messages
-- YAML parsing errors with context
-- Invalid slug detection and warnings
-- IO error handling for file operations
-- Platform-specific path validation
+The legacy `vs-code/convert_modes.py` converter and its `converted_modes.d/`
+output were **removed** along with the obsolete `agents/` catalog and the
+monolithic `custom_modes.yaml`. `custom_modes.d/` is now the single canonical
+catalog; the parent repo consumes it directly via
+`scripts/sync-custom-modes.mjs`.
 
 ### 3. JSON Schema: `schemas/custom_modes.schema.json`
 
@@ -304,136 +199,16 @@ All configuration paths have been updated for the new location at `/tmp/repo-upd
 
 ---
 
-## Agent Categories Deep Dive
+## Mode Catalog
 
-### 1. AI & Machine Learning (11 agents)
-**Location**: `agents/ai-ml/`
-**Focus**: AI/ML development, deployment, and optimization
-- Machine Learning Engineers
-- AI System Architects
-- Data Science Specialists
-- MLOps Engineers
-- Computer Vision Experts
-- NLP Specialists
-- LLM Integration Specialists
-
-### 2. Business & Product (15 agents)
-**Location**: `agents/business-product/`
-**Focus**: Business strategy and product development
-- Product Managers
-- Business Analysts
-- Marketing Specialists
-- Sales Engineers
-- Content Strategists
-
-### 3. Core Development (36 agents)
-**Location**: `agents/core-development/`
-**Focus**: Foundation development roles and architectures
-- Full-Stack Developers
-- Backend Specialists
-- Frontend Experts
-- System Architects
-- API Designers
-- Integration Specialists
-
-### 4. Infrastructure & DevOps (14 agents)
-**Location**: `agents/infrastructure-devops/`
-**Focus**: Cloud infrastructure and deployment
-- Cloud Engineers (AWS, Azure, GCP)
-- Kubernetes Specialists
-- Docker Experts
-- Monitoring & Observability
-- Network Engineers
-
-### 5. Language Specialists (23 agents)
-**Location**: `agents/language-specialists/`
-**Focus**: Programming language expertise
-
-**Python** (agents/language-specialists/python/)
-- FastAPI, Django, asyncio mastery
-- Data processing and ML pipelines
-- Performance optimization
-
-**JavaScript/TypeScript** (agents/language-specialists/javascript/, typescript/)
-- React, Node.js, Next.js
-- Modern JavaScript features
-- TypeScript type safety
-
-**Rust** (agents/language-specialists/rust/)
-- Systems programming
-- WebAssembly development
-- Memory safety focus
-
-**Go** (agents/language-specialists/golang/)
-- Microservices architecture
-- Concurrent systems
-- High-performance applications
-
-**Java** (agents/language-specialists/java/)
-- Spring Boot
-- Enterprise systems
-- JVM optimization
-
-**C#** (agents/language-specialists/csharp/)
-- .NET development
-- Azure integration
-- Enterprise applications
-
-### 6. Legal & Compliance (14 agents)
-**Location**: `agents/legal-compliance/`
-**Focus**: Regulatory and legal expertise
-- GDPR Compliance specialists
-- Security Auditing
-- Legal Documentation
-- Regulatory Analysis
-- US and Canada specific agents
-
-**Example agents**:
-- corporate-law-usa.yaml / corporate-law-canada.yaml
-- employment-law-usa.yaml / employment-law-canada.yaml
-- compliance-auditor-usa.yaml / compliance-auditor-canada.yaml
-- intellectual-property-usa.yaml / intellectual-property-canada.yaml
-
-### 7. Meta-Orchestration (28 agents)
-**Location**: `agents/meta-orchestration/`
-**Focus**: System coordination and workflow management
-- Workflow Orchestrators
-- Project Coordinators
-- System Monitors
-- Process Optimizers
-- Integration Managers
-
-### 8. Security & Quality (13 agents)
-**Location**: `agents/security-quality/`
-**Focus**: Security-first development and QA
-
-**Subdirectories**:
-- `security-audit/` - Security auditing specialists
-- `testing/` - Testing and QA experts
-- `compliance/` - Compliance verification
-- `general/` - General security/quality roles
-
-**Capabilities**:
-- Cybersecurity Experts
-- Penetration Testers
-- Security Auditors
-- Accessibility Specialists
-- Compliance Officers
-
-### 9. Specialized Domains (17 agents)
-**Location**: `agents/specialized-domains/`
-**Focus**: Industry-specific expertise
-- **Fintech**: Financial systems, compliance
-- **Gaming**: Game development, engines
-- **Blockchain**: Smart contracts, DeFi
-- **IoT**: Edge computing, sensors
-- **SEO**: Search optimization, analytics
-
----
+The full catalog lives in `custom_modes.d/` (290 modes across category
+directories) and is documented per-mode in `AGENT_CATALOG.md` (slug, name,
+category, description, pre-load status). The legacy nine-category `agents/`
+layout was replaced by the `custom_modes.d/` catalog.
 
 ## Example Agent: Python Developer
 
-**File**: `agents/language-specialists/python/python-developer.yaml`
+**File**: `custom_modes.d/python/python-developer.yaml`
 
 ```yaml
 slug: python-developer
@@ -478,7 +253,7 @@ lastUpdated: "2025-09-20"
 
 ---
 
-## Featured Custom Modes (from custom_modes.yaml)
+## Featured Custom Modes (from custom_modes.d/)
 
 ### 1. Code Skeptic (slug: code-skeptic)
 **Name**: 🧐 Code Skeptic
@@ -557,32 +332,32 @@ security_features:
 ```bash
 git clone https://github.com/jtgsystems/Custom-Modes-Roo-Code.git
 cd Custom-Modes-Roo-Code
-cp -r agents ~/.roo-code/custom-modes/
+cp -r custom_modes.d ~/.roo-code/custom-modes/
 ```
 
 #### Method 2: Selective Installation
 ```bash
-# Install specific category
-cp -r agents/core-development ~/.roo-code/agents/
+# Install a specific category
+cp -r custom_modes.d/security ~/.roo-code/custom-modes/
 
-# Install specific agent
-cp agents/language-specialists/python/python-developer.yaml ~/.roo-code/agents/
+# Install a specific mode
+cp custom_modes.d/python/python-developer.yaml ~/.roo-code/custom-modes/
 ```
 
 #### Method 3: Direct Download
 ```bash
-curl -O https://raw.githubusercontent.com/jtgsystems/Custom-Modes-Roo-Code/main/agents/core-development/general/python-developer.yaml
+curl -O https://raw.githubusercontent.com/jtgsystems/Custom-Modes-Roo-Code/main/custom_modes.d/python/python-developer.yaml
 ```
 
 ### Basic Usage
 ```bash
-# List available agents
-ls agents/core-development/general/
+# List available modes
+ls custom_modes.d/
 
 # Configure Roo Code
-roo-code config set agent-path agents/python-developer.yaml
+roo-code config set agent-path custom_modes.d/python/python-developer.yaml
 
-# Activate agent
+# Activate mode
 roo-code activate python-developer
 ```
 
@@ -615,9 +390,11 @@ See CONTRIBUTING.md for detailed contribution guidelines.
    git checkout -b feature/new-agent
    ```
 
-3. **Add Your Agent**
+3. **Add Your Mode**
    ```bash
-   cp template.yaml agents/category/subcategory/your-agent.yaml
+   # Create a new mode file in the canonical catalog, one mode per file under a
+   # `customModes:` wrapper (see custom_modes.d/README.md for the schema).
+   # Example: custom_modes.d/<category>/<your-mode>.yaml
    ```
 
 4. **Validate Configuration**
@@ -745,53 +522,34 @@ git status
 # Update from remote
 git pull origin main
 
-# View agent structure
-ls -la agents/
+# View the canonical catalog
+ls -la custom_modes.d/
 
-# Count agents
-find agents -name "*.yaml" | wc -l
+# Count modes
+find custom_modes.d -name "*.yaml" | wc -l
 
 # Validate configuration
-python3 scripts/validate_custom_modes.py
+find custom_modes.d -name '*.yaml' -print0 | xargs -0 -n1 python3 scripts/validate_custom_modes.py
 ```
 
 ### Python Tooling Commands
 
 #### Validation
 ```bash
-# Validate default custom_modes.yaml
-python3 scripts/validate_custom_modes.py
+# Validate every mode file in the canonical catalog
+find custom_modes.d -name '*.yaml' -print0 | xargs -0 -n1 python3 scripts/validate_custom_modes.py
 
-# Validate specific YAML file
-python3 scripts/validate_custom_modes.py agents/core-development/general/python-developer.yaml
+# Validate a single mode file
+python3 scripts/validate_custom_modes.py custom_modes.d/security/security-review.yaml
 ```
 
-#### Mode Conversion and Management
+#### Mode Management
 ```bash
-# List all available modes
-python3 vs-code/convert_modes.py list
+# List all modes in the canonical catalog
+find custom_modes.d -name '*.yaml' | sort
 
-# Search for specific modes
-python3 vs-code/convert_modes.py search python*
-python3 vs-code/convert_modes.py search *security* *audit*
-
-# Convert all modes to VS Code format
-python3 vs-code/convert_modes.py convert all
-
-# Convert specific modes
-python3 vs-code/convert_modes.py convert code-skeptic architect python-developer
-
-# Convert with custom output directory
-python3 vs-code/convert_modes.py convert all --output custom_output
-
-# Purge converted modes directory
-python3 vs-code/convert_modes.py purge
-
-# Copy to VS Code (remote environment)
-python3 vs-code/convert_modes.py copy remote
-
-# Copy to VS Code (local environment)
-python3 vs-code/convert_modes.py copy local
+# Search for specific modes by slug
+find custom_modes.d -name '*python*' -o -name '*security*' | sort
 ```
 
 #### Python Development Setup
@@ -807,25 +565,22 @@ venv\Scripts\activate     # Windows
 pip install pyyaml
 
 # Run validation tests
-python3 scripts/validate_custom_modes.py
-
-# Run conversion with help
-python3 vs-code/convert_modes.py --help
+find custom_modes.d -name '*.yaml' -print0 | xargs -0 -n1 python3 scripts/validate_custom_modes.py
 ```
 
-### Agent Development
+### Mode Development
 ```bash
-# Copy template
-cp agents/template.yaml agents/category/new-agent.yaml
+# Copy an existing mode as a starting template
+cp custom_modes.d/python/python-developer.yaml custom_modes.d/<category>/new-mode.yaml
 
-# Edit agent
-nano agents/category/new-agent.yaml
+# Edit the mode (keep the customModes: wrapper; update slug/name/description)
+nano custom_modes.d/<category>/new-mode.yaml
 
 # Validate
-python3 scripts/validate_custom_modes.py
+python3 scripts/validate_custom_modes.py custom_modes.d/<category>/new-mode.yaml
 
 # Test with Roo Code
-roo-code validate agents/category/new-agent.yaml
+roo-code validate custom_modes.d/<category>/new-mode.yaml
 ```
 
 ### GitHub Operations
@@ -914,12 +669,10 @@ The above copyright notice and this permission notice shall be included in all c
    - Checks for duplicate slugs and invalid permissions
    - Returns detailed error messages with context
 
-2. **convert_modes.py** (625 lines)
-   - Converts CLI modes to VS Code format
-   - Multi-command interface (list, search, convert, purge, copy)
-   - Platform-aware VS Code settings path detection
-   - Intelligent YAML merging and formatting
-   - XML rule file generation
+2. **verify_modes.py**
+   - Verifies mode files against the Roo schema
+   - Reports missing/blank fields (including `description`)
+   - Exit codes: 0=success, 1=validation error
 
 ### Dependencies
 ```
@@ -941,6 +694,5 @@ pip install pyyaml
 
 # Verify installation
 python3 scripts/validate_custom_modes.py --help
-python3 vs-code/convert_modes.py --help
 ```
 

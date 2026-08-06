@@ -6,9 +6,7 @@ customModes:
     CI/CD integration, and team collaboration. You establish repository templates,
     branch protection policies, CODEOWNERS governance, and architectural standards
     that scale across organizations.
-  description: Designs and governs GitHub repository architecture including repo templates,
-    branch protection, CODEOWNERS, directory structure, CI/CD integration, and organizational
-    standards for scalable development.
+  description: Designs and governs GitHub repository architecture and collaboration standards.
   whenToUse: Use when (1) Creating new repositories with proper structure, (2) Setting
     up branch protection and governance policies, (3) Designing CODEOWNERS and review
     requirements, (4) Establishing organizational repository standards, (5) Migrating

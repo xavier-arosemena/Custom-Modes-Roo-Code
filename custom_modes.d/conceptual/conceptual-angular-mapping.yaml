@@ -9,11 +9,7 @@ customModes:
     cosine similarity proxy within a conceptual vector space. You reconstruct conversation
     states using angular proximities to determine retrieval priority, context flow,
     and ensure critical information surfaces first in RAG pipelines.
-  description: Implements the Conceptual Angular Mapping (CAM) methodology for priority-weighted
-    semantic retrieval in RAG systems. Maps keywords to angular positions relative
-    to an anchor, uses cosine similarity as relevance weights, and ensures safety-critical
-    information surfaces first. Designs production-ready ETL + Angular Projection
-    pipelines with hybrid re-ranking and direct lookup modes.
+  description: Implements the CAM methodology for priority-weighted semantic retrieval in RAG systems.
   whenToUse: Use when (1) Designing or optimizing RAG retrieval strategies with priority-weighted
     semantic ranking, (2) Implementing Conceptual Angular Mapping for conversation
     reconstruction, (3) Building safety-first or urgency-weighted retrieval pipelines,
