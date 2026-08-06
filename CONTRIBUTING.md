@@ -92,17 +92,9 @@ examples:
 
 ### Agent Categories
 
-Place your agent in the appropriate directory:
-
-- `agents/ai-ml/` - AI and Machine Learning
-- `agents/business-product/` - Business and Product Management
-- `agents/core-development/` - Core Development Roles
-- `agents/infrastructure-devops/` - Infrastructure and DevOps
-- `agents/language-specialists/` - Programming Language Experts
-- `agents/legal-compliance/` - Legal and Compliance
-- `agents/meta-orchestration/` - System Orchestration
-- `agents/security-quality/` - Security and Quality Assurance
-- `agents/specialized-domains/` - Industry-Specific Expertise
+Place your agent YAML file in the appropriate category directory under
+`custom_modes.d/` (one file per mode, e.g. `custom_modes.d/python/`,
+`custom_modes.d/security/`, `custom_modes.d/architect/`).
 
 ## 🔄 Development Workflow
 
@@ -123,18 +115,17 @@ git checkout -b fix/issue-description
 
 ### 3. Make Your Changes
 
-- Add your agent YAML file to the appropriate directory
-- Update the main `custom_modes.yaml` if needed
+- Add your agent YAML file to the appropriate category under `custom_modes.d/`
 - Test your agent with Roo Code CLI
 
 ### 4. Validate Your Agent
 
 ```bash
 # Run validation script
-python3 scripts/validate_custom_modes.py agents/category/your-agent.yaml
+python3 scripts/validate_custom_modes.py custom_modes.d/category/your-agent.yaml
 
 # Test with Roo Code
-roo-code validate agents/category/your-agent.yaml
+roo-code validate custom_modes.d/category/your-agent.yaml
 ```
 
 ### 5. Commit Your Changes
@@ -230,7 +221,7 @@ Before submitting:
 
 2. **Test with Roo Code CLI**
    ```bash
-   roo-code test agents/category/your-agent.yaml
+   roo-code test custom_modes.d/category/your-agent.yaml
    ```
 
 3. **Check for security issues**

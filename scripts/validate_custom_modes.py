@@ -15,6 +15,10 @@ from typing import Any, Dict, Sequence
 
 import yaml
 
+# Canonical catalog lives in custom_modes.d/ next to the scripts/ directory.
+# Anchored to the script location so bare invocations work from any CWD.
+CATALOG_DIR = Path(__file__).resolve().parent.parent / "custom_modes.d"
+
 ALLOWED_PERMISSIONS = {"read", "edit", "browser", "command", "mcp"}
 SLUG_PATTERN = re.compile(r"^[a-z0-9-]+$")
 
@@ -156,6 +160,21 @@ def validate_document(document: Any) -> None:
 
 
 def run(path: Path) -> int:
+    if path.is_dir():
+        files = sorted(path.rglob("*.yaml"))
+        if not files:
+            print(f"error: no YAML files found under {path}", file=sys.stderr)
+            return 2
+        failures = 0
+        for file in files:
+            if run(file) != 0:
+                failures += 1
+        if failures:
+            print(f"{failures} of {len(files)} files failed validation", file=sys.stderr)
+            return 1
+        print(f"{len(files)}/{len(files)} mode files valid")
+        return 0
+
     try:
         raw = path.read_text(encoding="utf-8")
     except FileNotFoundError:
@@ -178,13 +197,18 @@ def run(path: Path) -> int:
 
 
 def main(argv: Sequence[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Validate Roo Code custom modes file")
+    parser = argparse.ArgumentParser(
+        description="Validate Roo Code custom modes file(s)"
+    )
     parser.add_argument(
         "path",
         type=Path,
         nargs="?",
-        default=Path("custom_modes.yaml"),
-        help="Path to custom_modes.yaml (defaults to ./custom_modes.yaml)",
+        default=CATALOG_DIR,
+        help=(
+            "Path to a mode YAML file or the custom_modes.d/ directory "
+            "(defaults to <repo>/custom_modes.d)"
+        ),
     )
     args = parser.parse_args(argv)
     return run(args.path)

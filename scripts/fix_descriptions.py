@@ -8,10 +8,8 @@ Transformation rules:
 - description = user-facing summary (what the mode does for you)
 
 Usage:
-    python3 scripts/fix_descriptions.py                    # Fix all three sets
-    python3 scripts/fix_descriptions.py --dir agents       # Fix only agents/
+    python3 scripts/fix_descriptions.py                    # Fix all sets
     python3 scripts/fix_descriptions.py --dir custom_modes.d  # Fix only custom_modes.d/
-    python3 scripts/fix_descriptions.py --dir vs-code/converted_modes.d  # Fix only vs-code/
 """
 
 import yaml
@@ -23,7 +21,7 @@ REPO_ROOT = Path(__file__).parent.parent
 
 
 # Mapping of slug -> user-friendly description
-# Keyed by slug so the same description applies consistently across all three file sets
+# Keyed by slug so the same description applies consistently across the catalog
 USER_FRIENDLY_DESCRIPTIONS = {
     # === Core Development ===
     "architect": "Designs scalable, modular system architectures with clear component boundaries and integration patterns.",
@@ -390,7 +388,7 @@ def process_file(filepath: Path, format_type: str) -> bool:
     modified = False
     
     if format_type == 'flat':
-        # agents/ format: flat dict
+        # Legacy flat format (catalog is now nested under custom_modes.d/)
         if 'description' in data and 'roleDefinition' in data:
             old_desc = data.get('description', '')
             role_def = data.get('roleDefinition', '')
@@ -413,7 +411,7 @@ def process_file(filepath: Path, format_type: str) -> bool:
                 modified = True
     
     elif format_type == 'nested':
-        # custom_modes.d/ and vs-code/ format
+        # custom_modes.d/ format (each file wraps a customModes array)
         if 'customModes' in data and isinstance(data['customModes'], list):
             for mode in data['customModes']:
                 if 'description' in mode and 'roleDefinition' in mode:
@@ -502,17 +500,13 @@ def process_directory(base_dir: Path, format_type: str) -> tuple:
 def main():
     import argparse
     parser = argparse.ArgumentParser(description="Fix mode descriptions")
-    parser.add_argument("--dir", choices=['agents', 'custom_modes.d', 'vs-code/converted_modes.d', 'all'],
+    parser.add_argument("--dir", choices=['custom_modes.d', 'all'],
                        default='all', help="Which directory to process")
     args = parser.parse_args()
     
     dirs_to_process = []
-    if args.dir == 'all' or args.dir == 'agents':
-        dirs_to_process.append((REPO_ROOT / "agents", "flat"))
     if args.dir == 'all' or args.dir == 'custom_modes.d':
         dirs_to_process.append((REPO_ROOT / "custom_modes.d", "nested"))
-    if args.dir == 'all' or args.dir == 'vs-code/converted_modes.d':
-        dirs_to_process.append((REPO_ROOT / "vs-code" / "converted_modes.d", "nested"))
     
     grand_total = 0
     grand_modified = 0

@@ -23,7 +23,11 @@ except ImportError:
     print("ERROR: PyYAML required. Install with: pip install pyyaml")
     sys.exit(1)
 
-REPO_ROOT = Path(__file__).parent.parent
+# This script lives in the custom-modes submodule. The canonical per-mode
+# catalog is custom_modes.d/ inside this submodule, while the compiled
+# .roomodes lives at the parent repo root (one level above the submodule root).
+SUBMODULE_ROOT = Path(__file__).parent.parent
+REPO_ROOT = SUBMODULE_ROOT.parent
 REQUIRED_KEYS = {"slug", "name", "roleDefinition", "groups"}
 ALLOWED_KEYS = {"slug", "name", "roleDefinition", "description", "whenToUse", "customInstructions", "groups", "source"}
 ALLOWED_GROUPS = {"read", "edit", "browser", "command", "mcp"}
@@ -89,7 +93,7 @@ def verify_mode(mode: dict, source: str) -> list:
 
 
 def verify_compiled(path: Path) -> tuple[int, list]:
-    """Verify a compiled file (.roomodes or custom_modes.yaml)."""
+    """Verify a compiled .roomodes file."""
     issues = []
     try:
         with open(path) as f:
@@ -123,7 +127,7 @@ def verify_individual_files() -> tuple[int, list]:
     """Verify all custom_modes.d/*/*.yaml files."""
     issues = []
     total = 0
-    d = REPO_ROOT / "custom_modes.d"
+    d = SUBMODULE_ROOT / "custom_modes.d"
     for f in sorted(d.rglob("*.yaml")):
         try:
             with open(f) as fh:
@@ -139,7 +143,7 @@ def verify_individual_files() -> tuple[int, list]:
         modes = data.get("customModes", [])
         for mode in modes:
             total += 1
-            rel = f.relative_to(REPO_ROOT)
+            rel = f.relative_to(SUBMODULE_ROOT)
             issues.extend(verify_mode(mode, str(rel)))
 
     return total, issues
@@ -152,15 +156,14 @@ def main():
 
     all_issues = []
 
-    # Verify compiled files
-    for filename in [".roomodes", "custom_modes.yaml"]:
-        path = REPO_ROOT / filename
-        if path.exists():
-            count, issues = verify_compiled(path)
-            print(f"\n{filename}: {count} modes")
-            all_issues.extend(issues)
-        else:
-            print(f"\n{filename}: NOT FOUND")
+    # Verify the compiled .roomodes at the parent repo root
+    path = REPO_ROOT / ".roomodes"
+    if path.exists():
+        count, issues = verify_compiled(path)
+        print(f"\n.roomodes (parent repo root): {count} modes")
+        all_issues.extend(issues)
+    else:
+        print(f"\n.roomodes: NOT FOUND at {path}")
 
     # Verify individual files
     print("\ncustom_modes.d/ individual files:")
@@ -191,7 +194,7 @@ def main():
             print(f"    ... and {len(items) - 5} more")
 
     # Write full report
-    report_path = REPO_ROOT / "verify_report.txt"
+    report_path = SUBMODULE_ROOT / "verify_report.txt"
     with open(report_path, "w") as f:
         f.write(f"Custom Modes Verification Report\n")
         f.write(f"{'=' * 60}\n")

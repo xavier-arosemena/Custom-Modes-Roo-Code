@@ -89,11 +89,13 @@ python3 scripts/verify_modes.py
 ```
 Must output: `✅ ALL CHECKS PASSED`
 
-After every ~10 modes, run:
+After every ~10 modes, validate the edited catalog:
 ```bash
-python3 scripts/compile_modes.py
+python3 scripts/validate_custom_modes.py
 ```
-To regenerate `.roomodes` and `custom_modes.yaml`.
+All edits go directly into `custom_modes.d/**/*.yaml`. The repo-root
+`.roomodes`, `pre-installed-modes.yml` and `modes.yml` are regenerated from
+`custom_modes.d/` by `node scripts/sync-custom-modes.mjs` in the parent repo.
 
 ## Quality Examples
 
@@ -131,8 +133,8 @@ cp custom_modes.d/debug/debug.yaml /tmp/test-mode.yaml
 # Verify all modes
 python3 scripts/verify_modes.py
 
-# Compile to .roomodes
-python3 scripts/compile_modes.py
+# Regenerate repo-root .roomodes (run from the parent repo)
+node scripts/sync-custom-modes.mjs
 
 # Test a single mode in Roo Code
 python3 scripts/batch_roomodes.py --single debug
