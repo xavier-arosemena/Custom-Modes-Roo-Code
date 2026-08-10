@@ -19,7 +19,7 @@ A comprehensive collection of specialized AI agent configurations for Roo Code, 
 
 ### Canonical catalog
 
-- **Canonical source**: `custom_modes.d/` — **290 modes**, one file per mode,
+- **Canonical source**: `custom_modes.d/` — **301 modes**, one file per mode,
   each wrapping a `customModes:` array. The legacy `agents/` catalog,
   `vs-code/` conversion tooling and the monolithic `custom_modes.yaml` were
   **removed**; `custom_modes.d/` is the single source of truth and feeds the
@@ -27,8 +27,8 @@ A comprehensive collection of specialized AI agent configurations for Roo Code, 
   `scripts/sync-custom-modes.mjs`.
 
 ### Key Statistics
-- **Total Modes**: 290 specialized configurations
-- **Mode Files**: 290 YAML files under `custom_modes.d/`
+- **Total Modes**: 301 specialized configurations
+- **Mode Files**: 301 YAML files under `custom_modes.d/`
 - **Python Scripts**: validation, verification and description tooling
 - **Repository Size**: ~2.5MB
 - **Security Standard**: 2025 Security-First Architecture
@@ -40,7 +40,7 @@ A comprehensive collection of specialized AI agent configurations for Roo Code, 
 ### Root Directory
 ```
 /tmp/repo-updates/Custom-Modes-Roo-Code/
-├── custom_modes.d/            # Canonical mode catalog (290 YAML files)
+├── custom_modes.d/            # Canonical mode catalog (301 YAML files)
 ├── assets/                    # Banner images and visual assets
 ├── schemas/                   # JSON schema for validation
 ├── scripts/                   # Python validation and utility scripts
@@ -61,9 +61,9 @@ A comprehensive collection of specialized AI agent configurations for Roo Code, 
 ### Mode Catalog Structure
 ```
 custom_modes.d/
-├── <category>/                # One directory per category (~238 categories)
+├── <category>/                # One directory per category (~237 categories)
 │   └── <mode>.yaml            # One mode per file (customModes: wrapper)
-└── ...                        # 290 modes total
+└── ...                        # 301 modes total
 ```
 
 See `AGENT_CATALOG.md` for the full per-mode listing with paths.
@@ -201,7 +201,7 @@ All configuration paths have been updated for the new location at `/tmp/repo-upd
 
 ## Mode Catalog
 
-The full catalog lives in `custom_modes.d/` (290 modes across category
+The full catalog lives in `custom_modes.d/` (301 modes across category
 directories) and is documented per-mode in `AGENT_CATALOG.md` (slug, name,
 category, description, pre-load status). The legacy nine-category `agents/`
 layout was replaced by the `custom_modes.d/` catalog.

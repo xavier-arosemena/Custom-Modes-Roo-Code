@@ -10,7 +10,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/Version-2026.1-blue)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
-[![Agents](https://img.shields.io/badge/Agents-290-green)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
+[![Agents](https://img.shields.io/badge/Agents-301-green)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
 [![Maintained](https://img.shields.io/badge/Maintained-Yes-brightgreen)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
 [![Security](https://img.shields.io/badge/Security-2026%20Standards-red)](https://github.com/jtgsystems/Custom-Modes-Roo-Code)
 
@@ -20,20 +20,20 @@
 
 > **Professional AI Agent Configuration Library for Roo Code — 2026 Edition**
 >
-> A comprehensive collection of 290 specialized AI modes designed for modern software development, following 2026 security-first principles and best practices.
+> A comprehensive collection of 301 specialized AI modes designed for modern software development, following 2026 security-first principles and best practices.
 
 ## 📦 Roo+ Canonical Model
 
 This submodule is consumed by **Roo+** as its single source of custom modes.
 
-**One canonical catalog:** all modes live in [`custom_modes.d/`](custom_modes.d/), organized as `<category>/<slug>.yaml` — **290 modes** total. Each file wraps a `customModes:` array.
+**One canonical catalog:** all modes live in [`custom_modes.d/`](custom_modes.d/), organized as `<category>/<slug>.yaml` — **301 modes** total. Each file wraps a `customModes:` array.
 
 **Two user-facing lists:**
 
 | List | Artifact (parent repo) | Contents |
 |------|------------------------|----------|
-| **Preloaded** | `.roomodes` / `src/assets/marketplace/pre-installed-modes.yml` | **89 curated modes**, selected via `custom-modes/manifest.json` |
-| **Marketplace** | `src/assets/marketplace/modes.yml` | **301 items** — the full 290-mode catalog + **11 preserved originals** |
+| **Preloaded** | `.roomodes` / `src/assets/marketplace/pre-installed-modes.yml` | **90 curated modes**, selected via `custom-modes/manifest.json` |
+| **Marketplace** | `src/assets/marketplace/modes.yml` | **301 items** — the full 301-mode catalog |
 
 **Built-in slug exclusion:** the Roo+ core modes `architect`, `code`, `ask`, `debug`, and `orchestrator` are excluded from every list — they are provided by the extension core and are never shipped from this catalog.
 
@@ -93,7 +93,7 @@ This repository contains a meticulously curated collection of AI agent configura
 
 ### Key Features
 
-- ✅ **290 Specialized Modes** across category directories
+- ✅ **301 Specialized Modes** across category directories
 - ✅ **11 SOTA 2026 Reasoning Personas** for advanced cognitive workflows
 - ✅ **YAML-based Configuration** for easy customization
 - ✅ **2026 Security Standards** compliance (OWASP, Zero-Trust)
@@ -321,7 +321,7 @@ lastUpdated: '2026-05-12'          # Last update date
 ### Directory Organization
 
 ```
-custom_modes.d/               # Canonical catalog (290 modes)
+custom_modes.d/               # Canonical catalog (301 modes)
 ├── <category>/               # One directory per category
 │   ├── <slug>.yaml           # One mode per file (customModes: wrapper)
 │   └── ...                   # Multiple modes per category
@@ -335,7 +335,7 @@ custom_modes.d/               # Canonical catalog (290 modes)
 ├── research/                 # Research modes
 ├── security/                 # Security modes
 ├── seo/                      # SEO modes
-└── ...                       # ~238 categories total
+└── ...                       # ~237 categories total
 ```
 
 ## 🛠️ Scripts
@@ -379,7 +379,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## 📊 Statistics
 
-The catalog contains **290 modes** across **~238 category directories**. For the current per-mode breakdown (slug, name, category, description, pre-load status), see [AGENT_CATALOG.md](AGENT_CATALOG.md).
+The catalog contains **301 modes** across **~237 category directories**. For the current per-mode breakdown (slug, name, category, description, pre-load status), see [AGENT_CATALOG.md](AGENT_CATALOG.md).
 
 ## 🔗 Related Resources
 

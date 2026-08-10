@@ -1,7 +1,7 @@
 # Agent Brief for gemma4:e2b — Sequential Mode Improvement
 
 ## Goal
-Improve the quality of 290 Roo Code custom modes stored in `custom_modes.d/*/`.
+Improve the quality of 301 Roo Code custom modes stored in `custom_modes.d/*/`.
 Process **one mode at a time**, sequentially. Do **not** trim or remove content.
 
 ## Why Sequential?

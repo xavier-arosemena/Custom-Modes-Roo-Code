@@ -3,7 +3,7 @@
 > **Migration note (2026):** the paths below follow the legacy `agents/` layout from
 > the upstream `Custom-Modes-Roo-Code` repository. The canonical catalog now lives in
 > [`custom_modes.d/`](../custom_modes.d/) (one mode per file, wrapped in a `customModes:`
-> array) and contains **290 modes**. Modes that were merged or deleted during the
+> array) and contains **301 modes**. Modes that were merged or deleted during the
 > migration — for example `devops`, `ml-engineer`, `rust-engineer`, `golang-pro`,
 > `full-stack-developer`, `mobile-app-developer`, `nlp-engineer`, `error-detective`,
 > `devops-incident-responder`, `design-ux-researcher`, `local-seo-optimizer`, and the

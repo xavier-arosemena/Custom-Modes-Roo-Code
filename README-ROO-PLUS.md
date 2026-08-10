@@ -2,7 +2,7 @@
 
 This directory is a **git submodule** pointing to the [`Custom-Modes-Roo-Code`](https://github.com/jtgsystems/Custom-Modes-Roo-Code) repository (forked at [`xavier-arosemena/Custom-Modes-Roo-Code`](https://github.com/xavier-arosemena/Custom-Modes-Roo-Code)).
 
-It provides the **single canonical mode catalog** for Roo+: **290 specialized modes** in [`custom_modes.d/`](custom_modes.d/), of which **89 curated modes** are automatically pre-loaded into Roo+'s [`.roomodes`](/.roomodes) file.
+It provides the **single canonical mode catalog** for Roo+: **301 specialized modes** in [`custom_modes.d/`](custom_modes.d/), of which **90 curated modes** are automatically pre-loaded into Roo+'s [`.roomodes`](/.roomodes) file.
 
 ## Canonical Model
 
@@ -10,9 +10,9 @@ Roo+ uses **one canonical catalog** and **two user-facing lists**:
 
 | Layer | Location | Contents |
 |-------|----------|----------|
-| **Canonical catalog** | [`custom_modes.d/`](custom_modes.d/) | All **290 modes**, organized as `<category>/<slug>.yaml` (each file wraps a `customModes:` array) |
-| **List 1 — Preloaded** | [`.roomodes`](/.roomodes) + [`pre-installed-modes.yml`](/src/assets/marketplace/pre-installed-modes.yml) | **89 curated modes**, selected by [`manifest.json`](manifest.json) |
-| **List 2 — Marketplace** | [`modes.yml`](/src/assets/marketplace/modes.yml) | **301 items** = the full 290-mode catalog + **11 preserved originals** |
+| **Canonical catalog** | [`custom_modes.d/`](custom_modes.d/) | All **301 modes**, organized as `<category>/<slug>.yaml` (each file wraps a `customModes:` array) |
+| **List 1 — Preloaded** | [`.roomodes`](/.roomodes) + [`pre-installed-modes.yml`](/src/assets/marketplace/pre-installed-modes.yml) | **90 curated modes**, selected by [`manifest.json`](manifest.json) |
+| **List 2 — Marketplace** | [`modes.yml`](/src/assets/marketplace/modes.yml) | **301 items** = the full 301-mode catalog |
 
 The built-in Roo+ modes (`architect`, `code`, `ask`, `debug`, `orchestrator`) are **excluded from all lists** — they are provided by the extension core and are never shipped from this catalog.
 
@@ -20,8 +20,8 @@ The built-in Roo+ modes (`architect`, `code`, `ask`, `debug`, `orchestrator`) ar
 
 | Path | Contents |
 |------|----------|
-| [`custom_modes.d/`](custom_modes.d/) | **Canonical catalog** — 290 mode YAML files organized by category (89 curated) |
-| [`manifest.json`](manifest.json) | **Curation manifest** — controls which of the 290 modes are pre-loaded |
+| [`custom_modes.d/`](custom_modes.d/) | **Canonical catalog** — 301 mode YAML files organized by category (90 curated) |
+| [`manifest.json`](manifest.json) | **Curation manifest** — controls which of the 301 modes are pre-loaded |
 | [`AGENT_CATALOG.md`](AGENT_CATALOG.md) | Full per-mode listing (slug, name, category, description, pre-load status) |
 
 The legacy `agents/` catalog, `vs-code/` conversion tooling, the monolithic `custom_modes.yaml`, the split `.roomodes.00–10` batch artifacts, and `passing_slugs.txt` have been **removed**. [`custom_modes.d/`](custom_modes.d/) is the single source of truth.
@@ -46,7 +46,7 @@ node scripts/generate-catalog.mjs
 
 ## Curation
 
-The [`manifest.json`](manifest.json) file controls which of the 290 catalog modes are pre-loaded. The current curation selects exactly **89 modes**:
+The [`manifest.json`](manifest.json) file controls which of the 301 catalog modes are pre-loaded. The current curation selects exactly **90 modes**:
 
 - **`includeCategories`**: Set to `"all"` to include every mode in that category directory (currently empty — all curation is via individual slugs)
 - **`includeSlugs`**: List specific mode slugs to include individually
