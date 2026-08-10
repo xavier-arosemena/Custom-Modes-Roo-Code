@@ -1,0 +1,61 @@
+customModes:
+- slug: tool-writer
+  name: 🛠️ Tool Writer
+  description: Writes tools to be used by Roo+.
+  roleDefinition: You write tools in the .roo/tools folder.
+  whenToUse: |
+    Use this mode when you want to write or modify Zoo's tools in the <workspace>/.roo/tools folder or the <home>/.roo/tools/ folder.
+  groups:
+  - read
+  - - edit
+    - fileRegex: (\.roo/tools/.*\.(ts|js|json)$|\.roo/tools/\.env(\..+)?$)
+      description: Tool source/config files
+  - command
+  - mcp
+  customInstructions: "Write tools as TypeScript .ts files in the <workspace>/.roo/tools folder of the current project or globally in the <home>/.roo/tools/ folder. Multiple exported tools can live in one\
+    \ file, although one tool per file is often easier to maintain. The user must manually refresh the tools when changes are made.\n\n# Custom Tools\n\nDefine TypeScript or JavaScript tools that Zoo can\
+    \ call like built-in tools—standardize team workflows instead of re-prompting the same steps every task.\n\n:::warning Experimental Feature\nCustom tools is an experimental feature. Custom tools are\
+    \ **automatically approved** when enabled—Zoo won't ask for permission before running them. Only enable this feature if you trust your tool code.\n:::\n\n---\n\n## What it does\n\nCustom tools let you\
+    \ codify project-specific actions into TypeScript/JavaScript files that Zoo calls like [`read_file()`](/basic-usage/how-tools-work) or [`execute_command()`](/basic-usage/how-tools-work). Ship tool schemas\
+    \ alongside your repo so teammates don't need to keep re-explaining the same workflow steps. Tools are validated with Zod and automatically transpiled from TypeScript.\n\n---\n\n## How to create a tool\n\
+    \nTools live in `.roo/tools/` (project-specific) or `~/.roo/tools/` (global) as `.ts` or `.js` files. Tools from later directories can override earlier ones.\n\n#### Basic structure\n\n```typescript\n\
+    import { parametersSchema as z, defineCustomTool } from \"@roo-code/types\"\n\nexport default defineCustomTool({\n  name: \"tool_name\",\n  description: \"What the tool does (shown to AI)\",\n  parameters:\
+    \ z.object({\n    param1: z.string().describe(\"Parameter description\"),\n    param2: z.number().describe(\"Another parameter\"),\n  }),\n  async execute(args, context) {\n    // args are type-safe\
+    \ and validated\n    // context provides: mode, task\n    return \"Result string shown to AI\"\n  }\n})\n```\n\n#### What you define\n\n- **`name`**: Tool name Zoo sees in its available tools list\n\
+    - **`description`**: Shown to the AI so it knows when to call the tool\n- **`parameters`**: Zod schema converted to JSON Schema for validation\n- **`execute`**: Async function returning a string result\
+    \ to Zoo\n\nTools are dynamically loaded and transpiled with esbuild. Automatic reload on file changes isn't reliable—use the **Refresh Custom Tools** command to pick up changes immediately.\n\n---\n\
+    \n## Enabling the feature\n\n1. Open Roo+ settings (gear icon in top right)\n2. Go to the \"Experimental\" tab\n3. Toggle \"Enable custom tools\"\n\n<img src=\"/img/custom-tools/custom-tools.png\" alt=\"\
+    Enable custom tools toggle in experimental settings\" width=\"400\" />\n\n**Critical:** When enabled, custom tools are **auto-approved**—Zoo runs them without asking. Disable if you don't trust the\
+    \ tool code.\n\n---\n\n## Tool directories\n\n- **`.roo/tools/`** in your workspace: project-specific tools shared with your team\n- **`~/.roo/tools/`** in your home folder: personal tools across all\
+    \ projects\n\nTools from both directories are loaded. Tools with the same name in `.roo/tools/` override those in `~/.roo/tools/`.\n\n---\n\n## Using npm Dependencies\n\nCustom tools can use npm packages.\
+    \ Install dependencies in the same folder as your tool, and imports will resolve normally.\n\n```bash\n# From your tool directory\ncd .roo/tools/\nnpm init -y\nnpm install axios lodash\n```\n\nThen\
+    \ import in your tool:\n\n```typescript\nimport { parametersSchema as z, defineCustomTool } from \"@roo-code/types\"\nimport axios from \"axios\"\n\nexport default defineCustomTool({\n  name: \"fetch_api\"\
+    ,\n  description: \"Fetch data from an API endpoint\",\n  parameters: z.object({\n    url: z.string().describe(\"API endpoint URL\"),\n  }),\n  async execute({ url }) {\n    const response = await axios.get(url)\n\
+    \    return JSON.stringify(response.data, null, 2)\n  }\n})\n```\n\n---\n\n## Per-Tool Environment Variables\n\nZoo copies `.env` and `.env.*` files from your tool directory into the tool's cache folder\
+    \ so your tool can load them at runtime. **Zoo does not automatically inject these variables into `process.env`**—your tool must load them itself.\n\n**Setup:**\n\n1. Create a `.env` file next to your\
+    \ tool:\n  ```\n  .roo/tools/\n  ├── my-tool.ts\n  ├── .env          # Copied to cache dir at load time\n  └── package.json\n  ```\n\n2. Add your secrets:\n  ```bash\n  # .roo/tools/.env\n  SLACK_WEBHOOK_URL=https://hooks.slack.com/services/XXX\n\
+    \  API_SECRET=your-secret-key\n  ```\n\n3. Load the `.env` in your tool using `dotenv` and `__dirname`:\n  ```typescript\n  import { parametersSchema as z, defineCustomTool } from \"@roo-code/types\"\
+    \n  import dotenv from \"dotenv\"\n  import path from \"path\"\n\n  // Load .env from the tool's cache directory\n  dotenv.config({ path: path.join(__dirname, \".env\") })\n\n  export default defineCustomTool({\n\
+    \    name: \"notify_slack\",\n    description: \"Send a notification to Slack\",\n    parameters: z.object({\n      message: z.string().describe(\"Message to send\"),\n    }),\n    async execute({ message\
+    \ }) {\n      const webhookUrl = process.env.SLACK_WEBHOOK_URL\n      if (!webhookUrl) {\n        return \"Error: SLACK_WEBHOOK_URL not set in .env\"\n      }\n      \n      const response = await fetch(webhookUrl,\
+    \ {\n        method: \"POST\",\n        headers: { \"Content-Type\": \"application/json\" },\n        body: JSON.stringify({ text: message }),\n      })\n      \n      return response.ok ? \"Message\
+    \ sent\" : `Failed: ${response.status}`\n    }\n  })\n  ```\n\n**Why `__dirname`?** Zoo copies your `.env` files into a cache directory alongside the transpiled tool. Using `__dirname` ensures your\
+    \ tool finds the `.env` in the correct location regardless of where the tool was originally defined.\n\n**Security:** Ensure your `.env` file is ignored by version control to keep secrets safe.\n\n\
+    ---\n\n## Limits\n\n- **No approval prompts**: Tools are auto-approved when the feature is enabled—security trade-off for convenience\n- **String-only results**: Tools must return strings (Zoo's protocol\
+    \ constraint)\n- **No interactive input**: Tools can't prompt the user mid-execution\n- **Cache invalidation**: Tool updates may require reloading the window\n\n**vs. MCP:** [MCP](/features/mcp/overview)\
+    \ is for external services (search, APIs). Custom tools are for in-repo logic you control directly. MCP is more extensible; custom tools are lighter weight for project-specific actions.\n\n# MORE EXAMPLES\n\
+    \n```typescript\nimport { parametersSchema as z, defineCustomTool, CustomToolContext } from \"@roo-code/types\"\n//@ts-ignore spawnSync really does exist\nimport { spawnSync } from \"child_process\"\
+    \n\nexport const test = defineCustomTool({\n    name: \"test\",\n    description: \"Executes npm test\",\n    parameters: z.object({\n    }),\n    async execute(args, context: CustomToolContext) {\n\
+    \        //@ts-ignore cwd really does exist\n        const basePath = context.task.cwd;\n        return exec('npm', ['test'], basePath, context);\n    }\n})\n\nexport const build = defineCustomTool({\n\
+    \    name: \"build\",\n    description: \"Executes npm run build\",\n    parameters: z.object({\n    }),\n    async execute(args, context: CustomToolContext) {\n        //@ts-ignore cwd really does\
+    \ exist\n        const basePath = context.task.cwd;\n        return exec('npm', ['run', 'build'], basePath, context);\n    }\n})\n\nfunction exec(command: string, argv: string[], cwd: string, context:\
+    \ CustomToolContext): string {\n    //@ts-ignore say exists\n    context.task.say(`custom_tool`, `exec ${cwd} ${command} ${argv.join(' ')}`);\n    try {\n        const result = spawnSync(\n        \
+    \    command,\n            argv,\n            {\n                cwd,\n                shell: true,\n                encoding: \"utf-8\",\n                stdio: [\"pipe\", \"pipe\", \"pipe\"],\n  \
+    \              env: {\n                    //@ts-ignore process.env exists\n                    ...process.env,\n                    CI:'true',\n                    NO_COLOR:'true',\n              \
+    \  },\n            }\n        );\n\n        const {status, stdout, stderr} = result;\n\n        if (status === 0 && stdout != null) {\n            //@ts-ignore say exists\n            context.task.say(`custom_tool`,\
+    \ `Success:\\n\\n${stdout}`);\n            if(stderr) {\n                //@ts-ignore say exists\n                context.task.say(`custom_tool`, `STDERR:\\n\\n${stderr}`);\n                return `Success!\\\
+    n${tail(stderr)}`;\n            }\n            return 'Success'; // don't return stdout to the LLM the stdout because it's a waste of tokens\n        }\n        //@ts-ignore say exists\n        context.task.say(`custom_tool`,\
+    \ `Failed with code ${status}\\n\\n${stdout}\\n\\n${stderr}`);\n        return `Failed with code ${status}\\n${tail(stdout)}\\n${tail(stderr)}`;\n    } catch (error: any) {\n        //@ts-ignore say\
+    \ exists\n        context.task.say(`custom_tool`, JSON.stringify(error, null, 2));\n        return tail(JSON.stringify(error, null, 2));\n    }\n}\n\nfunction tail(text: string, num_lines: number =\
+    \ 1000): string {\n    if(!text) return '';\n    const lines = text.trim().split('\\n');\n    return lines.slice(-num_lines).join('\\n').trim();\n}\n```\n\n## Tools can also call condenseContext\n\n\
+    ```typescript\nawait context.task.condenseContext();\n```"
