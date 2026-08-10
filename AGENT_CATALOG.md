@@ -1,8 +1,8 @@
 # Roo+ Agent Catalog
 
-Total: **290 modes** — **89 pre-loaded** into [`.roomodes`](../.roomodes) and `pre-installed-modes.yml`, **201 additional modes** available for import from the Modes Marketplace.
+Total: **301 modes** — **90 pre-loaded** into [`.roomodes`](../.roomodes) and `pre-installed-modes.yml`, **211 additional modes** available for import from the Modes Marketplace.
 
-> **Two user-facing lists.** The **Preloaded** list (curated via `custom-modes/manifest.json`) ships in `.roomodes` and `src/assets/marketplace/pre-installed-modes.yml`. The **Marketplace** (`src/assets/marketplace/modes.yml`) contains **301 items** — the full 290-mode catalog plus 11 preserved originals. Built-in slugs (`architect`, `code`, `ask`, `debug`, `orchestrator`) are excluded from all lists.
+> **Two user-facing lists.** The **Preloaded** list (curated via `custom-modes/manifest.json`) ships in `.roomodes` and `src/assets/marketplace/pre-installed-modes.yml`. The **Marketplace** (`src/assets/marketplace/modes.yml`) contains **301 items** — the unified `custom_modes.d/` catalog, with every item tagged `custom-modes` and no preserved originals. Built-in slugs (`architect`, `code`, `ask`, `debug`, `orchestrator`) are excluded from all lists.
 
 To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-mode) in the README.
 
@@ -45,6 +45,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | ⬜ Available | [cloud-security-architect](custom_modes.d/cloud/cloud-security-architect.yaml) | 🛡️ Cloud Security Architect | cloud | Designs secure cloud architectures with identity management, encryption, and compliance controls.... |
 | ✅ Pre-loaded | [code-reviewer](custom_modes.d/code/code-reviewer.yaml) | 👁️ Code Review Expert | code | Reviews code for quality, security vulnerabilities, and adherence to best practices.... |
 | ✅ Pre-loaded | [code-skeptic](custom_modes.d/code/code-skeptic.yaml) | 🧐 Code Skeptic | code | Critically examines code for assumptions, edge cases, and potential issues with a questioning mindset.... |
+| ⬜ Available | [coding-teacher](custom_modes.d/education/coding-teacher.yaml) | 💡 Coding Teacher | education | Learn to Code... |
 | ⬜ Available | [cognitive-multi-thinker](custom_modes.d/cognitive-multi-thinker/cognitive-multi-thinker.yaml) | 🧠 Cognitive Multi-Thinker | cognitive-multi-thinker | Simulates multiple reasoning perspectives for comprehensive problem analysis.... |
 | ✅ Pre-loaded | [competitive-analyst](custom_modes.d/competitive/competitive-analyst.yaml) | 🏆 Competitive Analyst Pro | competitive | Analyzes competitor strategies, market positioning, and industry trends to identify opportunities.... |
 | ✅ Pre-loaded | [compiler-engineer](custom_modes.d/compiler-engineer/compiler-engineer.yaml) | 🧬 Compiler Engineer | compiler-engineer | Designs compiler toolchains including lexing, parsing, IR design, optimization passes, and code generation.... |
@@ -89,6 +90,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | ✅ Pre-loaded | [deployment-engineer](custom_modes.d/deployment/deployment-engineer.yaml) | 🚢 Deployment Engineer Pro | deployment | Automates release processes, manages deployment strategies, and ensures reliable rollouts.... |
 | ⬜ Available | [design-brand-guardian](custom_modes.d/design/design-brand-guardian.yaml) | 🛡️ Brand Guardian | design | Ensures brand consistency across all touchpoints by enforcing visual identity, voice, and design system standards.... |
 | ⬜ Available | [design-visual-storyteller](custom_modes.d/design/design-visual-storyteller.yaml) | 🎨 Visual Storyteller | design | Crafts compelling visual narratives through data visualization, infographics, and presentation design.... |
+| ✅ Pre-loaded | [devops](custom_modes.d/devops/devops.yaml) | 🚀 DevOps | devops | Deploy and manage infrastructure automation... |
 | ✅ Pre-loaded | [devops-architect](custom_modes.d/devops-architect/devops-architect.yaml) | ⚙️ DevOps Architect | devops-architect | Designs cloud-native CI/CD pipelines, container orchestration, and infrastructure automation.... |
 | ✅ Pre-loaded | [devops-engineer](custom_modes.d/devops/devops-engineer.yaml) | ♾️ DevOps Engineer Elite | devops | Implements CI/CD pipelines, containerization, monitoring, and infrastructure-as-code solutions.... |
 | ⬜ Available | [devops-observability-sentinel](custom_modes.d/devops-observability-sentinel/devops-observability-sentinel.yaml) | 📡 DevOps Observability Sentinel | devops-observability-sentinel | Monitors system observability and ensures comprehensive telemetry coverage.... |
@@ -97,6 +99,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | ⬜ Available | [docs-writer](custom_modes.d/docs/docs-writer.yaml) | 📚 Documentation Writer | docs | Documentation Writer — 📚 Documentation Writer.... |
 | ⬜ Available | [document-intelligence-analyst](custom_modes.d/document-intelligence-analyst/document-intelligence-analyst.yaml) | 📄 Document Intelligence Analyst | document-intelligence-analyst | Analyzes document corpora with atomic extraction, clause mapping, and risk flagging.... |
 | ✅ Pre-loaded | [documentation-engineer](custom_modes.d/documentation/documentation-engineer.yaml) | 📚 Documentation Expert | documentation | Creates comprehensive technical documentation systems with API docs, tutorials, and automated generation.... |
+| ⬜ Available | [documentation-writer](custom_modes.d/documentation/documentation-writer.yaml) | ✍️ Documentation Writer | documentation | Create clear technical project documentation... |
 | ⬜ Available | [dotnet-core-expert](custom_modes.d/dotnet/dotnet-core-expert.yaml) | 🔵 NET Core Expert | dotnet | Develops cross-platform .NET Core applications with ASP.NET, Entity Framework, and cloud-native patterns.... |
 | ⬜ Available | [dx-optimizer](custom_modes.d/dx/dx-optimizer.yaml) | 🚀 DX Optimizer Elite | dx | Improves developer workflows through streamlined tooling, automation, and friction reduction.... |
 | ⬜ Available | [ecommerce-seo-specialist](custom_modes.d/ecommerce-seo-specialist/ecommerce-seo-specialist.yaml) | 🛒 E-commerce SEO Specialist | ecommerce-seo-specialist | Optimizes ecommerce sites for search including product pages, category structure, and technical SEO.... |
@@ -138,6 +141,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | ⬜ Available | [github-sync-coordinator](custom_modes.d/github/github-sync-coordinator.yaml) | 🐙 GitHub Sync Coordinator | github | Coordinates sync across GitHub repos, forks, and organizational policies.... |
 | ⬜ Available | [goal-planner](custom_modes.d/goal-planner/goal-planner.yaml) | Goal-Oriented Action Planner | goal-planner | Creates adaptive multi-step plans to achieve complex objectives using GOAP techniques.... |
 | ⬜ Available | [golang-developer](custom_modes.d/golang-developer/golang-developer.yaml) | 🚀 Go Developer | golang-developer | Builds concurrent, performant Go services with strong typing and idiomatic Go patterns.... |
+| ⬜ Available | [google-genai-developer](custom_modes.d/ai/google-genai-developer.yaml) | 🤖 Google GenAI Developer | ai | Build applications with Google's GenAI SDK and Gemini API... |
 | ⬜ Available | [gossip-protocol-coordinator](custom_modes.d/gossip-protocol-coordinator/gossip-protocol-coordinator.yaml) | Gossip Protocol Coordinator | gossip-protocol-coordinator | Designs gossip-based broadcast, membership, and failure-detection protocols.... |
 | ⬜ Available | [graph-builder](custom_modes.d/graph/graph-builder.yaml) | 📊 Graph Builder | graph | Constructs knowledge graphs, entity-relationship models, and graph databases for connected data insights.... |
 | ⬜ Available | [graphql-architect](custom_modes.d/graphql/graphql-architect.yaml) | 🕸️ GraphQL Architect Expert | graphql | Designs efficient, scalable GraphQL schemas with federation, data loading optimization, and resolver patterns.... |
@@ -162,6 +166,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | ⬜ Available | [java-architect](custom_modes.d/java/java-architect.yaml) | ☕ Java Architect Elite | java | Designs Java enterprise architectures with Spring ecosystem, microservices decomposition, and JVM tuning.... |
 | ⬜ Available | [java-developer](custom_modes.d/java-developer/java-developer.yaml) | ☕ Java Developer | java-developer | Develops enterprise Java applications with Spring Boot, microservices, and JVM optimization.... |
 | ⬜ Available | [javascript-pro](custom_modes.d/javascript/javascript-pro.yaml) | 🟨 JavaScript Expert | javascript | Writes modern JavaScript with ES2024+ features, async patterns, and cross-platform compatibility.... |
+| ⬜ Available | [jest-test-engineer](custom_modes.d/qa/jest-test-engineer.yaml) | 🧪 Jest Test Engineer | qa | Write and maintain Jest test suites... |
 | ✅ Pre-loaded | [knowledge-synthesizer](custom_modes.d/knowledge/knowledge-synthesizer.yaml) | 🧠 Knowledge Synthesizer | knowledge | Extracts insights, identifies patterns, and builds collective intelligence from multi-source information.... |
 | ⬜ Available | [kotlin-specialist](custom_modes.d/kotlin/kotlin-specialist.yaml) | 🟣 Kotlin Specialist | kotlin | Builds Kotlin applications for Android, backend, and multiplatform projects with coroutines and flows.... |
 | ⬜ Available | [kubernetes-specialist](custom_modes.d/kubernetes/kubernetes-specialist.yaml) | ☸️ Kubernetes Expert | kubernetes | Orchestrates containerized workloads on Kubernetes with service mesh, scaling, and operational excellence.... |
@@ -182,11 +187,13 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | ✅ Pre-loaded | [marketing-strategist](custom_modes.d/marketing/marketing-strategist.yaml) | 📈 Marketing Strategist | marketing | Develops data-driven marketing strategies across digital channels, brand development, and campaign optimization.... |
 | ✅ Pre-loaded | [mcp](custom_modes.d/mcp/mcp.yaml) | ♾️ MCP Integration | mcp | Connects to and manages external services through MCP (Management Control Panel) interfaces.... |
 | ⬜ Available | [mcp-integration-engineer](custom_modes.d/mcp/mcp-integration-engineer.yaml) | 🔌 MCP Integration Engineer | mcp | Designs, implements, and troubleshoots Model Context Protocol (MCP) servers and client integrations.... |
+| ⬜ Available | [merge-resolver](custom_modes.d/git/merge-resolver.yaml) | 🔀 Merge Resolver | git | Resolve merge conflicts intelligently using git history.... |
 | ⬜ Available | [mesh-network-swarm-coordinator](custom_modes.d/mesh-network-swarm-coordinator/mesh-network-swarm-coordinator.yaml) | Mesh Network Swarm Coordinator | mesh-network-swarm-coordinator | Coordinates swarm intelligence over mesh networks with resilient routing.... |
 | ✅ Pre-loaded | [microservices-architect](custom_modes.d/microservices/microservices-architect.yaml) | 🏗️ Microservices Architect | microservices | Designs and coordinates distributed microservice ecosystems with service boundaries and inter-service communication.... |
 | ⬜ Available | [mlops-engineer](custom_modes.d/mlops/mlops-engineer.yaml) | 🔄 MLOps Engineer Elite | mlops | Operationalizes ML pipelines with CI/CD for models, feature stores, experiment tracking, and monitoring.... |
 | ✅ Pre-loaded | [mobile-developer](custom_modes.d/mobile/mobile-developer.yaml) | 📱 Mobile Developer Expert | mobile | Builds performant cross-platform mobile applications with native platform features.... |
 | ⬜ Available | [mode-orchestrator](custom_modes.d/mode/mode-orchestrator.yaml) | Mode Orchestrator | mode | Suggests and hands off to the best RooCode mode.... |
+| ⬜ Available | [mode-writer](custom_modes.d/mode/mode-writer.yaml) | ✍️ Mode Writer | mode | Create and edit custom modes with validation... |
 | ⬜ Available | [model-registry-auditor](custom_modes.d/model/model-registry-auditor.yaml) | 📦 Model Registry & Provenance Auditor | model | Audits ML model registries for versioning, lineage, governance, and compliance with ML lifecycle policies.... |
 | ⬜ Available | [modular-builder](custom_modes.d/modular/modular-builder.yaml) | 🧱 Modular Builder | modular | Designs composable module systems, plugin architectures, and extensible frameworks that maximize reuse and minimize coup... |
 | ✅ Pre-loaded | [multi-agent-coordinator](custom_modes.d/multi/multi-agent-coordinator.yaml) | 🤝 Multi-Agent Coordinator | multi | Manages inter-agent communication, task delegation, and distributed coordination across agents.... |
@@ -217,6 +224,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | ✅ Pre-loaded | [product-manager](custom_modes.d/product/product-manager.yaml) | 📱 Product Manager Elite | product | Defines product strategy, prioritizes features, and bridges user needs with business goals.... |
 | ⬜ Available | [product-owner](custom_modes.d/product-owner/product-owner.yaml) | Product Owner | product-owner | Manages product backlogs, prioritizes features, and bridges business requirements with technical implementation.... |
 | ⬜ Available | [project-manager](custom_modes.d/project/project-manager.yaml) | 📅 Project Manager Expert | project | Orchestrates project timelines, resources, and deliverables to ensure on-time, on-scope completion.... |
+| ⬜ Available | [project-research](custom_modes.d/research/project-research.yaml) | 🔍 Project Research | research | Investigate and analyze codebase structure... |
 | ✅ Pre-loaded | [prompt-engineer](custom_modes.d/prompt/prompt-engineer.yaml) | ✨ Prompt Engineer Elite | prompt | Designs and optimizes prompts for large language models to achieve reliable, high-quality outputs.... |
 | ⬜ Available | [python-developer](custom_modes.d/python/python-developer.yaml) | 🐍 Python Developer | python | Builds Python applications using modern frameworks like FastAPI, Django, and async patterns.... |
 | ⬜ Available | [python-pro](custom_modes.d/python/python-pro.yaml) | 🐍 Python Expert Elite | python | Writes production-grade Python with performance optimization, type hints, and testing best practices.... |
@@ -249,6 +257,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | ⬜ Available | [serverless-platform-architect](custom_modes.d/serverless/serverless-platform-architect.yaml) | ⚙️ Serverless Platform Architect | serverless | Designs serverless architectures with function compute, event-driven patterns, and managed services.... |
 | ⬜ Available | [silent-coder](custom_modes.d/silent/silent-coder.yaml) | 🤫 Silent Coder | silent | Executes coding tasks autonomously with minimal interaction, following pre-defined specifications.... |
 | ⬜ Available | [site-readiness-engineer](custom_modes.d/site/site-readiness-engineer.yaml) | 🧭 Site Readiness Engineer | site | Ensures production readiness through load testing, chaos engineering, and reliability validation.... |
+| ⬜ Available | [skill-writer](custom_modes.d/tooling/skill-writer.yaml) | 🧩 Skill Writer | tooling | Create and maintain Agent Skills.... |
 | ⬜ Available | [sota-stack-master](custom_modes.d/sota-stack-master/sota-stack-master.yaml) | 🚀 SOTA Stack Master | sota-stack-master | Applies state-of-the-art engineering practices across the full development stack.... |
 | ⬜ Available | [sparc](custom_modes.d/sparc/sparc.yaml) | ⚡️ SPARC Orchestrator | sparc | Guides users through the SPARC methodology: Specification, Implementation, Architecture, Refinement, Completion.... |
 | ⬜ Available | [spec-pseudocode](custom_modes.d/spec/spec-pseudocode.yaml) | 📋 Specification Writer | spec | Translates high-level requirements into detailed pseudocode and implementation specifications.... |
@@ -280,6 +289,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | ⬜ Available | [terraform-engineer](custom_modes.d/terraform/terraform-engineer.yaml) | 🏭 Terraform Expert | terraform | Manages infrastructure as code using Terraform with modular, reusable, and state-managed configurations.... |
 | ⬜ Available | [terraform-module-author](custom_modes.d/terraform/terraform-module-author.yaml) | 🧱 Terraform Module Author | terraform | Creates reusable, versioned Terraform modules following composition patterns and best practices.... |
 | ✅ Pre-loaded | [test-automator](custom_modes.d/test-automator/test-automator.yaml) | 🤖 Test Automation Expert | test-automator | Builds automated test frameworks with CI/CD integration for reliable, repeatable testing.... |
+| ⬜ Available | [tool-writer](custom_modes.d/tooling/tool-writer.yaml) | 🛠️ Tool Writer | tooling | Writes tools to be used by Roo+.... |
 | ⬜ Available | [tooling-engineer](custom_modes.d/tooling/tooling-engineer.yaml) | 🛠️ Tooling Engineer Elite | tooling | Builds and maintains developer tooling, automation scripts, and productivity enhancements.... |
 | ⬜ Available | [trend-analyst](custom_modes.d/trend/trend-analyst.yaml) | 📈 Trend Analyst Expert | trend | Identifies and analyzes technology and market trends to inform product and strategy decisions.... |
 | ⬜ Available | [tutorial](custom_modes.d/tutorial/tutorial.yaml) | 📘 SPARC Tutorial | tutorial | Creates educational content and tutorials to onboard users and teach development workflows.... |
@@ -287,6 +297,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | ✅ Pre-loaded | [ui-expert](custom_modes.d/ui/ui-expert.yaml) | 🎨 UI Expert | ui | Creates intuitive, visually appealing user interfaces following design system principles and accessibility standards.... |
 | ✅ Pre-loaded | [uiux-vibe-master](custom_modes.d/ui/uiux-vibe-master.yaml) | 🎨 UI/UX Vibe Master | ui | Ensures pixel-perfect, accessible, and aesthetically cohesive user interfaces.... |
 | ⬜ Available | [ultron-librarian](custom_modes.d/ultron-librarian/ultron-librarian.yaml) | ULTRON Librarian | ultron-librarian | Catalogs AI agent configs, prompts, and protocols for fast discovery and reuse.... |
+| ⬜ Available | [user-story-creator](custom_modes.d/scrum/user-story-creator.yaml) | 📝 User Story Creator | scrum | Create structured agile user stories... |
 | ⬜ Available | [ux-analytics-specialist](custom_modes.d/ux-analytics-specialist/ux-analytics-specialist.yaml) | 📊 UX Analytics Specialist | ux-analytics-specialist | Builds UX measurement infrastructure from performance monitoring to feedback loops.... |
 | ⬜ Available | [ux-content-strategist](custom_modes.d/ux-content-strategist/ux-content-strategist.yaml) | ✍️ UX Content Strategist | ux-content-strategist | Writes conversion-optimized interface copy and microcopy that guides users.... |
 | ✅ Pre-loaded | [ux-researcher](custom_modes.d/ux/ux-researcher.yaml) | 🔍 🔬 UX Researcher Expert | ux | Conducts user research, usability testing, and data analysis to inform product design decisions.... |
@@ -333,6 +344,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 |--------|------|------|-------------|
 | ✅ | `ai-engineer` | 🤖 AI Engineer Expert | Designs and implements AI systems including model selection, agentic workflows, and production deployment.... |
 | ⬜ | `ai-prompt-security-specialist` | 🧯 AI Prompt Security Specialist | Secures AI systems against prompt injection, data leakage, and other LLM-specific threats.... |
+| ⬜ | `google-genai-developer` | 🤖 Google GenAI Developer | Build applications with Google's GenAI SDK and Gemini API... |
 
 ### ai-content-seo
 
@@ -697,6 +709,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 
 | Status | Slug | Name | Description |
 |--------|------|------|-------------|
+| ✅ | `devops` | 🚀 DevOps | Deploy and manage infrastructure automation... |
 | ✅ | `devops-engineer` | ♾️ DevOps Engineer Elite | Implements CI/CD pipelines, containerization, monitoring, and infrastructure-as-code solutions.... |
 
 ### devops-architect
@@ -734,6 +747,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | Status | Slug | Name | Description |
 |--------|------|------|-------------|
 | ✅ | `documentation-engineer` | 📚 Documentation Expert | Creates comprehensive technical documentation systems with API docs, tutorials, and automated generation.... |
+| ⬜ | `documentation-writer` | ✍️ Documentation Writer | Create clear technical project documentation... |
 
 ### dotnet
 
@@ -758,6 +772,12 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | Status | Slug | Name | Description |
 |--------|------|------|-------------|
 | ⬜ | `edge-computing-architect` | 🌐 Edge Computing Architect | Designs geo-distributed, low-latency edge computing architectures for real-time applications.... |
+
+### education
+
+| Status | Slug | Name | Description |
+|--------|------|------|-------------|
+| ⬜ | `coding-teacher` | 💡 Coding Teacher | Learn to Code... |
 
 ### electron
 
@@ -914,6 +934,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | Status | Slug | Name | Description |
 |--------|------|------|-------------|
 | ✅ | `git-workflow-manager` | ⚙️ 🌳 Git Workflow Expert | Manages Git branching strategies, automation hooks, and team Git workflows.... |
+| ⬜ | `merge-resolver` | 🔀 Merge Resolver | Resolve merge conflicts intelligently using git history.... |
 
 ### github
 
@@ -1199,6 +1220,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | Status | Slug | Name | Description |
 |--------|------|------|-------------|
 | ⬜ | `mode-orchestrator` | Mode Orchestrator | Suggests and hands off to the best RooCode mode.... |
+| ⬜ | `mode-writer` | ✍️ Mode Writer | Create and edit custom modes with validation... |
 
 ### model
 
@@ -1366,6 +1388,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 
 | Status | Slug | Name | Description |
 |--------|------|------|-------------|
+| ⬜ | `jest-test-engineer` | 🧪 Jest Test Engineer | Write and maintain Jest test suites... |
 | ✅ | `qa-expert` | ✅ QA Expert Elite | Designs comprehensive test strategies and ensures quality across unit, integration, and E2E testing.... |
 
 ### quant
@@ -1428,6 +1451,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 
 | Status | Slug | Name | Description |
 |--------|------|------|-------------|
+| ⬜ | `project-research` | 🔍 Project Research | Investigate and analyze codebase structure... |
 | ⬜ | `research-analyst` | 🔬 Research Analyst | Gathers and synthesizes information from multiple sources to produce actionable research findings.... |
 
 ### research-scientist
@@ -1465,6 +1489,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | Status | Slug | Name | Description |
 |--------|------|------|-------------|
 | ⬜ | `scrum-master` | 🏃 Scrum Master Elite | Facilitates Agile ceremonies, removes impediments, and coaches teams on Scrum practices.... |
+| ⬜ | `user-story-creator` | 📝 User Story Creator | Create structured agile user stories... |
 
 ### sdk-developer
 
@@ -1667,6 +1692,8 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 
 | Status | Slug | Name | Description |
 |--------|------|------|-------------|
+| ⬜ | `skill-writer` | 🧩 Skill Writer | Create and maintain Agent Skills.... |
+| ⬜ | `tool-writer` | 🛠️ Tool Writer | Writes tools to be used by Roo+.... |
 | ⬜ | `tooling-engineer` | 🛠️ Tooling Engineer Elite | Builds and maintains developer tooling, automation scripts, and productivity enhancements.... |
 
 ### trend
