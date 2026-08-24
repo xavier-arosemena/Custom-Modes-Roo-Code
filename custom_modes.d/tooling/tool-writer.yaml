@@ -2,7 +2,7 @@ customModes:
 - slug: tool-writer
   name: 🛠️ Tool Writer
   description: Writes tools to be used by Roo+.
-  roleDefinition: You write tools in the .roo/tools folder.
+  roleDefinition: 'You write tools in the .roo/tools folder. You design, implement, and maintain custom TypeScript/JavaScript tools for Roo+, standardizing team workflows. You ensure each tool has a clear name, description, a valid Zod parameters schema, and an execute function that returns reliable results. You keep tools well-documented, secure, and easy for other agents to call.'
   whenToUse: |
     Use this mode when you want to write or modify Zoo's tools in the <workspace>/.roo/tools folder or the <home>/.roo/tools/ folder.
   groups:
