@@ -1,6 +1,6 @@
 # Roo+ Agent Catalog
 
-Total: **301 modes** — **90 pre-loaded** into [`.roomodes`](../.roomodes) and `pre-installed-modes.yml`, **211 additional modes** available for import from the Modes Marketplace.
+Total: **302 modes** — **90 pre-loaded** into [`.roomodes`](../.roomodes) and `pre-installed-modes.yml`, **212 additional modes** available for import from the Modes Marketplace.
 
 > **Two user-facing lists.** The **Preloaded** list (curated via `custom-modes/manifest.json`) ships in `.roomodes` and `src/assets/marketplace/pre-installed-modes.yml`. The **Marketplace** (`src/assets/marketplace/modes.yml`) contains **301 items** — the unified `custom_modes.d/` catalog, with every item tagged `custom-modes` and no preserved originals. Built-in slugs (`architect`, `code`, `ask`, `debug`, `orchestrator`) are excluded from all lists.
 
@@ -45,7 +45,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | ⬜ Available | [cloud-security-architect](custom_modes.d/cloud/cloud-security-architect.yaml) | 🛡️ Cloud Security Architect | cloud | Designs secure cloud architectures with identity management, encryption, and compliance controls.... |
 | ✅ Pre-loaded | [code-reviewer](custom_modes.d/code/code-reviewer.yaml) | 👁️ Code Review Expert | code | Reviews code for quality, security vulnerabilities, and adherence to best practices.... |
 | ✅ Pre-loaded | [code-skeptic](custom_modes.d/code/code-skeptic.yaml) | 🧐 Code Skeptic | code | Critically examines code for assumptions, edge cases, and potential issues with a questioning mindset.... |
-| ⬜ Available | [coding-teacher](custom_modes.d/education/coding-teacher.yaml) | 💡 Coding Teacher | education | Learn to Code... |
+| ⬜ Available | [coding-teacher](custom_modes.d/education/coding-teacher.yaml) | 💡 Coding Teacher | education | You want to learn programming concepts, understand code patterns, or receive guided instruction on coding topics.... |
 | ⬜ Available | [cognitive-multi-thinker](custom_modes.d/cognitive-multi-thinker/cognitive-multi-thinker.yaml) | 🧠 Cognitive Multi-Thinker | cognitive-multi-thinker | Simulates multiple reasoning perspectives for comprehensive problem analysis.... |
 | ✅ Pre-loaded | [competitive-analyst](custom_modes.d/competitive/competitive-analyst.yaml) | 🏆 Competitive Analyst Pro | competitive | Analyzes competitor strategies, market positioning, and industry trends to identify opportunities.... |
 | ✅ Pre-loaded | [compiler-engineer](custom_modes.d/compiler-engineer/compiler-engineer.yaml) | 🧬 Compiler Engineer | compiler-engineer | Designs compiler toolchains including lexing, parsing, IR design, optimization passes, and code generation.... |
@@ -236,6 +236,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | ⬜ Available | [react-specialist](custom_modes.d/react/react-specialist.yaml) | ⚛️ React Specialist Elite | react | Develops React applications with hooks, context, Suspense, and modern rendering patterns.... |
 | ⬜ Available | [realtime-collaboration-engineer](custom_modes.d/realtime-collaboration-engineer/realtime-collaboration-engineer.yaml) | 🤝 Realtime Collaboration Engineer | realtime-collaboration-engineer | Builds real-time collaborative features including WebSockets, CRDTs, and operational transforms.... |
 | ⬜ Available | [recursive-prompt-optimizer](custom_modes.d/recursive-prompt-optimizer/recursive-prompt-optimizer.yaml) | 🔄 Recursive Prompt Optimizer | recursive-prompt-optimizer | Optimizes and versions system prompts through recursive self-improvement.... |
+| ⬜ Available | [red-team](custom_modes.d/red-team/red-team.yaml) | 🔴 Red Team Mode | red-team | Constructively stress-tests proposals by actively attacking their assumptions, finding weak links and seams, and returni... |
 | ✅ Pre-loaded | [refactoring-specialist](custom_modes.d/refactoring/refactoring-specialist.yaml) | ♻️ Refactoring Expert | refactoring | Safely restructures and improves existing code without changing external behavior.... |
 | ✅ Pre-loaded | [refinement-optimization-mode](custom_modes.d/refinement/refinement-optimization-mode.yaml) | 🧹 Optimizer | refinement | Refactors, modularizes, and optimizes existing code for better performance and maintainability.... |
 | ✅ Pre-loaded | [release-governance-lead](custom_modes.d/release/release-governance-lead.yaml) | 🚀 📦 Release Governance Lead | release | Orchestrates release readiness reviews, coordinates stakeholders, and enforces release policies.... |
@@ -777,7 +778,7 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 
 | Status | Slug | Name | Description |
 |--------|------|------|-------------|
-| ⬜ | `coding-teacher` | 💡 Coding Teacher | Learn to Code... |
+| ⬜ | `coding-teacher` | 💡 Coding Teacher | You want to learn programming concepts, understand code patterns, or receive guided instruction on coding topics.... |
 
 ### electron
 
@@ -1427,6 +1428,12 @@ To add a mode to your pre-loaded set, see [Adding a Mode](../README.md#adding-a-
 | Status | Slug | Name | Description |
 |--------|------|------|-------------|
 | ⬜ | `recursive-prompt-optimizer` | 🔄 Recursive Prompt Optimizer | Optimizes and versions system prompts through recursive self-improvement.... |
+
+### red-team
+
+| Status | Slug | Name | Description |
+|--------|------|------|-------------|
+| ⬜ | `red-team` | 🔴 Red Team Mode | Constructively stress-tests proposals by actively attacking their assumptions, finding weak links and seams, and returni... |
 
 ### refactoring
 
