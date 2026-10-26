@@ -1,0 +1,69 @@
+red-team mode — new mode contribution
+
+WHAT
+====
+A domain-agnostic adversarial-review mode. It treats the proposal itself
+(architecture, code change, plan, strategy, prompt, process, contract clause)
+as the target: assumption register -> attack tree -> FMEA/pre-mortem ->
+weakest link and seams -> research validation -> constructive counter-proposals
+-> verdict HARDEN / REDESIGN / ACCEPT WITH CONTROLS / SOUND.
+
+WHY IT IS NOT A DUPLICATE
+=========================
+Nearest existing modes and why they do not cover this:
+  penetration-tester      hands-on, authorised security exploitation only
+  security-auditor        compliance/control scope
+  code-reviewer           code artefacts only
+  bullshit-detection-analyst  truth of claims, not survivability of a proposal
+  anti-fiction-sentinel   success/verification claims
+  cognitive-multi-thinker adversarial thinking as one lens among many
+None takes an arbitrary proposal as the systematic target of a constructive
+attack that must end in options rather than a verdict alone.
+
+FILES AND PLACEMENT
+===================
+  agents/meta-orchestration/general/red-team.yaml
+      flat agent schema — the same key set used by the other 233 files under
+      agents/ (slug, name, category, subcategory, description, roleDefinition,
+      whenToUse, groups, version, lastUpdated, customInstructions).
+      Category meta-orchestration is the home of its closest sibling,
+      bullshit-detection-analyst. CONTRIBUTING.md is followed literally:
+      agents/<category>/<subcategory>/<slug>.yaml plus a custom_modes.yaml entry.
+  custom_modes.yaml
+      matching entry appended; file now holds 306 modes.
+
+VALIDATION (performed)
+======================
+  python3 scripts/validate_custom_modes.py custom_modes.yaml  -> pass, 306 modes
+  parity asserted in a script: the agents/ file and the custom_modes.yaml
+  entry parse to identical slug, name, description, roleDefinition,
+  whenToUse, groups and customInstructions values (no drift between mirror
+  and compiled copy).
+  python3 -c 'yaml.safe_load(open(...))' on both files -> OK
+  all cross-referenced modes exist upstream: bullshit-detection-analyst,
+  penetration-tester, code-reviewer, security-auditor, architect-reviewer,
+  anti-fiction-sentinel, risk-manager (each found exactly once under
+  custom_modes.d/ and under agents/).
+
+KNOWN LIMITATIONS, STATED UP FRONT
+==================================
+1. validate_custom_modes.py exits 1 for any flat agents/ document because
+   validate_document() requires customModes as the ONLY top-level key:
+       validation error: Top-level contains unsupported keys: [...]
+   This is not specific to this file — the same command exits 1 for all 233
+   existing agents/ files (verified on ui-expert, code-reviewer,
+   bullshit-detection-analyst, anti-fiction-sentinel,
+   edge-computing-architect). The custom_modes.yaml entry, which is the form
+   the validator actually supports, passes.
+2. The mode is NOT added to .roomodes because CONTRIBUTING.md does not ask
+   for that; python3 scripts/generate_roomodes.py will include it if the
+   compiled set should ship it.
+3. Formatting: roleDefinition/whenToUse/customInstructions use literal block
+   scalars to preserve the text byte for byte, which means some lines exceed
+   the 100-character guideline in CONTRIBUTING; wrapping them would insert
+   newlines into the prompt text.
+
+ATTRIBUTION
+===========
+The mode text was written in this fork; it embeds no third-party material and
+references only modes that exist in this repository.
