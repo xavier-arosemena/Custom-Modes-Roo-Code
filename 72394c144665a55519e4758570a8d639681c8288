@@ -1,0 +1,27 @@
+README agent counts — internal contradiction fix
+
+PROBLEM
+=======
+Three different totals for the same thing:
+  badge + overview + Key Features + Statistics total .... 225
+  sum of the per-category rows in the Statistics table ... 243
+  YAML files under agents/ .............................. 233
+
+METHOD
+======
+Counted agents/<category>/**/*.yaml at the branch point (bd349c4):
+  ai-ml 11 | business-product 18 | core-development 53 |
+  infrastructure-devops 23 | language-specialists 20 | legal-compliance 22 |
+  meta-orchestration 36 | security-quality 16 | sota-personas 11 |
+  specialized-domains 23  =>  233
+(also verified: 233 files total, no category unaccounted for)
+
+CHANGE
+======
+Badge, overview sentence, Key Features bullet, the ten category headings, the
+Statistics table rows and the total line. No file under agents/ or
+custom_modes.d/ is modified, so what ships is unchanged.
+
+RISK / ROLLBACK
+===============
+Documentation only. If a mode is merged before this, re-run the count.
