@@ -1,0 +1,60 @@
+verify_modes.py — array-form permission groups crash
+
+WHAT
+====
+scripts/verify_modes.py:61 built a set difference over group entries:
+
+    invalid_groups = set(groups) - ALLOWED_GROUPS
+
+A Roo Code custom mode may declare a permission as either a plain name or the
+array form [edit, {fileRegex, description}]. The array form is explicitly
+declared in schemas/custom_modes.schema.json under definitions.permission
+(oneOf: permissionName | ["edit", permissionOptions]) and is explicitly
+handled by scripts/validate_custom_modes.py:validate_groups().
+
+YAML list -> Python list -> unhashable, so the set construction raised
+TypeError and aborted the entire verification run at the first mode that used
+the documented form. The failure is a crash, not a false positive: no report
+was written and no other mode was checked.
+
+REPRODUCTION (performed at bd349c4)
+===================================
+1. Add custom_modes.d/<x>/<x>.yaml containing:
+     groups:
+       - read
+       - - edit
+         - fileRegex: "^docs/.*\\.md$"
+           description: Documentation edits only
+2. python3 scripts/validate_custom_modes.py <file>   -> exit 0 (accepted)
+3. python3 scripts/verify_modes.py                   -> TypeError: unhashable type: 'list'
+   at verify_mode(), line 61, called from verify_individual_files(), line 143.
+
+WHY NO EXISTING MODE CAUGHT IT
+==============================
+No file under custom_modes.d/ currently uses the array form, so the shipped
+tree never reaches that branch; the bug only fires for contributors following
+the documented schema.
+
+CHANGE
+======
+Group entries are validated individually:
+  - a string entry must be a member of ALLOWED_GROUPS;
+  - an array entry must be exactly ['edit', {options}] where options is a
+    mapping; anything else is reported as 'malformed array-form group'.
+Reporting replaces raising, so one bad mode no longer suppresses the report
+for the other 300+.
+
+VERIFICATION (performed)
+========================
+Fixture tree = the 305 shipped modes plus three fixtures:
+  * [read, [edit, {fileRegex, description}]]  before: run aborts / after: no finding
+  * [read, admin]                             before: run aborts / after: INVALID groups: ['admin']
+  * [read, [edit]]                            before: run aborts / after: INVALID groups: ["malformed array-form group: ['edit']"]
+The 305 shipped modes produce no group findings before or after the change
+(the only new findings in the fixture run were the deliberate SHORT
+roleDefinition fixtures).
+
+RISK / ROLLBACK
+===============
+Single file, one function branch, no behaviour change for the shipped tree.
+Revert restores the previous line exactly.
